@@ -40,12 +40,17 @@ window.onresize()
 var source = ["Students", "CSE 142", "CSE 143", "CSE 143 - Not applied"];
 var target = ["Enrolled", "Did not enroll", "Application Verified", "Accept", "Did not Apply", "Deny", "Soft Deny"];
 
+
+
 d3.csv("./data/studentDataE.csv", function(error, data) {
     if (error) {
         alert(error)
         return
     }
+    groupAndVisualize(data)
+});
 
+function groupAndVisualize(data) {
     var nodeMap = {};
     var graph = {
         "nodes": [],
@@ -350,7 +355,7 @@ d3.csv("./data/studentDataE.csv", function(error, data) {
         })
         .attr("x", 6 + sankey.nodeWidth())
         .attr("text-anchor", "start");
-});
+}
 
 function highlight_node_links(node, i) {
     var remainingNodes = [],

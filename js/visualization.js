@@ -1,11 +1,11 @@
 var units = "Widgets";
 var margin = {
-    top: 10,
-    right: 10,
-    bottom: 10,
-    left: 10
-}
-// Apparently has to be global (referenced in sankey.js)
+        top: 10,
+        right: 10,
+        bottom: 10,
+        left: 10
+    }
+    // Apparently has to be global (referenced in sankey.js)
 var width;
 var formatNumber = d3.format(",.0f"), // zero decimal places
     format = function(d) {

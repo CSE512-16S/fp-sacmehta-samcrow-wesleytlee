@@ -14,20 +14,31 @@ var formatNumber = d3.format(",.0f"), // zero decimal places
     color = d3.scale.category20();
 // append the svg canvas to the page
 var svg = d3.select("#chart").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 // Set the sankey diagram properties
 var sankey = d3.sankey()
     .nodeWidth(36)
-    .nodePadding(10)
-    .size([width, height]);
+    .nodePadding(15)
 var path = sankey.link();
+
+// Update diagram size when window size changes
+window.onresize = function() {
+    var svg = document.querySelector('#chart svg')
+    var chart = svg.parentElement
+    var height = 0.99 * chart.parentElement.clientHeight;
+    svg.setAttribute('height', height)
+    var width = svg.clientWidth
+    // Update visualization size
+    sankey.size([width, 0.95 * height])
+    sankey.relayout()
+}
+window.onresize()
+
 // load the data
 
 var source = ["Students", "CSE 142", "CSE 143", "CSE 143 - Not applied"];
-var target = ["Enrolled", "Did not enrolled", "Application Verified", "Accept", "Did not Apply", "Deny", "Soft Deny"];
+var target = ["Enrolled", "Did not enroll", "Application Verified", "Accept", "Did not Apply", "Deny", "Soft Deny"];
 
 d3.csv("./data/studentDataE.csv", function(error, data) {
     if (error) {
@@ -36,7 +47,7 @@ d3.csv("./data/studentDataE.csv", function(error, data) {
     }
 
     var nodeMap = {};
-    graph = {
+    var graph = {
         "nodes": [],
         "links": []
     };
@@ -342,7 +353,6 @@ d3.csv("./data/studentDataE.csv", function(error, data) {
 });
 
 function highlight_node_links(node, i) {
-    //console.log("Emphasize");
     var remainingNodes = [],
         nextNodes = [];
 

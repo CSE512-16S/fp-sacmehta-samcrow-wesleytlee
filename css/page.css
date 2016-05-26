@@ -53,19 +53,25 @@ body {
 
 /* Page layout */
 
-body {}
+body {
+}
 .page-header {
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
+    height: 5em;
 }
 .page-header > div {
-    padding: 1.5em;
+    padding: 1em;
 }
 .main {
-    position: relative;
-    top: 0;
-    bottom: 0;
+    position: absolute;
+    top: 5em;
+    bottom: 2em;
     left: 0;
-    right: 0;
+    width: 100%;
+    overflow: hidden;
 }
 .filter-container {
     display: inline-block;
@@ -74,12 +80,18 @@ body {}
 }
 .chart {
     display: inline-block;
+    position: relative;
     width: 85%;
     overflow: hidden;
 }
 .chart > svg {
     border: 1px solid gray;
+    width: 99%;
 }
 .bottom {
+    position: absolute;
+    left: 0;
+    bottom: 0;
     width: 100%;
+    height: 2em;
 }

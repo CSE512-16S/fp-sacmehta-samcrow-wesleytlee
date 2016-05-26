@@ -1,12 +1,12 @@
 var units = "Widgets";
 var margin = {
-        top: 10,
-        right: 10,
-        bottom: 10,
-        left: 10
-    },
-    width = 1200 - margin.left - margin.right,
-    height = 740 - margin.top - margin.bottom;
+    top: 10,
+    right: 10,
+    bottom: 10,
+    left: 10
+}
+// Apparently has to be global (referenced in sankey.js)
+var width;
 var formatNumber = d3.format(",.0f"), // zero decimal places
     format = function(d) {
         return formatNumber(d) + " " + units;
@@ -28,8 +28,8 @@ window.onresize = function() {
     var chart = svg.parentElement
     var height = 0.99 * chart.parentElement.clientHeight;
     svg.setAttribute('height', height)
-    var width = svg.clientWidth
-    // Update visualization size
+    width = 0.95 * svg.clientWidth
+        // Update visualization size
     sankey.size([width, 0.95 * height])
     sankey.relayout()
 }

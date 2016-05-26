@@ -12,43 +12,52 @@ var formatNumber = d3.format(",.0f"), // zero decimal places
         return formatNumber(d) + " " + units;
     },
     color = d3.scale.category20();
-// append the svg canvas to the page
-var svg = d3.select("#chart").append("svg")
-    .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-// Set the sankey diagram properties
-var sankey = d3.sankey()
-    .nodeWidth(36)
-    .nodePadding(15)
-var path = sankey.link();
 
-// Update diagram size when window size changes
-window.onresize = function() {
-    var svg = document.querySelector('#chart svg')
-    var chart = svg.parentElement
-    var height = 0.99 * chart.parentElement.clientHeight;
-    svg.setAttribute('height', height)
-    width = 0.95 * svg.clientWidth
-        // Update visualization size
-    sankey.size([width, 0.95 * height])
-    sankey.relayout()
-}
-window.onresize()
+// Set up filters
+var filters = createFilters();
+filters.setOnChange(filterGroupVisualize);
+var filterContainer = document.querySelector('.filter-container')
+filterContainer.appendChild(filters.getRoot())
 
 // load the data
-
+var globalData = null
 var source = ["Students", "CSE 142", "CSE 143", "CSE 143 - Not applied"];
 var target = ["Enrolled", "Did not enroll", "Application Verified", "Accept", "Did not Apply", "Deny", "Soft Deny"];
-
-
 
 d3.csv("./data/studentDataE.csv", function(error, data) {
     if (error) {
         alert(error)
         return
     }
-    groupAndVisualize(data)
+    globalData = data
+    filterGroupVisualize()
 });
+
+function filterGroupVisualize() {
+    // Apply filters
+    var data = []
+    var predicate = filters.getPredicate();
+    for (var i = 0; i < globalData.length; i++) {
+        var item = globalData[i]
+        if (predicate.matches(item)) {
+            data.push(item)
+        }
+    }
+    // Continue
+    groupAndVisualize(data)
+}
+
+/**
+ * Creates and returns a FilterGroup
+ */
+function createFilters() {
+    var group = new FilterGroup()
+
+    var admitStatus = new StringFilter('admitStatus', ['DNA', 'Enrolled', 'Deny', 'Accept'], 'Admit status')
+    group.addFilter(admitStatus)
+
+    return group
+}
 
 function groupAndVisualize(data) {
     var nodeMap = {};
@@ -275,6 +284,34 @@ function groupAndVisualize(data) {
             "name": d
         };
     });
+
+    // Clean up previous charts
+    var oldSvg = document.querySelector('#chart svg')
+    if (oldSvg) {
+        oldSvg.remove()
+    }
+    // append the svg canvas to the page
+    var svg = d3.select("#chart").append("svg")
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    // Set the sankey diagram properties
+    var sankey = d3.sankey()
+        .nodeWidth(36)
+        .nodePadding(15)
+    var path = sankey.link();
+
+    // Update diagram size when window size changes
+    window.onresize = function() {
+        var svg = document.querySelector('#chart svg')
+        var chart = svg.parentElement
+        var height = 0.99 * chart.parentElement.clientHeight;
+        svg.setAttribute('height', height)
+        width = 0.95 * svg.clientWidth
+            // Update visualization size
+        sankey.size([width, 0.95 * height])
+        sankey.relayout()
+    }
+    window.onresize()
 
     sankey
         .nodes(graph.nodes)

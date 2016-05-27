@@ -43,6 +43,7 @@ function filterGroupVisualize() {
             data.push(item)
         }
     }
+    console.log('Filtered to ' + data.length + ' rows')
     // Continue
     groupAndVisualize(data)
 }
@@ -55,6 +56,9 @@ function createFilters() {
 
     var admitStatus = new StringFilter('admitStatus', ['DNA', 'Enrolled', 'Deny', 'Accept'], 'Admit status')
     group.addFilter(admitStatus)
+
+    var applyCount = new RangeFilter('numAdmApplication', 0, 10, 1, 'Number of applications')
+    group.addFilter(applyCount)
 
     return group
 }

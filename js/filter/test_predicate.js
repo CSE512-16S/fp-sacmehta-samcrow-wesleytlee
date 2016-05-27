@@ -47,3 +47,18 @@ QUnit.test('FieldMatches', function(assert) {
     assert.ok(pred.matches({durian: 'palatine'}),
         'match with matching field, matching value')
 })
+
+QUnit.test('Range', function(assert) {
+    var pred = new Range('rigatoni', 0, 10)
+    assert.notOk(pred.matches(null), 'match null')
+    assert.notOk(pred.matches(undefined), 'match undefined')
+    assert.notOk(pred.matches(32), 'match integer')
+    assert.notOk(pred.matches([]), 'match empty list')
+    assert.notOk(pred.matches({}), 'match emtpy object')
+    assert.notOk(pred.matches({lasagna: 'delicious'}),
+        'match non-empty object without matching field')
+
+    assert.notOk(pred.matches({rigatoni: -1}), 'match out of range low')
+    assert.notOk(pred.matches({rigatoni: 11}), 'match out of range high')
+    assert.notOk(pred.matches({rigatoni: 0}), 'match in range')
+})

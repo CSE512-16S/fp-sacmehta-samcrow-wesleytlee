@@ -120,3 +120,56 @@ StringFilter.prototype.getPredicate = function() {
         return new FieldMatches(this.property, selection)
     }
 }
+
+/**
+ * Allows the user to select part of a range of numerical values
+ *
+ * @param property the property name
+ * @param min the minimum value to allow the user to select
+ * @param max the maximum value to allow the user to select
+ * @param step the minimum amount by which to change the value
+ * @param label the label to display
+ */
+function RangeFilter(property, min, max, step, label) {
+    this.property = property
+
+    var createSlider = function() {
+        var input = document.createElement('input')
+        input.setAttribute('type', 'range')
+        input.setAttribute('min', min)
+        input.setAttribute('max', max)
+        input.setAttribute('step', step)
+        return input
+    }
+
+    this.minSlider = createSlider()
+    this.minSlider.value = min
+    this.maxSlider = createSlider()
+    this.maxSlider.value = max
+
+    this.root = document.createElement('div')
+    this.root.appendChild(new Text(label))
+    var minContainer = document.createElement('div')
+    minContainer.appendChild(new Text('Min'))
+    minContainer.appendChild(this.minSlider)
+    this.root.appendChild(minContainer)
+    var maxContainer = document.createElement('div')
+    maxContainer.appendChild(new Text('Max'))
+    maxContainer.appendChild(this.maxSlider)
+    this.root.appendChild(maxContainer)
+}
+
+RangeFilter.prototype.setOnChange = function(callback) {
+    this.minSlider.onchange = callback
+    this.maxSlider.onchange = callback
+}
+
+RangeFilter.prototype.getRoot = function() {
+    return this.root
+}
+
+RangeFilter.prototype.getPredicate = function() {
+    var min = this.minSlider.value
+    var max = this.maxSlider.value
+    return new Range(this.property, min, max)
+}

@@ -64,3 +64,38 @@ function Or(p1, p2) {
 Or.prototype.matches = function(e) {
     return this.p1.matches(e) || this.p2.matches(e)
 }
+
+/**
+ * A predicate that matches objects with a property having a numerical value
+ * in a range. The range is inclusive.
+ *
+ * @param property the name of the property
+ * @param min the minimum value of the property
+ * @param max the maximum value of the property
+ */
+function Range(property, min, max) {
+    self.property = property
+    self.min = min
+    self.max = max
+}
+
+Range.prototype.matches = function(e) {
+    if (typeof e !== 'object') {
+        return false
+    }
+    if (!e) {
+        return false
+    }
+    var value = e[self.property]
+    if (!value) {
+        return false
+    }
+    if (typeof value !== 'number') {
+        value = parseFloat(value)
+        if (Number.isNaN(value)) {
+            console.warn('Range filter: Value NaN or could not be parsed')
+            return false
+        }
+    }
+    return value >= self.min && value <= self.max
+}

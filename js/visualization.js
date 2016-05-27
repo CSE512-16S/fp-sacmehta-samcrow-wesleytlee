@@ -57,7 +57,7 @@ function createFilters() {
     var admitStatus = new StringFilter('admitStatus', ['DNA', 'Enrolled', 'Deny', 'Accept'], 'Admit status')
     group.addFilter(admitStatus)
 
-    var applyCount = new RangeFilter('numAdmApplication', 0, 10, 1, 'Number of applications')
+    var applyCount = new RangeFilter('numAdmApplication', 0, 5, 1, 'Number of applications')
     group.addFilter(applyCount)
 
     return group

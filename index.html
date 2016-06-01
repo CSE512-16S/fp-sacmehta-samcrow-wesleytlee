@@ -4,31 +4,50 @@
 <head>
     <meta charset="utf-8" />
     <title>CSE Admission Data Visualization</title>
-    <link rel="stylesheet" type="text/css" href="css/page.css" />
+    <link rel="stylesheet" type="text/css" href="css/pageNew.css" />
     <link rel="stylesheet" type="text/css" href="css/sankey.css" />
-    <script type="text/javascript" src="http://d3js.org/d3.v3.js"></script>
+    <script type="text/javascript" src="js/d3.v3.js"></script>
     <script type="text/javascript" src="js/sankey.js"></script>
     <script type="text/javascript" src="js/filter/predicate.js"></script>
     <script type="text/javascript" src="js/filter/filter_control.js"></script>
     <script type="text/javascript" src="js/filter/group.js"></script>
+    <script type="text/javascript" src="js/project.js"></script>
+	<script type="text/javascript" src="js/helper.js"></script>
+    <style>
+
+    </style>
 </head>
 
-<body>
-    <header class="page-header">
-        <div>
+<body id="bodyTable">
+        <div class="container" id="mainHeading">
             <h1>CSE Admission Data</h1>
         </div>
-    </header>
-    <div class="main">
-        <div class="filter-container">
-        </div><!--
-     --><div class="chart" id="chart">
-            <script type="text/javascript" src="js/visualization.js"></script>
-        </div>
-    </div>
-    <footer class="bottom">
+   <div class="panel panel-card">
+	    <div class="panel-title">
+		<h5> Filters</h5>
+		<div class="filter-container"></div>
+	   </div>
+   </div>
+    <br>
+    <div class="parent_div_1">
+	<div class="child_div_1">
+	   <h5> Sankey Diagram</h5>
+            <div class="chart" id="chart">
+            	<script type="text/javascript" src="js/visualization.js"></script>
+            </div>
+     	</div>
+    	<div class="child_div_2" id="tableSummary">
+		<h5> Summary Table</h5>
+		<table>
+		</table>
+    	</div>
+   </div>
+  <br>
+  <br>
+   <footer class="bottom">
         <div>
-            <p>Bottom content</p>
+            <p>CSE 512 Project</p>
+            <p>Team Members: Sachin Mehta, Wesley Lee, and Sam Crow</p>
         </div>
     </footer>
 </body>

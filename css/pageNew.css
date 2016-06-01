@@ -1,0 +1,94 @@
+body {
+    margin: 0 auto 0 auto;
+    padding: 0;
+    background-color: #f1f1f1;
+    width: 1300px;
+    font-family: "Avenir", Verdana;
+    font-size: 0.95em;
+}
+
+div {
+    display: block;
+}
+
+.container h1 {
+    text-align: center;
+}
+
+.panel-card {
+    box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.25);
+    background-color: white;
+}
+
+.panel-title h5 {
+	padding-left: 10px;
+	margin-bottom: 0px;
+}
+
+.panel-body {
+    padding-top: 0px;
+}
+
+.parent_div_1 {
+  margin-right: 10px;
+  float: left;
+  width:100%;
+}
+
+.child_div_1 {
+  width:65%;
+  float: left;
+  margin-right: 5px;
+  border: 1px solid gray;
+   background-color: white;
+}
+
+.child_div_2 {
+  width:30%;
+  float: left;
+  margin-right: 5px;
+ border: 1px solid gray;
+  background-color: white;
+}
+
+.chart {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.chart > svg {
+    width: 100%;
+}
+
+
+
+table {
+    margin-left:auto; 
+    margin-right:auto;
+  }
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:hover {background-color: #cbd5e8}
+
+th, td {
+    padding: 2px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+td {
+    vertical-align: middle;
+}
+
+bottom {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2em;
+}

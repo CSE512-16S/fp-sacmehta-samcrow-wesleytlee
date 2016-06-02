@@ -20,10 +20,11 @@ var units = "Students";
        var path = sankey.link();
 
 // Set up filters
-var filters = createFilters();
-filters.setOnChange(filterGroupVisualize);
+var filters = createFilters()
 var filterContainer = document.querySelector('.filter-container')
 filterContainer.appendChild(filters.getRoot())
+var filterApplyButton = document.getElementById('filter-apply-button')
+filterApplyButton.onclick = filterGroupVisualize
 
 // load the data
 var globalData = null

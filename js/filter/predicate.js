@@ -39,7 +39,8 @@ FieldMatches.prototype.matches = function(e) {
 }
 
 /**
- * A predicate that matches values matched by all inner predicates
+ * A predicate that matches values matched by all inner predicates.
+ * An object with no inner predicates matches everything.
  *
  * This constructor takes any number of predicates.
  */
@@ -55,14 +56,21 @@ And.prototype.matches = function(e) {
     return true
 }
 /**
- * A predicate that matches values matched by either inner predicate
+ * A predicate that matches values matched by any inner predicate.
+ * An object with no inner predicates matches nothing.
+ *
+ * This constructor takes any number of predicates.
  */
-function Or(p1, p2) {
-    this.p1 = p1
-    this.p2 = p2
+function Or() {
+    this.predicates = Array.from(arguments)
 }
 Or.prototype.matches = function(e) {
-    return this.p1.matches(e) || this.p2.matches(e)
+    for (var i = 0; i < this.predicates.length; i++) {
+        if (this.predicates[i].matches(e)) {
+            return true
+        }
+    }
+    return false
 }
 
 /**

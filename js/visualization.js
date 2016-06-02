@@ -1,23 +1,23 @@
-var units = "Students";  
-       var margin = {top: 10, right: 10, bottom: 10, left: 10},  
-         width = 800 - margin.left - margin.right,  
-         height = 600 - margin.top - margin.bottom;  
-       var formatNumber = d3.format(",.0f"),  // zero decimal places  
-         format = function(d) { return formatNumber(d) + " " + units; };  
-         //color = d3.scale.category20();  
-       // append the svg canvas to the page  
-       var svg = d3.select("#chart").append("svg")  
-         .attr("width", width + margin.left + margin.right)  
-         .attr("height", height + margin.top + margin.bottom)  
-        .append("g")  
-         .attr("transform",   
-            "translate(" + margin.left + "," + margin.top + ")");  
-       // Set the sankey diagram properties  
-       var sankey = d3.sankey()  
-         .nodeWidth(36)  
-         .nodePadding(10)  
-         .size([width, height]);  
-       var path = sankey.link(); 
+var units = "Students";
+       var margin = {top: 10, right: 10, bottom: 10, left: 10},
+         width = 800 - margin.left - margin.right,
+         height = 600 - margin.top - margin.bottom;
+       var formatNumber = d3.format(",.0f"),  // zero decimal places
+         format = function(d) { return formatNumber(d) + " " + units; };
+         //color = d3.scale.category20();
+       // append the svg canvas to the page
+       var svg = d3.select("#chart").append("svg")
+         .attr("width", width + margin.left + margin.right)
+         .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+         .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
+       // Set the sankey diagram properties
+       var sankey = d3.sankey()
+         .nodeWidth(36)
+         .nodePadding(10)
+         .size([width, height]);
+       var path = sankey.link();
 
 // Set up filters
 var filters = createFilters();
@@ -61,7 +61,9 @@ function createFilters() {
 
     var gender = new StringFilter('gender', ['M', 'F'], 'gender')
     var ethnic = new StringFilter('ethnic', ['AFRO-AM',	'AMER-IND','ASIAN','CAUCASN','HAW/PAC','NOT IND'], 'ethnic')
+    var application_count = new CheckBoxFilter('numAdmApplication', [1, 2, 3, 4, 5, 6], 'Application count')
     group.addFilter(gender)
     group.addFilter(ethnic)
+    group.addFilter(application_count)
     return group
 }

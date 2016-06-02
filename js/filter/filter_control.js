@@ -173,3 +173,67 @@ RangeFilter.prototype.getPredicate = function() {
     var max = this.maxSlider.value
     return new Range(this.property, min, max)
 }
+
+/**
+ * A filter that displays several check boxes
+ *
+ * When no check boxes are selected, the filter accepts anything. When one
+ * or more check boxes are selected, the filter accepts objects with values
+ * of the specified property that match any of the checked boxes.
+ *
+ * @param property the name of the property to filter on
+ * @param values an array of values to allow the user to select
+ * @param label a label to display
+ */
+function CheckBoxFilter(property, values, label) {
+    this.property = property
+    this.root = document.createElement('div')
+    this.root.appendChild(new Text(label))
+    this.boxes = []
+    for (var i = 0; i < values.length; i++) {
+        var linkId = 'CheckBoxFilter-' + property + '-' + values[i];
+        var input = document.createElement('input')
+        input.setAttribute('id', linkId)
+        input.setAttribute('type', 'checkbox')
+        input.setAttribute('data-value', values[i])
+        this.boxes.push(input)
+
+        var label = document.createElement('label')
+        label.setAttribute('for', linkId)
+        label.textContent = values[i]
+
+        var container = document.createElement('div')
+        container.appendChild(input)
+        container.appendChild(label)
+        this.root.appendChild(container)
+    }
+}
+
+CheckBoxFilter.prototype.setOnChange = function(callback) {
+    for (var i = 0; i < this.boxes.length; i++) {
+        this.boxes[i].onchange = callback
+    }
+}
+
+CheckBoxFilter.prototype.getRoot = function() {
+    return this.root
+}
+
+CheckBoxFilter.prototype.getPredicate = function() {
+    var predicates = []
+    for (var i = 0; i < this.boxes.length; i++) {
+        var box = this.boxes[i]
+        var checked = box.checked
+        var value = box.getAttribute('data-value')
+        if (checked) {
+            predicates.push(new FieldMatches(this.property, value))
+        }
+    }
+    console.log(predicates)
+    if (predicates.length > 0) {
+        // Call new Or() with predicates as the arguments
+        return new (Function.prototype.bind.apply(Or, [null].concat(predicates)))
+    } else {
+        return new All()
+    }
+}

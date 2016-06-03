@@ -4,11 +4,7 @@ body {
     background-color: #f1f1f1;
     width: 1300px;
     font-family: "Avenir", Verdana;
-    font-size: 0.95em;
-}
-
-div {
-    display: block;
+    font-size: 100%;
 }
 
 .container h1 {
@@ -30,25 +26,23 @@ div {
 }
 
 .parent_div_1 {
-  margin-right: 10px;
-  float: left;
   width:100%;
 }
 
 .child_div_1 {
-  width:65%;
-  float: left;
-  margin-right: 5px;
-  border: 1px solid gray;
-   background-color: white;
+  width: 65%;
 }
 
 .child_div_2 {
-  width:30%;
-  float: left;
-  margin-right: 5px;
- border: 1px solid gray;
-  background-color: white;
+  width: 35%;
+}
+
+.child_div_1, .child_div_2 {
+    float: left;
+}
+
+.child_div_1 > div, .child_div_2 > div {
+    min-height: 710px;
 }
 
 .chart {
@@ -63,10 +57,9 @@ div {
 
 
 
-table {
-    margin-left:auto; 
-    margin-right:auto;
-  }
+#tableSummary table {
+    width: 100%;
+}
 
 th {
     background-color: #4CAF50;

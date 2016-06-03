@@ -13,45 +13,49 @@
     <script type="text/javascript" src="js/filter/filter_control.js"></script>
     <script type="text/javascript" src="js/filter/group.js"></script>
     <script type="text/javascript" src="js/project.js"></script>
-	<script type="text/javascript" src="js/helper.js"></script>
+    <script type="text/javascript" src="js/helper.js"></script>
     <style>
 
     </style>
 </head>
 
 <body id="bodyTable">
-        <div class="container" id="mainHeading">
-            <h1>CSE Admission Data</h1>
+    <div class="container" id="mainHeading">
+        <h1>CSE Admission Data</h1>
+    </div>
+    <div class="panel panel-card">
+        <div class="panel-title">
+            <h5> Filters</h5>
+            <div class="filter-container"></div>
+            <button type="button" id="filter-apply-button" class="filter-apply-button">Apply</button>
         </div>
-   <div class="panel panel-card">
-	    <div class="panel-title">
-		<h5> Filters</h5>
-		<div class="filter-container"></div>
-        <button type="button" id="filter-apply-button" class="filter-apply-button">Apply</button>
-	   </div>
-   </div>
+    </div>
     <br>
     <div class="parent_div_1">
-	<div class="child_div_1">
-	   <h5> Sankey Diagram</h5>
-            <div class="chart" id="chart">
-            	<script type="text/javascript" src="js/visualization.js"></script>
+        <div class="child_div_1">
+            <div class="panel-card">
+                <h5> Sankey Diagram</h5>
+                <div class="chart" id="chart">
+                    <script type="text/javascript" src="js/visualization.js"></script>
+                </div>
             </div>
-     	</div>
-    	<div class="child_div_2" id="tableSummary">
-		<h5> Summary Table</h5>
-		<table>
-		</table>
-    	</div>
-   </div>
-  <br>
-  <br>
-   <footer class="bottom">
-        <div>
-            <p>CSE 512 Project</p>
-            <p>Team Members: Sachin Mehta, Wesley Lee, and Sam Crow</p>
+        </div><!--
+        --><div class="child_div_2" id="tableSummary">
+        <div class="panel-card">
+            <h5> Summary Table</h5>
+            <table>
+            </table>
         </div>
-    </footer>
+    </div>
+</div>
+<br>
+<br>
+<footer class="bottom">
+    <div>
+        <p>CSE 512 Project</p>
+        <p>Team Members: Sachin Mehta, Wesley Lee, and Sam Crow</p>
+    </div>
+</footer>
 </body>
 
 </html>

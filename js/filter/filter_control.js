@@ -29,6 +29,7 @@ function BooleanFilter(property, label) {
     // Create DOM
     var linkId = 'BooleanFilter_' + property + '_' + label
     var div = document.createElement('div')
+    div.classList.add('boolean-filter')
     var select = document.createElement('select')
     select.setAttribute('id', linkId)
     var options = createOptions()
@@ -99,6 +100,7 @@ function StringFilter(property, values, label) {
     labelElement.setAttribute('for', linkId)
 
     var root = document.createElement('div')
+    root.classList.add('list-filter')
     root.appendChild(labelElement)
     root.appendChild(this.select)
 
@@ -157,6 +159,7 @@ function RangeFilter(property, min, max, step, label) {
     maxContainer.appendChild(new Text('Max'))
     maxContainer.appendChild(this.maxSlider)
     this.root.appendChild(maxContainer)
+    this.root.classList.add('range-filter')
 }
 
 RangeFilter.prototype.setOnChange = function(callback) {
@@ -188,6 +191,7 @@ RangeFilter.prototype.getPredicate = function() {
 function CheckBoxFilter(property, values, label) {
     this.property = property
     this.root = document.createElement('div')
+    this.root.classList.add('checkbox-filter')
     this.root.appendChild(new Text(label))
     this.boxes = []
     for (var i = 0; i < values.length; i++) {
@@ -229,7 +233,6 @@ CheckBoxFilter.prototype.getPredicate = function() {
             predicates.push(new FieldMatches(this.property, value))
         }
     }
-    console.log(predicates)
     if (predicates.length > 0) {
         // Call new Or() with predicates as the arguments
         return new (Function.prototype.bind.apply(Or, [null].concat(predicates)))

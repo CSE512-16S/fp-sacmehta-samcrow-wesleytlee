@@ -62,9 +62,11 @@ function createFilters() {
 
     var gender = new StringFilter('gender', ['M', 'F'], 'gender')
     var ethnic = new StringFilter('ethnic', ['AFRO-AM',	'AMER-IND','ASIAN','CAUCASN','HAW/PAC','NOT IND'], 'ethnic')
-    var application_count = new CheckBoxFilter('numAdmApplication', [1, 2, 3, 4, 5, 6], 'Application count')
+    var application_count = new CheckBoxFilter('numAdmApplication', [0, 1, 2, 3, 4, 5], 'Application count')
+    var gpa = new RangeFilter('GPA', 0.0, 4.0, 0.01, 'GPA')
     group.addFilter(gender)
     group.addFilter(ethnic)
     group.addFilter(application_count)
+    group.addFilter(gpa)
     return group
 }

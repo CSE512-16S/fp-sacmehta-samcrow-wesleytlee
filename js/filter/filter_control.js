@@ -141,7 +141,14 @@ function RangeFilter(property, min, max, step, label) {
         input.setAttribute('min', min)
         input.setAttribute('max', max)
         input.setAttribute('step', step)
+        input.classList.add('range-filter-slider')
         return input
+    }
+    var createLabel = function(text) {
+        var span = document.createElement('span')
+        span.appendChild(new Text(text))
+        span.classList.add('range-filter-label')
+        return span
     }
 
     this.minSlider = createSlider()
@@ -150,13 +157,13 @@ function RangeFilter(property, min, max, step, label) {
     this.maxSlider.value = max
 
     this.root = document.createElement('div')
-    this.root.appendChild(new Text(label))
+    this.root.appendChild(createLabel(label))
     var minContainer = document.createElement('div')
-    minContainer.appendChild(new Text('Min'))
+    minContainer.appendChild(createLabel('Min'))
     minContainer.appendChild(this.minSlider)
     this.root.appendChild(minContainer)
     var maxContainer = document.createElement('div')
-    maxContainer.appendChild(new Text('Max'))
+    maxContainer.appendChild(createLabel('Max'))
     maxContainer.appendChild(this.maxSlider)
     this.root.appendChild(maxContainer)
     this.root.classList.add('range-filter')

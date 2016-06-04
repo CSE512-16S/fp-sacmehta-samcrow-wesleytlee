@@ -481,7 +481,6 @@ function createNodeData(graph, data){
 					})
 		      .map(data);
 	var stage4Data = groupedStage4.student.CSE142.CSE143.Apply;	 
-	console.log(   stage4Data) 
 	var stage4StatsAccept = [];
 	var stage4StatsDeny = [];
 	var stage4StatsSD = [];
@@ -489,8 +488,6 @@ function createNodeData(graph, data){
 	var weight1Stage4 = weightDef;
 	if(typeof(stage4Data.Accept) != "undefined"){
 		weight1Stage4 = stage4Data.Accept.weight;
-		console.log("Log accept");
-		console.log(stage4Data.Accept)
 		stage4StatsAccept = [{variable:statsName[0], mean:typeof(stage4Data.Accept.gpa) != "undefined"? stage4Data.Accept.gpa.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.gpaD) != "undefined"? stage4Data.Accept.gpaD.toFixed(numberOfDecimalPlaces): "NA"},
 								{variable:statsName[1], mean:typeof(stage4Data.Accept.cse142grade) != "undefined"? stage4Data.Accept.cse142grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.cse142gradeD) != "undefined"? stage4Data.Accept.cse142gradeD.toFixed(numberOfDecimalPlaces): "NA"},
 								{variable:statsName[20], mean:typeof(stage4Data.Accept.cse142firstclass) != "undefined"? stage4Data.Accept.cse142firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.cse142firstclassD) != "undefined"? stage4Data.Accept.cse142firstclassD.toFixed(numberOfDecimalPlaces): "NA"},
@@ -631,9 +628,9 @@ function updateDataWithTransition(data){
 	graph.nodes = d3.keys(d3.nest()
 	     .key(function (d) { return d.name; })
 	     .map(graph.nodes));
-
-   temp = graph.nodes[5]
-   graph.nodes[5] = graph.nodes[7];
+   
+   temp = graph.nodes[6]
+   graph.nodes[6] = graph.nodes[7];
    graph.nodes[7] = temp;
 
 	// loop through each link replacing the text with its index from node
@@ -763,8 +760,8 @@ function renderData(data){
 	       .key(function (d) { return d.name; })
 	       .map(graph.nodes));
 
-   temp = graph.nodes[5]
-   graph.nodes[5] = graph.nodes[7];
+   temp = graph.nodes[6]
+   graph.nodes[6] = graph.nodes[7];
    graph.nodes[7] = temp;
           
 	// loop through each link replacing the text with its index from node

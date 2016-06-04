@@ -11,11 +11,14 @@ function updateDataWithTransition(data){
 	//filter data for stage 1
 	//[stage1Stats, stage2StatsCS143, stage2StatsNA143, stage3StatsAccept, stage3StatsDNA, stage3StatsDeny, stage3StatsSD]
 	 var groupStats= createNodeData(graph, data);
-	console.log(graph);
 	//determine the nodes
 	graph.nodes = d3.keys(d3.nest()
 	     .key(function (d) { return d.name; })
 	     .map(graph.nodes));
+
+   temp = graph.nodes[5]
+   graph.nodes[5] = graph.nodes[7];
+   graph.nodes[7] = temp;
 
 	// loop through each link replacing the text with its index from node
 	graph.links.forEach(function (d, i) {
@@ -207,8 +210,6 @@ function createNodeData(graph, data){
 		weightStage1 = dataStage1Var.weight;
 	}
 	
-	console.log( 5>1?0:1)
-
 	var numberOfDecimalPlaces = 2;
 	var stage1Stats = [{variable:statsName[0], mean:typeof(dataStage1Var.gpa) != "undefined"? dataStage1Var.gpa.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.gpaD) != "undefined"? dataStage1Var.gpaD.toFixed(numberOfDecimalPlaces): "NA"},
 								{variable:statsName[1], mean:typeof(dataStage1Var.cse142grade) != "undefined"? dataStage1Var.cse142grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.cse142gradeD) != "undefined"? dataStage1Var.cse142gradeD.toFixed(numberOfDecimalPlaces): "NA"},
@@ -351,11 +352,9 @@ function createNodeData(graph, data){
 								];
 	}
 	var weight2Stage2 = weightDef;
-	console.log(stage2Data.NA143)
 	if(typeof(stage2Data.NA143) != "undefined"){
 		weight2Stage2 = stage2Data.NA143.weight;
 		
-		console.log(stage2Data.NA143.cse143grade)
 		stage2StatsNA143 = [{variable:statsName[0], mean:typeof(stage2Data.NA143.gpa) != "undefined"? stage2Data.NA143.gpa.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.gpaD) != "undefined"? stage2Data.NA143.gpaD.toFixed(numberOfDecimalPlaces): "NA"},
 								{variable:statsName[1], mean:typeof(stage2Data.NA143.cse142grade) != "undefined"? stage2Data.NA143.cse142grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.cse142gradeD) != "undefined"? stage2Data.NA143.cse142gradeD.toFixed(numberOfDecimalPlaces): "NA"},
 								{variable:statsName[20], mean:typeof(stage2Data.NA143.cse142firstclass) != "undefined"? stage2Data.NA143.cse142firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.cse142firstclassD) != "undefined"? stage2Data.NA143.cse142firstclassD.toFixed(numberOfDecimalPlaces): "NA"},
@@ -736,10 +735,17 @@ function renderData(data){
 	graph = {"nodes" : [], "links" : []};
 	//[stage1Stats, stage2StatsCS143, stage2StatsNA143, stage3StatsAccept, stage3StatsDNA, stage3StatsDeny, stage3StatsSD];
 	var groupStats = createNodeData(graph, data);
-	graph.nodes = d3.keys(d3.nest()
+	
+   console.log(graph.nodes);
+   
+   graph.nodes = d3.keys(d3.nest()
 	       .key(function (d) { return d.name; })
 	       .map(graph.nodes));
 
+   temp = graph.nodes[5]
+   graph.nodes[5] = graph.nodes[7];
+   graph.nodes[7] = temp;
+          
 	// loop through each link replacing the text with its index from node
 	graph.links.forEach(function (d, i) {
 	 	graph.links[i].source = graph.nodes.indexOf(graph.links[i].source);

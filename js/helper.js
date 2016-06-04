@@ -6,8 +6,68 @@ d3.table = function(config) {
 	if (columns.length == 0) columns = d3.keys(selection.data()[0][0]); 
 
 	// Creating the table
-	selection.selectAll('table').data([0]).enter().append('table');
-	var table = selection.select('table');
+	selection.selectAll('table').data([0]).enter().append('table1');
+	var table = selection.select('#table1');
+
+	table.selectAll('thead').data([0]).enter().append('thead');
+	var thead = table.select('thead');
+
+	table.selectAll('tbody').data([0]).enter().append('tbody');
+	var tbody = table.select('tbody');
+
+	// appending the header row
+	var th = thead.selectAll("th")
+		.data(columns)
+
+	th.enter().append("th");
+	    th.text(function(d) { return d });
+	th.exit().remove()
+
+	// creating a row for each object in the data
+	var rows = tbody.selectAll('tr')
+	    .data(function(d) { return d; })
+
+	rows.enter().append("tr");
+	rows.attr('data-row',function(d,i){return i});
+	rows.exit().remove();   
+
+	// creating a cell for each column in the rows
+	var cells = rows.selectAll("td")
+		.data(function(row) {
+	    return columns.map(function(key) {
+		        return {key:key, value:row[key]};
+	    });
+		})
+
+	cells.enter().append("td");
+	cells.text(function(d) { return d.value; })
+	    .attr('data-col',function(d,i){return i})
+	    .attr('data-key',function(d,i){return d.key});
+
+	cells.exit().remove();
+
+	return tbl;
+	};
+
+	tbl.columns = function(_) {
+	if (!arguments.length) return columns;
+		columns = _;
+		return this;
+	};
+
+	return tbl;
+};
+
+
+d3.table1 = function(config) {
+	var columns = [];//["Mean", "Maximum", "Minimum"];
+
+	var tbl = function(selection) {
+	if (columns.length == 0) columns = d3.keys(selection.data()[0][0]); 
+
+	// Creating the table
+	selection.selectAll('table').data([0]).enter().append('table2');
+	var table = selection.select('#table2');
 
 	table.selectAll('thead').data([0]).enter().append('thead');
 	var thead = table.select('thead');

@@ -41,7 +41,17 @@
             </div>
         </div><!--
         --><div class="child_div_2" id="tableSummary">
-        <div class="panel-card">
+	<div class="panel-card">
+		<h5> Select the stage</h5>
+			<select id="stage" onchange="renderTable()">
+             <option value="stage1">Students -> CSE142</option>
+             <option value="stage2">CSE142 -> CSE 143</option>
+             <option value="stage3">CSE142 -> CSE 143 (Not Applied)</option>
+             <option value="stage4">CSE143 -> Accept</option>
+             <option value="stage5">CSE143 -> Did not apply</option>
+             <option value="stage6">CSE143 -> Deny</option>
+             <option value="stage7">CSE143 -> Soft Deny</option>
+           </select>
             <h5> Summary Table</h5>
             <table>
             </table>

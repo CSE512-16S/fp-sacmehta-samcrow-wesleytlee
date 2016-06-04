@@ -4,13 +4,15 @@ var defMinValue = 10000;
 var statsName = ["GPA", "Grade (CSE 142)", "Grade (CSE 143)", "Application Score", "Std Math", "Std Verbal", "Std Comb", "Q5b", "Q5d", "Q5e", "Q5f", "Q7a", 
 		 "Q8a", "Q8c", "Q8d", "Q8e", "Q8g", "Q8i", "Q9", "Q11", "CSE 142 (first class)", "CSE 143 (first class)"];
 
+var groupStats = []
+
 function updateDataWithTransition(data){
 
 	graph.nodes = []
 	graph.links = []
 	//filter data for stage 1
 	//[stage1Stats, stage2StatsCS143, stage2StatsNA143, stage3StatsAccept, stage3StatsDNA, stage3StatsDeny, stage3StatsSD]
-	 var groupStats= createNodeData(graph, data);
+	 groupStats= createNodeData(graph, data);
 	//determine the nodes
 	graph.nodes = d3.keys(d3.nest()
 	     .key(function (d) { return d.name; })
@@ -139,6 +141,7 @@ function updateDataWithTransition(data){
     	.call(t)
 }
 
+//function to create nodes and links of sankey diagram
 function createNodeData(graph, data){
 	//filter data for stage 1
 	var groupedStage1= d3.nest()
@@ -209,7 +212,7 @@ function createNodeData(graph, data){
 	if(typeof(dataStage1Var) != "undefined"){
 		weightStage1 = dataStage1Var.weight;
 	}
-	
+
 	var numberOfDecimalPlaces = 2;
 	var stage1Stats = [{variable:statsName[0], mean:typeof(dataStage1Var.gpa) != "undefined"? dataStage1Var.gpa.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.gpaD) != "undefined"? dataStage1Var.gpaD.toFixed(numberOfDecimalPlaces): "NA"},
 								{variable:statsName[1], mean:typeof(dataStage1Var.cse142grade) != "undefined"? dataStage1Var.cse142grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.cse142gradeD) != "undefined"? dataStage1Var.cse142gradeD.toFixed(numberOfDecimalPlaces): "NA"},
@@ -256,9 +259,7 @@ function createNodeData(graph, data){
 		        .key(function(d) { return d.source; })
 		        .key(function(d) { return d.target142; })
 		        .key(function(d) { return d.target143; })
-		        //.rollup(function(v) { return d3.sum(v, function(d) { return 1; }); })
-		        //.map(data);
-			.rollup(function(v) { 
+				.rollup(function(v) { 
 					return {
 						"weight": d3.sum(v, function(d) { return 1; }),//edge weight
 						//mean of different statistics
@@ -419,9 +420,7 @@ function createNodeData(graph, data){
 		        .key(function(d) { return d.target142; })
 		        .key(function(d) { return d.target143; })
 		        .key(function(d) { return d.admitStatus; })
-		        //.rollup(function(v) { return d3.sum(v, function(d) { return 1; }); })
-		        //.map(data);
-			.rollup(function(v) { 
+				.rollup(function(v) { 
 					return {
 						"weight": d3.sum(v, function(d) { return 1; }),//edge weight
 						//mean of different statistics
@@ -602,68 +601,6 @@ function createNodeData(graph, data){
 								];
 	}
 
-	/*if(typeof(weight2Stage2) =="number"){
-		graph.nodes.push({ "name": source[3]});
-		graph.nodes.push({ "name": target[4]});
-		graph.links.push({ "source": source[3],
-		         "target": target[4],
-		         "value": +weight2Stage2})
-	}
-	else{
-		graph.nodes.push({ "name": source[3]});
-		graph.nodes.push({ "name": target[4]});
-		graph.links.push({ "source": source[3],
-		         "target": target[4],
-		         "value": +weightDef})
-	}
-
-
-	if(typeof(weight1Stage3) =="number"){
-		graph.nodes.push({ "name": source[2]});
-		graph.nodes.push({ "name": target[0]});
-		graph.links.push({ "source": source[2],
-				         "target": target[0],
-				         "value": +weight1Stage3});
-	}
-	else{
-		graph.nodes.push({ "name": source[2]});
-		graph.nodes.push({ "name": target[0]});
-		graph.links.push({ "source": source[2],
-				         "target": target[0],
-				         "value": +weightDef});
-	}
-
-	if(typeof(weight2Stage3) =="number"){
-		graph.nodes.push({ "name": source[2]});
-		graph.nodes.push({ "name": target[1]});
-		graph.links.push({ "source": source[2],
-		         "target": target[1],
-		         "value": +weight2Stage3});
-	}
-	else{
-		graph.nodes.push({ "name": source[2]});
-		graph.nodes.push({ "name": target[1]});
-		graph.links.push({ "source": source[2],
-		         "target": target[1],
-		         "value": +weightDef});
-	}
-
-	if(typeof(weight3Stage3) =="number"){
-		graph.nodes.push({ "name": source[2]});
-		graph.nodes.push({ "name": target[2]});
-		graph.links.push({ "source": source[2],
-		         "target": target[2],
-		         "value": +weight3Stage3});
-	}
-	else{
-		graph.nodes.push({ "name": source[2]});
-		graph.nodes.push({ "name": target[2]});
-		graph.links.push({ "source": source[2],
-		         "target": target[2],
-		         "value": +weightDef});
-	}*/
-
-
 	if(typeof(weight4Stage3) =="number"){
 		graph.nodes.push({ "name": source[2]});
 		graph.nodes.push({ "name": target[3]});
@@ -723,6 +660,7 @@ function createNodeData(graph, data){
 		         "target": target[6],
 		         "value": +weightDef});
 	}
+	
 	return [stage1Stats, stage2StatsCS143, stage2StatsNA143, stage3StatsAccept, stage3StatsDNA, stage3StatsDeny, stage3StatsSD]
 }
 
@@ -734,9 +672,7 @@ function renderData(data){
 
 	graph = {"nodes" : [], "links" : []};
 	//[stage1Stats, stage2StatsCS143, stage2StatsNA143, stage3StatsAccept, stage3StatsDNA, stage3StatsDeny, stage3StatsSD];
-	var groupStats = createNodeData(graph, data);
-	
-   console.log(graph.nodes);
+	groupStats = createNodeData(graph, data);
    
    graph.nodes = d3.keys(d3.nest()
 	       .key(function (d) { return d.name; })
@@ -842,11 +778,48 @@ function renderData(data){
 	//compute the data statistics
 	//stats = computeStatistics(data);
 
-	//create a table
-	//stage 1 stats are the same as summary table
+	//render data on a table
+	renderTable()
+}
+
+//function to render the data on table
+function renderTable(){
+	var selectListVal = document.getElementById('stage').selectedOptions[0].value
 	var t = d3.table();
 	//render the data in table
+	//[stage1Stats, stage2StatsCS143, stage2StatsNA143, stage3StatsAccept, stage3StatsDNA, stage3StatsDeny, stage3StatsSD];
+	var dataStat = groupStats[0];
+	if(selectListVal == "stage1"){
+		dataStat = groupStats[0];
+	}
+	else if(selectListVal == "stage2"){
+		dataStat = groupStats[1];
+	}
+	else if(selectListVal == "stage3"){
+		dataStat = groupStats[2];
+	}
+	else if(selectListVal == "stage4"){
+		dataStat = groupStats[3];
+	}
+	else if(selectListVal == "stage5"){
+		dataStat = groupStats[4];
+	}
+	else if(selectListVal == "stage6"){
+		dataStat = groupStats[5];
+	}
+	else if(selectListVal == "stage7"){
+		dataStat = groupStats[6];
+	}
+	else{
+		dataStat = groupStats[0];
+	}
+	
+	if((dataStat.length) == 0){
+		dataStat = [{Row: "No record Found"}]
+	}
+	
+	
 	d3.select("body")
-    	.datum(groupStats[0]) /// filter on lines
+    	.datum(dataStat) /// filter on lines
     	.call(t)
 }

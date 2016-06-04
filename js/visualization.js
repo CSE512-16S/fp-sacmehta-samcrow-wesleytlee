@@ -6,12 +6,20 @@ var units = "Students";
          format = function(d) { return formatNumber(d) + " " + units; };
          //color = d3.scale.category20();
        // append the svg canvas to the page
-       var svg = d3.select("#chart").append("svg")
+       var svg = d3.select("#svg1")//select("#chart").append("svg1")
          .attr("width", width + margin.left + margin.right)
          .attr("height", height + margin.top + margin.bottom)
         .append("g")
          .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
+       
+       var svgNew = d3.select("#svg2")
+         .attr("width", width + margin.left + margin.right)
+         .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+         .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
+       
        // Set the sankey diagram properties
        var sankey = d3.sankey()
          .nodeWidth(36)
@@ -19,25 +27,35 @@ var units = "Students";
          .size([width, height]);
        var path = sankey.link();
 
-// Set up filters
+// Set up filters for SVG1
 var filters = createFilters()
 var filterContainer = document.querySelector('.filter-container')
 filterContainer.appendChild(filters.getRoot())
 var filterApplyButton = document.getElementById('filter-apply-button')
 filterApplyButton.onclick = filterGroupVisualize
 
+// Set up filters for SVG2
+var filtersNew = createFilters()
+var filterContainerNew = document.querySelector('.filter-container-new')
+filterContainerNew.appendChild(filtersNew.getRoot())
+var filterApplyButtonNew = document.getElementById('filter-apply-button-new')
+filterApplyButtonNew.onclick = filterGroupVisualizeNew
+
 // load the data
 var globalData = null
 var source = ["Took CSE 142", "Took CSE 143", "Didn't Take CSE 143", "Applied for Major", "Didn't applied for Major"];
 var target = ["Accept", "Deny", "Soft Deny"];
 
+var dataNew = null
 d3.csv("./data/studentDataF.csv", function(error, data) {
     if (error) {
         alert(error)
         return
     }
     globalData = data
+    dataNew = data
     renderData(data)
+    renderDataNew(data)
 });
 
 function filterGroupVisualize() {
@@ -53,6 +71,25 @@ function filterGroupVisualize() {
     // Continue
     if(data.length) {
       updateDataWithTransition(data)
+    } else {
+       //**Return an error message or something**
+       alert("\nNo students satisfying filter!\n ")
+    }
+}
+
+function filterGroupVisualizeNew() {
+    // Apply filters
+    var data = []
+    var predicate = filtersNew.getPredicate();
+    for (var i = 0; i < dataNew.length; i++) {
+        var item = dataNew[i]
+        if (predicate.matches(item)) {
+            data.push(item)
+        }
+    }
+    // Continue
+    if(data.length) {
+      updateDataWithTransitionNew(data)
     } else {
        //**Return an error message or something**
        alert("\nNo students satisfying filter!\n ")

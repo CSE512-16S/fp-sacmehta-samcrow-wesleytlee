@@ -28,8 +28,8 @@ filterApplyButton.onclick = filterGroupVisualize
 
 // load the data
 var globalData = null
-var source = ["Students", "Took CSE 142", "Took CSE 143", "Didn't Take CSE 143"];
-var target = ["Enrolled", "Did not enroll", "Application Verified", "Accepted to Major", "Did not Apply", "Denied", "Soft Denied"];
+var source = ["Took CSE 142", "Took CSE 143", "Didn't Take CSE 143", "Applied for Major", "Didn't applied for Major"];
+var target = ["Accept", "Deny", "Soft Deny"];
 
 d3.csv("./data/studentDataF.csv", function(error, data) {
     if (error) {
@@ -61,7 +61,7 @@ function createFilters() {
     var group = new FilterGroup()
 
     var gender = new StringFilter('gender', ['M', 'F'], 'gender')
-    var ethnic = new StringFilter('ethnic', ['AFRO-AM',	'AMER-IND','ASIAN','CAUCASN','HAW/PAC','NOT IND'], 'ethnic')
+    var ethnic = new StringFilter('ethnic', ['African American','AMER-IND','ASIAN','CAUCASN','HAW/PAC','NOT IND'], 'ethnic')
     var application_count = new CheckBoxFilter('numAdmApplication', [0, 1, 2, 3, 4, 5], 'Application count')
     var gpa = new RangeFilter('GPA', 0.0, 4.0, 0.01, 'GPA')
     group.addFilter(gender)

@@ -1,399 +1,8 @@
 var weightDef = 0.01;
 var transitionDuration = 1000;
 var defMinValue = 10000;
-
-function computeStatistics(d){
-	epsilon = 0.000001
-	//Student GPA
-	gpagradeMean = []	
-
-	//CSE 143 Details
-	cse143gradeMean = []
-
-	//CSE 142 Details
-	cse142gradeMean = []
-
-	//application scores
-	appScoreMean = []
-
-	//stdmath 
-	stdmathMean = []
-
-	//stdverbal	
-	stdverbalMean = []
-
-	//stdcomb
-	stdcombMean = []
-
-	//Q5b 
-	Q5bMean = []
-
-	//Q5d 
-	Q5dMean = []
-
-	//Q5e 
-	Q5eMean = []
-
-	//Q5f 
-	Q5fMean = []
-
-	//Q5g 
-	Q5gMean = []
-
-	//Q7a 
-	Q7aMean = []
-
-	//Q8a 
-	Q8aMean = []
-
-	//Q8c 
-	Q8cMean = []
-
-	//Q8d 
-	Q8dMean = []
-
-	//Q8e 
-	Q8eMean = []
-
-	//Q8g 
-	Q8gMean = []
-
-	//Q8i 
-	Q8iMean = []
-
-	//Q9 
-	Q9Mean = []
-
-	//Q10 
-	Q10Mean = []
-
-	//Q11 
-	Q11Mean = []
-
-	d.forEach(function(data) {
-		data.GPA = parseFloat(data.GPA)
-		data.cse143grade = parseFloat(data.cse143grade)
-		data.cse142grade = parseFloat(data.cse142grade)
-		data.appscores = parseFloat(data.appscores)
-
-		data.stdmath = parseFloat(data.stdmath)
-		data.Q5b = parseFloat(data.Q5b)
-		data.stdverbal = parseFloat(data.stdverbal)
-		data.Q5e = parseFloat(data.Q5e)
-		data.Q5d = parseFloat(data.Q5d)
-
-		data.Q5f = parseFloat(data.Q5f)
-		data.Q5g = parseFloat(data.Q5g)
-		data.Q7a = parseFloat(data.Q7a)
-		data.stdcomb = parseFloat(data.stdcomb)
-		data.Q8a = parseFloat(data.Q8a)
-		data.Q8c = parseFloat(data.Q8c)
-		data.Q8d = parseFloat(data.Q8d)
-		data.Q8e = parseFloat(data.Q8e)
-		data.Q8g = parseFloat(data.Q8g)
-		data.Q8i = parseFloat(data.Q8i)
-		data.Q9 = parseFloat(data.Q9)
-		data.Q10 = parseFloat(data.Q10)
-		data.Q11 = parseFloat(data.Q11)
-
-		if(typeof(data.stdmath) == "number" && !isNaN(data.stdmath)){
-			stdmathMean.push(data.stdmath);
-		}
-
-		
-		if(typeof(data.Q5b) == "number" && !isNaN(data.Q5b)){
-			Q5bMean.push(data.Q5b);
-		}
-
-		
-		if(typeof(data.Q5d) == "number" && !isNaN(data.Q5d)){
-			Q5dMean.push(data.Q5d);
-		}
-
-		
-		if(typeof(data.Q5e) == "number" && !isNaN(data.Q5e)){
-			Q5eMean += data.Q5e;
-		}
-
-		if(typeof(data.Q5f) == "number" && !isNaN(data.Q5f)){
-			Q5fMean.push(data.Q5f);
-		}
-		
-		if(typeof(data.Q5g) == "number" && !isNaN(data.Q5g)){
-			Q5gMean.push(data.Q5g);
-		}
-
-		if(typeof(data.Q7a) == "number" && !isNaN(data.Q7a)){
-			Q7aMean.push(data.Q7a);
-		}
-	
-		if(typeof(data.stdverbal) == "number" && !isNaN(data.stdverbal)){
-			stdverbalMean.push(data.stdverbal);
-		}
-
-		
-		if(typeof(data.stdcomb) == "number" && !isNaN(data.stdcomb)){
-			stdcombMean.push(data.stdcomb);
-		}
-
-		if(typeof(data.GPA) == "number" && !isNaN(data.GPA)){
-			gpagradeMean.push(data.GPA);
-		}
-
-		if(typeof(data.cse143grade) == "number" && !isNaN(data.cse143grade)){
-			cse143gradeMean.push(data.cse143grade);
-		}
-		if(typeof(data.cse142grade) == "number" && !isNaN(data.cse142grade)){
-			cse142gradeMean.push(data.cse142grade);
-		}
-		if(typeof(data.appscores) == "number" && !isNaN(data.appscores)){
-			appScoreMean.push(data.appscores);
-		}
-
-		if(typeof(data.Q8a) == "number" && !isNaN(data.Q8a)){
-			Q8aMean.push(data.Q8a);
-		}
-		
-		if(typeof(data.Q8c) == "number" && !isNaN(data.Q8c)){
-			Q8cMean.push(data.Q8c);
-		}
-
-		
-		if(typeof(data.Q8d) == "number" && !isNaN(data.Q8d)){
-			Q8dMean.push(data.Q8d);
-		}
-		
-		if(typeof(data.Q8e) == "number" && !isNaN(data.Q8e)){
-			Q8eMean.push(data.Q8e);
-		}
-		
-		if(typeof(data.Q8g) == "number" && !isNaN(data.Q8g)){
-			Q8gMean.push(data.Q8g);
-		}
-		
-		if(typeof(data.Q8i) == "number" && !isNaN(data.Q8i)){
-			Q8iMean.push(data.Q8i);
-		}
-
-
-		if(typeof(data.Q9) == "number" && !isNaN(data.Q9)){
-			Q9Mean.push(data.Q9);
-		}
-
-		if(typeof(data.Q10) == "number" && !isNaN(data.Q10)){
-			Q10Mean.push(data.Q10);
-		}
-
-
-		if(typeof(data.Q11) == "number" && !isNaN(data.Q11)){
-			Q11Mean.push(data.Q11);
-		}
-
-	});
-	
-	//Student GPA
-	gpagradeMeanVal= 0
-	gpagradeDev = 0
-	if(gpagradeMean.length != 0){
-		gpagradeMeanVal = d3.mean(gpagradeMean).toFixed(2);
-		gpagradeDev = d3.deviation(gpagradeMean).toFixed(2);
-	}	
-
-	//CSE 143 Details
-	cse143gradeMeanVal= 0
-	cse143gradeDev = 0
-	if(cse143gradeMean.length != 0){
-		cse143gradeMeanVal = d3.mean(cse143gradeMean).toFixed(2);
-		cse143gradeDev = d3.deviation(cse143gradeMean).toFixed(2);
-	}
-
-	//CSE 142 Details
-	cse142gradeMeanVal= 0
-	cse142gradeDev = 0
-	if(cse142gradeMean.length != 0){
-		cse142gradeMeanVal = d3.mean(cse142gradeMean).toFixed(2);
-		cse142gradeDev = d3.deviation(cse142gradeMean).toFixed(2);
-	}
-
-	//application scores
-	appScoreMeanVal= 0
-	appScoreDev = 0
-	if(appScoreMean.length != 0){
-		appScoreMeanVal = d3.mean(appScoreMean).toFixed(2);
-		appScoreDev = d3.deviation(appScoreMean).toFixed(2);
-	}
-
-	//stdmath 
-	stdmathMeanVal= 0
-	stdmathDev = 0
-	if(stdmathMean.length != 0){
-		stdmathMeanVal = d3.mean(stdmathMean).toFixed(2);
-		stdmathDev = d3.deviation(stdmathMean).toFixed(2);
-	}
-
-	//stdverbal	
-	stdverbalMeanVal= 0
-	stdverbalDev = 0
-	if(stdverbalMean.length != 0){
-		stdverbalMeanVal = d3.mean(stdverbalMean).toFixed(2);
-		stdverbalDev = d3.deviation(stdverbalMean).toFixed(2);
-	}
-
-	//stdcomb
-	stdcombMeanVal= 0
-	stdcombDev = 0
-	if(stdcombMean.length != 0){
-		stdcombMeanVal = d3.mean(stdcombMean).toFixed(2);
-		stdcombDev = d3.deviation(stdcombMean).toFixed(2);
-	}
-
-	//Q5b 
-	Q5bMeanVal= 0
-	Q5bDev = 0
-	if(Q5bMean.length != 0){
-		Q5bMeanVal = d3.mean(Q5bMean).toFixed(2);
-		Q5bDev = d3.deviation(Q5bMean).toFixed(2);
-	}
-
-	//Q5d 
-	Q5dMeanVal= 0
-	Q5dDev = 0
-	if(Q5dMean.length != 0){
-		Q5dMeanVal = d3.mean(Q5dMean).toFixed(2);
-		Q5dDev = d3.deviation(Q5dMean).toFixed(2);
-	}
-
-	//Q5e 
-	Q5eMeanVal= 0
-	Q5eDev = 0
-	if(Q5eMean.length != 0){
-		Q5eMeanVal = d3.mean(Q5eMean).toFixed(2);
-		Q5eDev = d3.deviation(Q5eMean).toFixed(2);
-	}
-
-	//Q5f 
-	Q5fMeanVal= 0
-	Q5fDev = 0
-	if(Q5fMean.length != 0){
-		Q5fMeanVal = d3.mean(Q5fMean).toFixed(2);
-		Q5fDev = d3.deviation(Q5fMean).toFixed(2);
-	}
-
-	//Q5g 
-	Q5gMeanVal= 0
-	Q5gDev = 0
-	if(Q5gMean.length != 0){
-		Q5gMeanVal = d3.mean(Q5gMean).toFixed(2);
-		Q5gDev = d3.deviation(Q5gMean).toFixed(2);
-	}
-
-	//Q7a 
-	Q7aMeanVal= 0
-	Q7aDev = 0
-	if(Q7aMean.length != 0){
-		Q7aMeanVal = d3.mean(Q7aMean).toFixed(2);
-		Q7aDev = d3.deviation(Q7aMean).toFixed(2);
-	}
-
-	//Q8a 
-	Q8aMeanVal= 0
-	Q8aDev = 0
-	if(Q8aMean.length != 0){
-		Q8aMeanVal = d3.mean(Q8aMean).toFixed(2);
-		Q8aDev = d3.deviation(Q8aMean).toFixed(2);
-	}
-
-	//Q8c 
-	Q8cMeanVal= 0
-	Q8cDev = 0
-	if(Q8cMean.length != 0){
-		Q8cMeanVal = d3.mean(Q8cMean).toFixed(2);
-		Q8cDev = d3.deviation(Q8cMean).toFixed(2);
-	}
-
-	//Q8d 
-	Q8dMeanVal= 0
-	Q8dDev = 0
-	if(Q8dMean.length != 0){
-		Q8dMeanVal = d3.mean(Q8dMean).toFixed(2);
-		Q8dDev = d3.deviation(Q8dMean).toFixed(2);
-	}
-
-	//Q8e 
-	Q8eMeanVal= 0
-	Q8eDev = 0
-	if(Q8eMean.length != 0){
-		Q8eMeanVal = d3.mean(Q8eMean).toFixed(2);
-		Q8eDev = d3.deviation(Q8eMean).toFixed(2);
-	}
-
-	//Q8g 
-	Q8gMeanVal= 0
-	Q8gDev = 0
-	if(Q8gMean.length != 0){
-		Q8gMeanVal = d3.mean(Q8gMean).toFixed(2);
-		Q8gDev = d3.deviation(Q8gMean).toFixed(2);
-	}
-
-	//Q8i 
-	Q8iMeanVal= 0
-	Q8iDev = 0
-	if(Q8iMean.length != 0){
-		Q8iMeanVal = d3.mean(Q8iMean).toFixed(2);
-		Q8iDev = d3.deviation(Q8iMean).toFixed(2);
-	}
-
-	//Q9 
-	Q9MeanVal= 0
-	Q9Dev = 0
-	if(Q9Mean.length != 0){
-		Q9MeanVal = d3.mean(Q9Mean).toFixed(2);
-		Q9Dev = d3.deviation(Q9Mean).toFixed(2);
-	}
-
-	//Q10 
-	Q10MeanVal= 0
-	Q10Dev = 0
-	if(Q10Mean.length != 0){
-		Q10MeanVal = d3.mean(Q10Mean).toFixed(2);
-		Q10Dev = d3.deviation(Q10Mean).toFixed(2);
-	}
-
-	//Q11 
-	Q11MeanVal= 0
-	Q11Dev = 0
-	if(Q11Mean.length != 0){
-		Q11MeanVal = d3.mean(Q11Mean).toFixed(2);
-		Q11Dev = d3.deviation(Q11Mean).toFixed(2);
-	}
-
-	var statsName = ["GPA", "Grade (CSE 142)", "Grade (CSE 143)", "Application Score", "Std Math", "Std Verbal", "Std Comb", "Q5b", "Q5d", "Q5e", "Q5f", "Q5g", "Q7a", 
-			 "Q8a", "Q8c", "Q8d", "Q8e", "Q8g", "Q8i", "Q9", "Q11"];
-
-	return [{variable:"GPA", mean:gpagradeMeanVal, deviation:gpagradeDev},
-		{variable:"Grade (CSE 142)", mean:cse142gradeMeanVal, deviation:cse142gradeDev},
-		{variable:"Grade (CSE 143)", mean:cse143gradeMeanVal, deviation:cse143gradeDev},
-		{variable:"Application Score", mean:appScoreMeanVal, deviation:appScoreDev},
-		{variable:"Std Math", mean:stdmathMeanVal, deviation:stdmathDev},
-		{variable:"Std Verbal", mean:stdverbalMeanVal, deviation:stdverbalDev},
-		{variable:"Std Comb", mean:stdcombMeanVal, deviation:stdcombDev},
-		{variable:"Q5b", mean:Q5bMeanVal, deviation:Q5bDev},
-		{variable:"Q5d", mean:Q5dMeanVal, deviation:Q5dDev},
-		{variable:"Q5e", mean:Q5eMeanVal, deviation:Q5eDev},
-		{variable:"Q5f", mean:Q5fMeanVal, deviation:Q5fDev},
-		{variable:"Q5g", mean:Q5gMeanVal, deviation:Q5gDev},
-		{variable:"Q7a", mean:Q7aMeanVal, deviation:Q7aDev},
-		{variable:"Q8a", mean:Q8aMeanVal, deviation:Q8aDev},
-		{variable:"Q8c", mean:Q8cMeanVal, deviation:Q8cDev},
-		{variable:"Q8d", mean:Q8dMeanVal, deviation:Q8dDev},
-		{variable:"Q8e", mean:Q8eMeanVal, deviation:Q8eDev},
-		{variable:"Q8g", mean:Q8gMeanVal, deviation:Q8gDev},
-		{variable:"Q8i", mean:Q8iMeanVal, deviation:Q8iDev},
-		{variable:"Q9", mean:Q9MeanVal, deviation:Q9Dev},
-		{variable:"Q11", mean:Q11MeanVal, deviation:Q11Dev}
-];
-	
-}
+var statsName = ["GPA", "Grade (CSE 142)", "Grade (CSE 143)", "Application Score", "Std Math", "Std Verbal", "Std Comb", "Q5b", "Q5d", "Q5e", "Q5f", "Q7a", 
+		 "Q8a", "Q8c", "Q8d", "Q8e", "Q8g", "Q8i", "Q9", "Q11", "CSE 142 (first class)", "CSE 143 (first class)"];
 
 function updateDataWithTransition(data){
 
@@ -513,7 +122,7 @@ function updateDataWithTransition(data){
 		.attr("text-anchor", "start");
 
 	//compute data related statistics
-	stats = computeStatistics(data);
+	//stats = computeStatistics(data);
 	//create a table
 	var t = d3.table();
 	//render the data in table
@@ -592,35 +201,33 @@ function createNodeData(graph, data){
 	if(typeof(dataStage1Var) != "undefined"){
 		weightStage1 = dataStage1Var.weight;
 	}
-
-	var statsName = ["GPA", "Grade (CSE 142)", "Grade (CSE 143)", "Application Score", "Std Math", "Std Verbal", "Std Comb", "Q5b", "Q5d", "Q5e", "Q5f", "Q7a", 
-			 "Q8a", "Q8c", "Q8d", "Q8e", "Q8g", "Q8i", "Q9", "Q11", "CSE 142 (first class)", "CSE 143 (first class)"];
-
 	
-	var stage1Stats = [{variable:statsName[0], mean:dataStage1Var.gpa, deviation:dataStage1Var.gpaD},
-		{variable:statsName[1], mean:dataStage1Var.cse142grade, deviation:dataStage1Var.cse142gradeD},
-		{variable:statsName[20], mean:dataStage1Var.cse142firstclass, deviation:dataStage1Var.cse142firstclassD},
-		{variable:statsName[2], mean:dataStage1Var.cse143grade, deviation:dataStage1Var.cse143gradeD},
-		{variable:statsName[21], mean:dataStage1Var.cse143firstclass, deviation:dataStage1Var.cse143firstclassD},
-		{variable:statsName[3], mean:dataStage1Var.appscores, deviation:dataStage1Var.appscoresD},
-		{variable:statsName[4], mean:dataStage1Var.stdmath, deviation:dataStage1Var.stdmathD},
-		{variable:statsName[5], mean:dataStage1Var.stdverbal, deviation:dataStage1Var.stdverbalD},
-		{variable:statsName[6], mean:dataStage1Var.stdcomb, deviation:dataStage1Var.stdcombD},
+	console.log( 5>1?0:1)
 
-		{variable:statsName[7], mean:dataStage1Var.Q5b, deviation:dataStage1Var.Q5bD},
-		{variable:statsName[8], mean:dataStage1Var.Q5d, deviation:dataStage1Var.Q5dD},
-		{variable:statsName[9], mean:dataStage1Var.Q5e, deviation:dataStage1Var.Q5eD},
-		{variable:statsName[10], mean:dataStage1Var.Q5f, deviation:dataStage1Var.Q5fD},
-		{variable:statsName[11], mean:dataStage1Var.Q7a, deviation:dataStage1Var.Q7aD},
-		{variable:statsName[12], mean:dataStage1Var.Q8a, deviation:dataStage1Var.Q8aD},
-		{variable:statsName[13], mean:dataStage1Var.Q8c, deviation:dataStage1Var.Q8cD},
-		{variable:statsName[14], mean:dataStage1Var.Q8d, deviation:dataStage1Var.Q8dD},
-		{variable:statsName[15], mean:dataStage1Var.Q8e, deviation:dataStage1Var.Q8eD},
-		{variable:statsName[16], mean:dataStage1Var.Q8g, deviation:dataStage1Var.Q8gD},
-		{variable:statsName[17], mean:dataStage1Var.Q8i, deviation:dataStage1Var.Q8iD},
-		{variable:statsName[18], mean:dataStage1Var.Q9, deviation:dataStage1Var.Q9D},
-		{variable:statsName[19], mean:dataStage1Var.Q11, deviation:dataStage1Var.Q11D},
-];
+	var numberOfDecimalPlaces = 2;
+	var stage1Stats = [{variable:statsName[0], mean:typeof(dataStage1Var.gpa) != "undefined"? dataStage1Var.gpa.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.gpaD) != "undefined"? dataStage1Var.gpaD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[1], mean:typeof(dataStage1Var.cse142grade) != "undefined"? dataStage1Var.cse142grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.cse142gradeD) != "undefined"? dataStage1Var.cse142gradeD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[20], mean:typeof(dataStage1Var.cse142firstclass) != "undefined"? dataStage1Var.cse142firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.cse142firstclassD) != "undefined"? dataStage1Var.cse142firstclassD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[2], mean:typeof(dataStage1Var.cse143grade) != "undefined"? dataStage1Var.cse143grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.cse143gradeD) != "undefined"? dataStage1Var.cse143gradeD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[21], mean:typeof(dataStage1Var.cse143firstclass) != "undefined"? dataStage1Var.cse143firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.cse143firstclassD) != "undefined"? dataStage1Var.cse143firstclassD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[3], mean:typeof(dataStage1Var.appscores) != "undefined"? dataStage1Var.appscores.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.appscoresD) != "undefined"? dataStage1Var.appscoresD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[4], mean:typeof(dataStage1Var.stdmath) != "undefined"? dataStage1Var.stdmath.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.stdmathD) != "undefined"? dataStage1Var.stdmathD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[5], mean:typeof(dataStage1Var.stdverbal) != "undefined"? dataStage1Var.stdverbal.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.stdverbalD) != "undefined"? dataStage1Var.stdverbalD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[6], mean:typeof(dataStage1Var.stdcomb) != "undefined"? dataStage1Var.stdcomb.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.stdcombD) != "undefined"? dataStage1Var.stdcombD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[7], mean:typeof(dataStage1Var.Q5b) != "undefined"? dataStage1Var.Q5b.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.Q5bD) != "undefined"? dataStage1Var.Q5bD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[8], mean:typeof(dataStage1Var.Q5d) != "undefined"? dataStage1Var.Q5d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.Q5dD) != "undefined"? dataStage1Var.Q5dD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[9], mean:typeof(dataStage1Var.Q5e) != "undefined"? dataStage1Var.Q5e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.Q5eD) != "undefined"? dataStage1Var.Q5eD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[10], mean:typeof(dataStage1Var.Q5f) != "undefined"? dataStage1Var.Q5f.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.Q5fD) != "undefined"? dataStage1Var.Q5fD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[11], mean:typeof(dataStage1Var.Q7a) != "undefined"? dataStage1Var.Q7a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.Q7aD) != "undefined"? dataStage1Var.Q7aD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[12], mean:typeof(dataStage1Var.Q8a) != "undefined"? dataStage1Var.Q8a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.Q8aD) != "undefined"? dataStage1Var.Q8aD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[13], mean:typeof(dataStage1Var.Q8c) != "undefined"? dataStage1Var.Q8c.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.Q8cD) != "undefined"? dataStage1Var.Q8cD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[14], mean:typeof(dataStage1Var.Q8d) != "undefined"? dataStage1Var.Q8d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.Q8dD) != "undefined"? dataStage1Var.Q8dD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[15], mean:typeof(dataStage1Var.Q8e) != "undefined"? dataStage1Var.Q8e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.Q8eD) != "undefined"? dataStage1Var.Q8eD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[16], mean:typeof(dataStage1Var.Q8g) != "undefined"? dataStage1Var.Q8g.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.Q8gD) != "undefined"? dataStage1Var.Q8gD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[17], mean:typeof(dataStage1Var.Q8i) != "undefined"? dataStage1Var.Q8i.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.Q8iD) != "undefined"? dataStage1Var.Q8iD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[18], mean:typeof(dataStage1Var.Q9) != "undefined"? dataStage1Var.Q9.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.Q9D) != "undefined"? dataStage1Var.Q9D.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[19], mean:typeof(dataStage1Var.Q11) != "undefined"? dataStage1Var.Q11.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(dataStage1Var.Q11D) != "undefined"? dataStage1Var.Q11D.toFixed(numberOfDecimalPlaces): "NA"},
+								];
 	
 
 	if(typeof(weightStage1) =="number"){
@@ -714,58 +321,62 @@ function createNodeData(graph, data){
 	var weight1Stage2 = weightDef;
 	if(typeof(stage2Data.CSE143) != "undefined"){
 		weight1Stage2 = stage2Data.CSE143.weight;
-		stage2StatsCS143  = [{variable:statsName[0], mean:stage2Data.CSE143.gpa, deviation:stage2Data.CSE143.gpaD},
-					{variable:statsName[1], mean:stage2Data.CSE143.cse142grade, deviation:stage2Data.CSE143.cse142gradeD},
-					{variable:statsName[20], mean:stage2Data.CSE143.cse142firstclass, deviation:stage2Data.CSE143.cse142firstclassD},
-					{variable:statsName[2], mean:stage2Data.CSE143.cse143grade, deviation:stage2Data.CSE143.cse143gradeD},
-					{variable:statsName[21], mean:stage2Data.CSE143.cse143firstclass, deviation:stage2Data.CSE143.cse143firstclassD},
-					{variable:statsName[3], mean:stage2Data.CSE143.appscores, deviation:stage2Data.CSE143.appscoresD},
-					{variable:statsName[4], mean:stage2Data.CSE143.stdmath, deviation:stage2Data.CSE143.stdmathD},
-					{variable:statsName[5], mean:stage2Data.CSE143.stdverbal, deviation:stage2Data.CSE143.stdverbalD},
-					{variable:statsName[6], mean:stage2Data.CSE143.stdcomb, deviation:stage2Data.CSE143.stdcombD},
-
-					{variable:statsName[7], mean:stage2Data.CSE143.Q5b, deviation:stage2Data.CSE143.Q5bD},
-					{variable:statsName[8], mean:stage2Data.CSE143.Q5d, deviation:stage2Data.CSE143.Q5dD},
-					{variable:statsName[9], mean:stage2Data.CSE143.Q5e, deviation:stage2Data.CSE143.Q5eD},
-					{variable:statsName[10], mean:stage2Data.CSE143.Q5f, deviation:stage2Data.CSE143.Q5fD},
-					{variable:statsName[11], mean:stage2Data.CSE143.Q7a, deviation:stage2Data.CSE143.Q7aD},
-					{variable:statsName[12], mean:stage2Data.CSE143.Q8a, deviation:stage2Data.CSE143.Q8aD},
-					{variable:statsName[13], mean:stage2Data.CSE143.Q8c, deviation:stage2Data.CSE143.Q8cD},
-					{variable:statsName[14], mean:stage2Data.CSE143.Q8d, deviation:stage2Data.CSE143.Q8dD},
-					{variable:statsName[15], mean:stage2Data.CSE143.Q8e, deviation:stage2Data.CSE143.Q8eD},
-					{variable:statsName[16], mean:stage2Data.CSE143.Q8g, deviation:stage2Data.CSE143.Q8gD},
-					{variable:statsName[17], mean:stage2Data.CSE143.Q8i, deviation:stage2Data.CSE143.Q8iD},
-					{variable:statsName[18], mean:stage2Data.CSE143.Q9, deviation:stage2Data.CSE143.Q9D},
-					{variable:statsName[19], mean:stage2Data.CSE143.Q11, deviation:stage2Data.CSE143.Q11D},
-				];
+		var stage2StatsCS143 = [{variable:statsName[0], mean:typeof(stage2Data.CSE143.gpa) != "undefined"? stage2Data.CSE143.gpa.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.gpaD) != "undefined"? stage2Data.CSE143.gpaD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[1], mean:typeof(stage2Data.CSE143.cse142grade) != "undefined"? stage2Data.CSE143.cse142grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.cse142gradeD) != "undefined"? stage2Data.CSE143.cse142gradeD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[20], mean:typeof(stage2Data.CSE143.cse142firstclass) != "undefined"? stage2Data.CSE143.cse142firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.cse142firstclassD) != "undefined"? stage2Data.CSE143.cse142firstclassD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[2], mean:typeof(stage2Data.CSE143.cse143grade) != "undefined"? stage2Data.CSE143.cse143grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.cse143gradeD) != "undefined"? stage2Data.CSE143.cse143gradeD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[21], mean:typeof(stage2Data.CSE143.cse143firstclass) != "undefined"? stage2Data.CSE143.cse143firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.cse143firstclassD) != "undefined"? stage2Data.CSE143.cse143firstclassD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[3], mean:typeof(stage2Data.CSE143.appscores) != "undefined"? stage2Data.CSE143.appscores.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.appscoresD) != "undefined"? stage2Data.CSE143.appscoresD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[4], mean:typeof(stage2Data.CSE143.stdmath) != "undefined"? stage2Data.CSE143.stdmath.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.stdmathD) != "undefined"? stage2Data.CSE143.stdmathD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[5], mean:typeof(stage2Data.CSE143.stdverbal) != "undefined"? stage2Data.CSE143.stdverbal.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.stdverbalD) != "undefined"? stage2Data.CSE143.stdverbalD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[6], mean:typeof(stage2Data.CSE143.stdcomb) != "undefined"? stage2Data.CSE143.stdcomb.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.stdcombD) != "undefined"? stage2Data.CSE143.stdcombD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[7], mean:typeof(stage2Data.CSE143.Q5b) != "undefined"? stage2Data.CSE143.Q5b.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.Q5bD) != "undefined"? stage2Data.CSE143.Q5bD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[8], mean:typeof(stage2Data.CSE143.Q5d) != "undefined"? stage2Data.CSE143.Q5d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.Q5dD) != "undefined"? stage2Data.CSE143.Q5dD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[9], mean:typeof(stage2Data.CSE143.Q5e) != "undefined"? stage2Data.CSE143.Q5e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.Q5eD) != "undefined"? stage2Data.CSE143.Q5eD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[10], mean:typeof(stage2Data.CSE143.Q5f) != "undefined"? stage2Data.CSE143.Q5f.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.Q5fD) != "undefined"? stage2Data.CSE143.Q5fD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[11], mean:typeof(stage2Data.CSE143.Q7a) != "undefined"? stage2Data.CSE143.Q7a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.Q7aD) != "undefined"? stage2Data.CSE143.Q7aD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[12], mean:typeof(stage2Data.CSE143.Q8a) != "undefined"? stage2Data.CSE143.Q8a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.Q8aD) != "undefined"? stage2Data.CSE143.Q8aD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[13], mean:typeof(stage2Data.CSE143.Q8c) != "undefined"? stage2Data.CSE143.Q8c.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.Q8cD) != "undefined"? stage2Data.CSE143.Q8cD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[14], mean:typeof(stage2Data.CSE143.Q8d) != "undefined"? stage2Data.CSE143.Q8d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.Q8dD) != "undefined"? stage2Data.CSE143.Q8dD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[15], mean:typeof(stage2Data.CSE143.Q8e) != "undefined"? stage2Data.CSE143.Q8e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.Q8eD) != "undefined"? stage2Data.CSE143.Q8eD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[16], mean:typeof(stage2Data.CSE143.Q8g) != "undefined"? stage2Data.CSE143.Q8g.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.Q8gD) != "undefined"? stage2Data.CSE143.Q8gD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[17], mean:typeof(stage2Data.CSE143.Q8i) != "undefined"? stage2Data.CSE143.Q8i.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.Q8iD) != "undefined"? stage2Data.CSE143.Q8iD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[18], mean:typeof(stage2Data.CSE143.Q9) != "undefined"? stage2Data.CSE143.Q9.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.Q9D) != "undefined"? stage2Data.CSE143.Q9D.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[19], mean:typeof(stage2Data.CSE143.Q11) != "undefined"? stage2Data.CSE143.Q11.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.CSE143.Q11D) != "undefined"? stage2Data.CSE143.Q11D.toFixed(numberOfDecimalPlaces): "NA"},
+								];
 	}
 	var weight2Stage2 = weightDef;
+	console.log(stage2Data.NA143)
 	if(typeof(stage2Data.NA143) != "undefined"){
 		weight2Stage2 = stage2Data.NA143.weight;
-		stage2StatsNA143 = [{variable:statsName[0], mean:stage2Data.NA143.gpa, deviation:stage2Data.NA143.gpaD},
-					{variable:statsName[1], mean:stage2Data.NA143.cse142grade, deviation:stage2Data.NA143.cse142gradeD},
-					{variable:statsName[20], mean:stage2Data.NA143.cse142firstclass, deviation:stage2Data.NA143.cse142firstclassD},
-					{variable:statsName[2], mean:stage2Data.NA143.cse143grade, deviation:stage2Data.NA143.cse143gradeD},
-					{variable:statsName[21], mean:stage2Data.NA143.cse143firstclass, deviation:stage2Data.NA143.cse143firstclassD},
-					{variable:statsName[3], mean:stage2Data.NA143.appscores, deviation:stage2Data.NA143.appscoresD},
-					{variable:statsName[4], mean:stage2Data.NA143.stdmath, deviation:stage2Data.NA143.stdmathD},
-					{variable:statsName[5], mean:stage2Data.NA143.stdverbal, deviation:stage2Data.NA143.stdverbalD},
-					{variable:statsName[6], mean:stage2Data.NA143.stdcomb, deviation:stage2Data.NA143.stdcombD},
+		
+		console.log(stage2Data.NA143.cse143grade)
+		stage2StatsNA143 = [{variable:statsName[0], mean:typeof(stage2Data.NA143.gpa) != "undefined"? stage2Data.NA143.gpa.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.gpaD) != "undefined"? stage2Data.NA143.gpaD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[1], mean:typeof(stage2Data.NA143.cse142grade) != "undefined"? stage2Data.NA143.cse142grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.cse142gradeD) != "undefined"? stage2Data.NA143.cse142gradeD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[20], mean:typeof(stage2Data.NA143.cse142firstclass) != "undefined"? stage2Data.NA143.cse142firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.cse142firstclassD) != "undefined"? stage2Data.NA143.cse142firstclassD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[2], mean:typeof(stage2Data.NA143.cse143grade) != "undefined"? stage2Data.NA143.cse143grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.cse143gradeD) != "undefined"? stage2Data.NA143.cse143gradeD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[21], mean:typeof(stage2Data.NA143.cse143firstclass) != "undefined"? stage2Data.NA143.cse143firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.cse143firstclassD) != "undefined"? stage2Data.NA143.cse143firstclassD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[3], mean:typeof(stage2Data.NA143.appscores) != "undefined"? stage2Data.NA143.appscores.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.appscoresD) != "undefined"? stage2Data.NA143.appscoresD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[4], mean:typeof(stage2Data.NA143.stdmath) != "undefined"? stage2Data.NA143.stdmath.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.stdmathD) != "undefined"? stage2Data.NA143.stdmathD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[5], mean:typeof(stage2Data.NA143.stdverbal) != "undefined"? stage2Data.NA143.stdverbal.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.stdverbalD) != "undefined"? stage2Data.NA143.stdverbalD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[6], mean:typeof(stage2Data.NA143.stdcomb) != "undefined"? stage2Data.NA143.stdcomb.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.stdcombD) != "undefined"? stage2Data.NA143.stdcombD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[7], mean:typeof(stage2Data.NA143.Q5b) != "undefined"? stage2Data.NA143.Q5b.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.Q5bD) != "undefined"? stage2Data.NA143.Q5bD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[8], mean:typeof(stage2Data.NA143.Q5d) != "undefined"? stage2Data.NA143.Q5d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.Q5dD) != "undefined"? stage2Data.NA143.Q5dD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[9], mean:typeof(stage2Data.NA143.Q5e) != "undefined"? stage2Data.NA143.Q5e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.Q5eD) != "undefined"? stage2Data.NA143.Q5eD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[10], mean:typeof(stage2Data.NA143.Q5f) != "undefined"? stage2Data.NA143.Q5f.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.Q5fD) != "undefined"? stage2Data.NA143.Q5fD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[11], mean:typeof(stage2Data.NA143.Q7a) != "undefined"? stage2Data.NA143.Q7a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.Q7aD) != "undefined"? stage2Data.NA143.Q7aD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[12], mean:typeof(stage2Data.NA143.Q8a) != "undefined"? stage2Data.NA143.Q8a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.Q8aD) != "undefined"? stage2Data.NA143.Q8aD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[13], mean:typeof(stage2Data.NA143.Q8c) != "undefined"? stage2Data.NA143.Q8c.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.Q8cD) != "undefined"? stage2Data.NA143.Q8cD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[14], mean:typeof(stage2Data.NA143.Q8d) != "undefined"? stage2Data.NA143.Q8d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.Q8dD) != "undefined"? stage2Data.NA143.Q8dD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[15], mean:typeof(stage2Data.NA143.Q8e) != "undefined"? stage2Data.NA143.Q8e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.Q8eD) != "undefined"? stage2Data.NA143.Q8eD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[16], mean:typeof(stage2Data.NA143.Q8g) != "undefined"? stage2Data.NA143.Q8g.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.Q8gD) != "undefined"? stage2Data.NA143.Q8gD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[17], mean:typeof(stage2Data.NA143.Q8i) != "undefined"? stage2Data.NA143.Q8i.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.Q8iD) != "undefined"? stage2Data.NA143.Q8iD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[18], mean:typeof(stage2Data.NA143.Q9) != "undefined"? stage2Data.NA143.Q9.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.Q9D) != "undefined"? stage2Data.NA143.Q9D.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[19], mean:typeof(stage2Data.NA143.Q11) != "undefined"? stage2Data.NA143.Q11.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage2Data.NA143.Q11D) != "undefined"? stage2Data.NA143.Q11D.toFixed(numberOfDecimalPlaces): "NA"},
+								];
 
-					{variable:statsName[7], mean:stage2Data.NA143.Q5b, deviation:stage2Data.NA143.Q5bD},
-					{variable:statsName[8], mean:stage2Data.NA143.Q5d, deviation:stage2Data.NA143.Q5dD},
-					{variable:statsName[9], mean:stage2Data.NA143.Q5e, deviation:stage2Data.NA143.Q5eD},
-					{variable:statsName[10], mean:stage2Data.NA143.Q5f, deviation:stage2Data.NA143.Q5fD},
-					{variable:statsName[11], mean:stage2Data.NA143.Q7a, deviation:stage2Data.NA143.Q7aD},
-					{variable:statsName[12], mean:stage2Data.NA143.Q8a, deviation:stage2Data.NA143.Q8aD},
-					{variable:statsName[13], mean:stage2Data.NA143.Q8c, deviation:stage2Data.NA143.Q8cD},
-					{variable:statsName[14], mean:stage2Data.NA143.Q8d, deviation:stage2Data.NA143.Q8dD},
-					{variable:statsName[15], mean:stage2Data.NA143.Q8e, deviation:stage2Data.NA143.Q8eD},
-					{variable:statsName[16], mean:stage2Data.NA143.Q8g, deviation:stage2Data.NA143.Q8gD},
-					{variable:statsName[17], mean:stage2Data.NA143.Q8i, deviation:stage2Data.NA143.Q8iD},
-					{variable:statsName[18], mean:stage2Data.NA143.Q9, deviation:stage2Data.NA143.Q9D},
-					{variable:statsName[19], mean:stage2Data.NA143.Q11, deviation:stage2Data.NA143.Q11D},
-				];
+
+
 	}
 
 	if(typeof(weight1Stage2) =="number"){
@@ -879,116 +490,112 @@ function createNodeData(graph, data){
 	var weight4Stage3 = weightDef;
 	if(typeof(stage3Data.Accept) != "undefined"){
 		weight4Stage3 = stage3Data.Accept.weight;
-		stage3StatsAccept = [{variable:statsName[0], mean:stage3Data.Accept.gpa, deviation:stage3Data.Accept.gpaD},
-					{variable:statsName[1], mean:stage3Data.Accept.cse142grade, deviation:stage3Data.Accept.cse142gradeD},
-					{variable:statsName[20], mean:stage3Data.Accept.cse142firstclass, deviation:stage3Data.Accept.cse142firstclassD},
-					{variable:statsName[2], mean:stage3Data.Accept.cse143grade, deviation:stage3Data.Accept.cse143gradeD},
-					{variable:statsName[21], mean:stage3Data.Accept.cse143firstclass, deviation:stage3Data.Accept.cse143firstclassD},
-					{variable:statsName[3], mean:stage3Data.Accept.appscores, deviation:stage3Data.Accept.appscoresD},
-					{variable:statsName[4], mean:stage3Data.Accept.stdmath, deviation:stage3Data.Accept.stdmathD},
-					{variable:statsName[5], mean:stage3Data.Accept.stdverbal, deviation:stage3Data.Accept.stdverbalD},
-					{variable:statsName[6], mean:stage3Data.Accept.stdcomb, deviation:stage3Data.Accept.stdcombD},
-
-					{variable:statsName[7], mean:stage3Data.Accept.Q5b, deviation:stage3Data.Accept.Q5bD},
-					{variable:statsName[8], mean:stage3Data.Accept.Q5d, deviation:stage3Data.Accept.Q5dD},
-					{variable:statsName[9], mean:stage3Data.Accept.Q5e, deviation:stage3Data.Accept.Q5eD},
-					{variable:statsName[10], mean:stage3Data.Accept.Q5f, deviation:stage3Data.Accept.Q5fD},
-					{variable:statsName[11], mean:stage3Data.Accept.Q7a, deviation:stage3Data.Accept.Q7aD},
-					{variable:statsName[12], mean:stage3Data.Accept.Q8a, deviation:stage3Data.Accept.Q8aD},
-					{variable:statsName[13], mean:stage3Data.Accept.Q8c, deviation:stage3Data.Accept.Q8cD},
-					{variable:statsName[14], mean:stage3Data.Accept.Q8d, deviation:stage3Data.Accept.Q8dD},
-					{variable:statsName[15], mean:stage3Data.Accept.Q8e, deviation:stage3Data.Accept.Q8eD},
-					{variable:statsName[16], mean:stage3Data.Accept.Q8g, deviation:stage3Data.Accept.Q8gD},
-					{variable:statsName[17], mean:stage3Data.Accept.Q8i, deviation:stage3Data.Accept.Q8iD},
-					{variable:statsName[18], mean:stage3Data.Accept.Q9, deviation:stage3Data.Accept.Q9D},
-					{variable:statsName[19], mean:stage3Data.Accept.Q11, deviation:stage3Data.Accept.Q11D},
-				];
+		stage3StatsAccept = [{variable:statsName[0], mean:typeof(stage3Data.Accept.gpa) != "undefined"? stage3Data.Accept.gpa.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.gpaD) != "undefined"? stage3Data.Accept.gpaD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[1], mean:typeof(stage3Data.Accept.cse142grade) != "undefined"? stage3Data.Accept.cse142grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.cse142gradeD) != "undefined"? stage3Data.Accept.cse142gradeD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[20], mean:typeof(stage3Data.Accept.cse142firstclass) != "undefined"? stage3Data.Accept.cse142firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.cse142firstclassD) != "undefined"? stage3Data.Accept.cse142firstclassD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[2], mean:typeof(stage3Data.Accept.cse143grade) != "undefined"? stage3Data.Accept.cse143grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.cse143gradeD) != "undefined"? stage3Data.Accept.cse143gradeD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[21], mean:typeof(stage3Data.Accept.cse143firstclass) != "undefined"? stage3Data.Accept.cse143firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.cse143firstclassD) != "undefined"? stage3Data.Accept.cse143firstclassD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[3], mean:typeof(stage3Data.Accept.appscores) != "undefined"? stage3Data.Accept.appscores.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.appscoresD) != "undefined"? stage3Data.Accept.appscoresD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[4], mean:typeof(stage3Data.Accept.stdmath) != "undefined"? stage3Data.Accept.stdmath.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.stdmathD) != "undefined"? stage3Data.Accept.stdmathD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[5], mean:typeof(stage3Data.Accept.stdverbal) != "undefined"? stage3Data.Accept.stdverbal.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.stdverbalD) != "undefined"? stage3Data.Accept.stdverbalD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[6], mean:typeof(stage3Data.Accept.stdcomb) != "undefined"? stage3Data.Accept.stdcomb.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.stdcombD) != "undefined"? stage3Data.Accept.stdcombD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[7], mean:typeof(stage3Data.Accept.Q5b) != "undefined"? stage3Data.Accept.Q5b.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.Q5bD) != "undefined"? stage3Data.Accept.Q5bD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[8], mean:typeof(stage3Data.Accept.Q5d) != "undefined"? stage3Data.Accept.Q5d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.Q5dD) != "undefined"? stage3Data.Accept.Q5dD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[9], mean:typeof(stage3Data.Accept.Q5e) != "undefined"? stage3Data.Accept.Q5e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.Q5eD) != "undefined"? stage3Data.Accept.Q5eD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[10], mean:typeof(stage3Data.Accept.Q5f) != "undefined"? stage3Data.Accept.Q5f.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.Q5fD) != "undefined"? stage3Data.Accept.Q5fD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[11], mean:typeof(stage3Data.Accept.Q7a) != "undefined"? stage3Data.Accept.Q7a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.Q7aD) != "undefined"? stage3Data.Accept.Q7aD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[12], mean:typeof(stage3Data.Accept.Q8a) != "undefined"? stage3Data.Accept.Q8a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.Q8aD) != "undefined"? stage3Data.Accept.Q8aD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[13], mean:typeof(stage3Data.Accept.Q8c) != "undefined"? stage3Data.Accept.Q8c.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.Q8cD) != "undefined"? stage3Data.Accept.Q8cD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[14], mean:typeof(stage3Data.Accept.Q8d) != "undefined"? stage3Data.Accept.Q8d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.Q8dD) != "undefined"? stage3Data.Accept.Q8dD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[15], mean:typeof(stage3Data.Accept.Q8e) != "undefined"? stage3Data.Accept.Q8e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.Q8eD) != "undefined"? stage3Data.Accept.Q8eD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[16], mean:typeof(stage3Data.Accept.Q8g) != "undefined"? stage3Data.Accept.Q8g.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.Q8gD) != "undefined"? stage3Data.Accept.Q8gD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[17], mean:typeof(stage3Data.Accept.Q8i) != "undefined"? stage3Data.Accept.Q8i.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.Q8iD) != "undefined"? stage3Data.Accept.Q8iD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[18], mean:typeof(stage3Data.Accept.Q9) != "undefined"? stage3Data.Accept.Q9.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.Q9D) != "undefined"? stage3Data.Accept.Q9D.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[19], mean:typeof(stage3Data.Accept.Q11) != "undefined"? stage3Data.Accept.Q11.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Accept.Q11D) != "undefined"? stage3Data.Accept.Q11D.toFixed(numberOfDecimalPlaces): "NA"},
+								];
 	}
 
 	var weight5Stage3 = weightDef;
 	if(typeof(stage3Data.DNA) != "undefined"){
 		weight5Stage3 = stage3Data.DNA.weight;
-		stage3StatsDNA = [{variable:statsName[0], mean:stage3Data.DNA.gpa, deviation:stage3Data.DNA.gpaD},
-					{variable:statsName[1], mean:stage3Data.DNA.cse142grade, deviation:stage3Data.DNA.cse142gradeD},
-					{variable:statsName[20], mean:stage3Data.DNA.cse142firstclass, deviation:stage3Data.DNA.cse142firstclassD},
-					{variable:statsName[2], mean:stage3Data.DNA.cse143grade, deviation:stage3Data.DNA.cse143gradeD},
-					{variable:statsName[21], mean:stage3Data.DNA.cse143firstclass, deviation:stage3Data.DNA.cse143firstclassD},
-					{variable:statsName[3], mean:stage3Data.DNA.appscores, deviation:stage3Data.DNA.appscoresD},
-					{variable:statsName[4], mean:stage3Data.DNA.stdmath, deviation:stage3Data.DNA.stdmathD},
-					{variable:statsName[5], mean:stage3Data.DNA.stdverbal, deviation:stage3Data.DNA.stdverbalD},
-					{variable:statsName[6], mean:stage3Data.DNA.stdcomb, deviation:stage3Data.DNA.stdcombD},
-
-					{variable:statsName[7], mean:stage3Data.DNA.Q5b, deviation:stage3Data.DNA.Q5bD},
-					{variable:statsName[8], mean:stage3Data.DNA.Q5d, deviation:stage3Data.DNA.Q5dD},
-					{variable:statsName[9], mean:stage3Data.DNA.Q5e, deviation:stage3Data.DNA.Q5eD},
-					{variable:statsName[10], mean:stage3Data.DNA.Q5f, deviation:stage3Data.DNA.Q5fD},
-					{variable:statsName[11], mean:stage3Data.DNA.Q7a, deviation:stage3Data.DNA.Q7aD},
-					{variable:statsName[12], mean:stage3Data.DNA.Q8a, deviation:stage3Data.DNA.Q8aD},
-					{variable:statsName[13], mean:stage3Data.DNA.Q8c, deviation:stage3Data.DNA.Q8cD},
-					{variable:statsName[14], mean:stage3Data.DNA.Q8d, deviation:stage3Data.DNA.Q8dD},
-					{variable:statsName[15], mean:stage3Data.DNA.Q8e, deviation:stage3Data.DNA.Q8eD},
-					{variable:statsName[16], mean:stage3Data.DNA.Q8g, deviation:stage3Data.DNA.Q8gD},
-					{variable:statsName[17], mean:stage3Data.DNA.Q8i, deviation:stage3Data.DNA.Q8iD},
-					{variable:statsName[18], mean:stage3Data.DNA.Q9, deviation:stage3Data.DNA.Q9D},
-					{variable:statsName[19], mean:stage3Data.DNA.Q11, deviation:stage3Data.DNA.Q11D},
-				];
+		stage3StatsDNA = [{variable:statsName[0], mean:typeof(stage3Data.DNA.gpa) != "undefined"? stage3Data.DNA.gpa.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.gpaD) != "undefined"? stage3Data.DNA.gpaD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[1], mean:typeof(stage3Data.DNA.cse142grade) != "undefined"? stage3Data.DNA.cse142grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.cse142gradeD) != "undefined"? stage3Data.DNA.cse142gradeD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[20], mean:typeof(stage3Data.DNA.cse142firstclass) != "undefined"? stage3Data.DNA.cse142firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.cse142firstclassD) != "undefined"? stage3Data.DNA.cse142firstclassD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[2], mean:typeof(stage3Data.DNA.cse143grade) != "undefined"? stage3Data.DNA.cse143grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.cse143gradeD) != "undefined"? stage3Data.DNA.cse143gradeD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[21], mean:typeof(stage3Data.DNA.cse143firstclass) != "undefined"? stage3Data.DNA.cse143firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.cse143firstclassD) != "undefined"? stage3Data.DNA.cse143firstclassD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[3], mean:typeof(stage3Data.DNA.appscores) != "undefined"? stage3Data.DNA.appscores.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.appscoresD) != "undefined"? stage3Data.DNA.appscoresD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[4], mean:typeof(stage3Data.DNA.stdmath) != "undefined"? stage3Data.DNA.stdmath.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.stdmathD) != "undefined"? stage3Data.DNA.stdmathD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[5], mean:typeof(stage3Data.DNA.stdverbal) != "undefined"? stage3Data.DNA.stdverbal.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.stdverbalD) != "undefined"? stage3Data.DNA.stdverbalD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[6], mean:typeof(stage3Data.DNA.stdcomb) != "undefined"? stage3Data.DNA.stdcomb.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.stdcombD) != "undefined"? stage3Data.DNA.stdcombD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[7], mean:typeof(stage3Data.DNA.Q5b) != "undefined"? stage3Data.DNA.Q5b.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.Q5bD) != "undefined"? stage3Data.DNA.Q5bD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[8], mean:typeof(stage3Data.DNA.Q5d) != "undefined"? stage3Data.DNA.Q5d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.Q5dD) != "undefined"? stage3Data.DNA.Q5dD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[9], mean:typeof(stage3Data.DNA.Q5e) != "undefined"? stage3Data.DNA.Q5e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.Q5eD) != "undefined"? stage3Data.DNA.Q5eD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[10], mean:typeof(stage3Data.DNA.Q5f) != "undefined"? stage3Data.DNA.Q5f.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.Q5fD) != "undefined"? stage3Data.DNA.Q5fD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[11], mean:typeof(stage3Data.DNA.Q7a) != "undefined"? stage3Data.DNA.Q7a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.Q7aD) != "undefined"? stage3Data.DNA.Q7aD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[12], mean:typeof(stage3Data.DNA.Q8a) != "undefined"? stage3Data.DNA.Q8a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.Q8aD) != "undefined"? stage3Data.DNA.Q8aD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[13], mean:typeof(stage3Data.DNA.Q8c) != "undefined"? stage3Data.DNA.Q8c.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.Q8cD) != "undefined"? stage3Data.DNA.Q8cD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[14], mean:typeof(stage3Data.DNA.Q8d) != "undefined"? stage3Data.DNA.Q8d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.Q8dD) != "undefined"? stage3Data.DNA.Q8dD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[15], mean:typeof(stage3Data.DNA.Q8e) != "undefined"? stage3Data.DNA.Q8e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.Q8eD) != "undefined"? stage3Data.DNA.Q8eD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[16], mean:typeof(stage3Data.DNA.Q8g) != "undefined"? stage3Data.DNA.Q8g.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.Q8gD) != "undefined"? stage3Data.DNA.Q8gD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[17], mean:typeof(stage3Data.DNA.Q8i) != "undefined"? stage3Data.DNA.Q8i.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.Q8iD) != "undefined"? stage3Data.DNA.Q8iD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[18], mean:typeof(stage3Data.DNA.Q9) != "undefined"? stage3Data.DNA.Q9.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.Q9D) != "undefined"? stage3Data.DNA.Q9D.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[19], mean:typeof(stage3Data.DNA.Q11) != "undefined"? stage3Data.DNA.Q11.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.DNA.Q11D) != "undefined"? stage3Data.DNA.Q11D.toFixed(numberOfDecimalPlaces): "NA"},
+								];
 	}
 	var weight6Stage3 = weightDef;
 	if(typeof(stage3Data.Deny) != "undefined"){
 		weight6Stage3 = stage3Data.Deny.weight;
-		stage3StatsDeny = [{variable:statsName[0], mean:stage3Data.Deny.gpa, deviation:stage3Data.Deny.gpaD},
-					{variable:statsName[1], mean:stage3Data.Deny.cse142grade, deviation:stage3Data.Deny.cse142gradeD},
-					{variable:statsName[20], mean:stage3Data.Deny.cse142firstclass, deviation:stage3Data.Deny.cse142firstclassD},
-					{variable:statsName[2], mean:stage3Data.Deny.cse143grade, deviation:stage3Data.Deny.cse143gradeD},
-					{variable:statsName[21], mean:stage3Data.Deny.cse143firstclass, deviation:stage3Data.Deny.cse143firstclassD},
-					{variable:statsName[3], mean:stage3Data.Deny.appscores, deviation:stage3Data.Deny.appscoresD},
-					{variable:statsName[4], mean:stage3Data.Deny.stdmath, deviation:stage3Data.Deny.stdmathD},
-					{variable:statsName[5], mean:stage3Data.Deny.stdverbal, deviation:stage3Data.Deny.stdverbalD},
-					{variable:statsName[6], mean:stage3Data.Deny.stdcomb, deviation:stage3Data.Deny.stdcombD},
-
-					{variable:statsName[7], mean:stage3Data.Deny.Q5b, deviation:stage3Data.Deny.Q5bD},
-					{variable:statsName[8], mean:stage3Data.Deny.Q5d, deviation:stage3Data.Deny.Q5dD},
-					{variable:statsName[9], mean:stage3Data.Deny.Q5e, deviation:stage3Data.Deny.Q5eD},
-					{variable:statsName[10], mean:stage3Data.Deny.Q5f, deviation:stage3Data.Deny.Q5fD},
-					{variable:statsName[11], mean:stage3Data.Deny.Q7a, deviation:stage3Data.Deny.Q7aD},
-					{variable:statsName[12], mean:stage3Data.Deny.Q8a, deviation:stage3Data.Deny.Q8aD},
-					{variable:statsName[13], mean:stage3Data.Deny.Q8c, deviation:stage3Data.Deny.Q8cD},
-					{variable:statsName[14], mean:stage3Data.Deny.Q8d, deviation:stage3Data.Deny.Q8dD},
-					{variable:statsName[15], mean:stage3Data.Deny.Q8e, deviation:stage3Data.Deny.Q8eD},
-					{variable:statsName[16], mean:stage3Data.Deny.Q8g, deviation:stage3Data.Deny.Q8gD},
-					{variable:statsName[17], mean:stage3Data.Deny.Q8i, deviation:stage3Data.Deny.Q8iD},
-					{variable:statsName[18], mean:stage3Data.Deny.Q9, deviation:stage3Data.Deny.Q9D},
-					{variable:statsName[19], mean:stage3Data.Deny.Q11, deviation:stage3Data.Deny.Q11D},
-				];
+		stage3StatsDeny = [{variable:statsName[0], mean:typeof(stage3Data.Deny.gpa) != "undefined"? stage3Data.Deny.gpa.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.gpaD) != "undefined"? stage3Data.Deny.gpaD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[1], mean:typeof(stage3Data.Deny.cse142grade) != "undefined"? stage3Data.Deny.cse142grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.cse142gradeD) != "undefined"? stage3Data.Deny.cse142gradeD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[20], mean:typeof(stage3Data.Deny.cse142firstclass) != "undefined"? stage3Data.Deny.cse142firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.cse142firstclassD) != "undefined"? stage3Data.Deny.cse142firstclassD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[2], mean:typeof(stage3Data.Deny.cse143grade) != "undefined"? stage3Data.Deny.cse143grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.cse143gradeD) != "undefined"? stage3Data.Deny.cse143gradeD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[21], mean:typeof(stage3Data.Deny.cse143firstclass) != "undefined"? stage3Data.Deny.cse143firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.cse143firstclassD) != "undefined"? stage3Data.Deny.cse143firstclassD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[3], mean:typeof(stage3Data.Deny.appscores) != "undefined"? stage3Data.Deny.appscores.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.appscoresD) != "undefined"? stage3Data.Deny.appscoresD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[4], mean:typeof(stage3Data.Deny.stdmath) != "undefined"? stage3Data.Deny.stdmath.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.stdmathD) != "undefined"? stage3Data.Deny.stdmathD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[5], mean:typeof(stage3Data.Deny.stdverbal) != "undefined"? stage3Data.Deny.stdverbal.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.stdverbalD) != "undefined"? stage3Data.Deny.stdverbalD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[6], mean:typeof(stage3Data.Deny.stdcomb) != "undefined"? stage3Data.Deny.stdcomb.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.stdcombD) != "undefined"? stage3Data.Deny.stdcombD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[7], mean:typeof(stage3Data.Deny.Q5b) != "undefined"? stage3Data.Deny.Q5b.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.Q5bD) != "undefined"? stage3Data.Deny.Q5bD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[8], mean:typeof(stage3Data.Deny.Q5d) != "undefined"? stage3Data.Deny.Q5d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.Q5dD) != "undefined"? stage3Data.Deny.Q5dD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[9], mean:typeof(stage3Data.Deny.Q5e) != "undefined"? stage3Data.Deny.Q5e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.Q5eD) != "undefined"? stage3Data.Deny.Q5eD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[10], mean:typeof(stage3Data.Deny.Q5f) != "undefined"? stage3Data.Deny.Q5f.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.Q5fD) != "undefined"? stage3Data.Deny.Q5fD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[11], mean:typeof(stage3Data.Deny.Q7a) != "undefined"? stage3Data.Deny.Q7a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.Q7aD) != "undefined"? stage3Data.Deny.Q7aD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[12], mean:typeof(stage3Data.Deny.Q8a) != "undefined"? stage3Data.Deny.Q8a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.Q8aD) != "undefined"? stage3Data.Deny.Q8aD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[13], mean:typeof(stage3Data.Deny.Q8c) != "undefined"? stage3Data.Deny.Q8c.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.Q8cD) != "undefined"? stage3Data.Deny.Q8cD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[14], mean:typeof(stage3Data.Deny.Q8d) != "undefined"? stage3Data.Deny.Q8d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.Q8dD) != "undefined"? stage3Data.Deny.Q8dD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[15], mean:typeof(stage3Data.Deny.Q8e) != "undefined"? stage3Data.Deny.Q8e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.Q8eD) != "undefined"? stage3Data.Deny.Q8eD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[16], mean:typeof(stage3Data.Deny.Q8g) != "undefined"? stage3Data.Deny.Q8g.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.Q8gD) != "undefined"? stage3Data.Deny.Q8gD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[17], mean:typeof(stage3Data.Deny.Q8i) != "undefined"? stage3Data.Deny.Q8i.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.Q8iD) != "undefined"? stage3Data.Deny.Q8iD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[18], mean:typeof(stage3Data.Deny.Q9) != "undefined"? stage3Data.Deny.Q9.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.Q9D) != "undefined"? stage3Data.Deny.Q9D.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[19], mean:typeof(stage3Data.Deny.Q11) != "undefined"? stage3Data.Deny.Q11.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.Deny.Q11D) != "undefined"? stage3Data.Deny.Q11D.toFixed(numberOfDecimalPlaces): "NA"},
+								];
 	}
 	
 	var weight7Stage3 = weightDef;
 	if(typeof(stage3Data.SD) != "undefined"){
 		weight7Stage3 = stage3Data.SD.weight;
-		stage3StatsSD = [{variable:statsName[0], mean:stage3Data.SD.gpa, deviation:stage3Data.SD.gpaD},
-					{variable:statsName[1], mean:stage3Data.SD.cse142grade, deviation:stage3Data.SD.cse142gradeD},
-					{variable:statsName[20], mean:stage3Data.SD.cse142firstclass, deviation:stage3Data.SD.cse142firstclassD},
-					{variable:statsName[2], mean:stage3Data.SD.cse143grade, deviation:stage3Data.SD.cse143gradeD},
-					{variable:statsName[21], mean:stage3Data.SD.cse143firstclass, deviation:stage3Data.SD.cse143firstclassD},
-					{variable:statsName[3], mean:stage3Data.SD.appscores, deviation:stage3Data.SD.appscoresD},
-					{variable:statsName[4], mean:stage3Data.SD.stdmath, deviation:stage3Data.SD.stdmathD},
-					{variable:statsName[5], mean:stage3Data.SD.stdverbal, deviation:stage3Data.SD.stdverbalD},
-					{variable:statsName[6], mean:stage3Data.SD.stdcomb, deviation:stage3Data.SD.stdcombD},
-
-					{variable:statsName[7], mean:stage3Data.SD.Q5b, deviation:stage3Data.SD.Q5bD},
-					{variable:statsName[8], mean:stage3Data.SD.Q5d, deviation:stage3Data.SD.Q5dD},
-					{variable:statsName[9], mean:stage3Data.SD.Q5e, deviation:stage3Data.SD.Q5eD},
-					{variable:statsName[10], mean:stage3Data.SD.Q5f, deviation:stage3Data.SD.Q5fD},
-					{variable:statsName[11], mean:stage3Data.SD.Q7a, deviation:stage3Data.SD.Q7aD},
-					{variable:statsName[12], mean:stage3Data.SD.Q8a, deviation:stage3Data.SD.Q8aD},
-					{variable:statsName[13], mean:stage3Data.SD.Q8c, deviation:stage3Data.SD.Q8cD},
-					{variable:statsName[14], mean:stage3Data.SD.Q8d, deviation:stage3Data.SD.Q8dD},
-					{variable:statsName[15], mean:stage3Data.SD.Q8e, deviation:stage3Data.SD.Q8eD},
-					{variable:statsName[16], mean:stage3Data.SD.Q8g, deviation:stage3Data.SD.Q8gD},
-					{variable:statsName[17], mean:stage3Data.SD.Q8i, deviation:stage3Data.SD.Q8iD},
-					{variable:statsName[18], mean:stage3Data.SD.Q9, deviation:stage3Data.SD.Q9D},
-					{variable:statsName[19], mean:stage3Data.SD.Q11, deviation:stage3Data.SD.Q11D},
-				];
+		stage3StatsSD = [{variable:statsName[0], mean:typeof(stage3Data.SD.gpa) != "undefined"? stage3Data.SD.gpa.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.gpaD) != "undefined"? stage3Data.SD.gpaD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[1], mean:typeof(stage3Data.SD.cse142grade) != "undefined"? stage3Data.SD.cse142grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.cse142gradeD) != "undefined"? stage3Data.SD.cse142gradeD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[20], mean:typeof(stage3Data.SD.cse142firstclass) != "undefined"? stage3Data.SD.cse142firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.cse142firstclassD) != "undefined"? stage3Data.SD.cse142firstclassD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[2], mean:typeof(stage3Data.SD.cse143grade) != "undefined"? stage3Data.SD.cse143grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.cse143gradeD) != "undefined"? stage3Data.SD.cse143gradeD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[21], mean:typeof(stage3Data.SD.cse143firstclass) != "undefined"? stage3Data.SD.cse143firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.cse143firstclassD) != "undefined"? stage3Data.SD.cse143firstclassD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[3], mean:typeof(stage3Data.SD.appscores) != "undefined"? stage3Data.SD.appscores.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.appscoresD) != "undefined"? stage3Data.SD.appscoresD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[4], mean:typeof(stage3Data.SD.stdmath) != "undefined"? stage3Data.SD.stdmath.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.stdmathD) != "undefined"? stage3Data.SD.stdmathD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[5], mean:typeof(stage3Data.SD.stdverbal) != "undefined"? stage3Data.SD.stdverbal.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.stdverbalD) != "undefined"? stage3Data.SD.stdverbalD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[6], mean:typeof(stage3Data.SD.stdcomb) != "undefined"? stage3Data.SD.stdcomb.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.stdcombD) != "undefined"? stage3Data.SD.stdcombD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[7], mean:typeof(stage3Data.SD.Q5b) != "undefined"? stage3Data.SD.Q5b.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.Q5bD) != "undefined"? stage3Data.SD.Q5bD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[8], mean:typeof(stage3Data.SD.Q5d) != "undefined"? stage3Data.SD.Q5d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.Q5dD) != "undefined"? stage3Data.SD.Q5dD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[9], mean:typeof(stage3Data.SD.Q5e) != "undefined"? stage3Data.SD.Q5e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.Q5eD) != "undefined"? stage3Data.SD.Q5eD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[10], mean:typeof(stage3Data.SD.Q5f) != "undefined"? stage3Data.SD.Q5f.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.Q5fD) != "undefined"? stage3Data.SD.Q5fD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[11], mean:typeof(stage3Data.SD.Q7a) != "undefined"? stage3Data.SD.Q7a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.Q7aD) != "undefined"? stage3Data.SD.Q7aD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[12], mean:typeof(stage3Data.SD.Q8a) != "undefined"? stage3Data.SD.Q8a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.Q8aD) != "undefined"? stage3Data.SD.Q8aD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[13], mean:typeof(stage3Data.SD.Q8c) != "undefined"? stage3Data.SD.Q8c.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.Q8cD) != "undefined"? stage3Data.SD.Q8cD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[14], mean:typeof(stage3Data.SD.Q8d) != "undefined"? stage3Data.SD.Q8d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.Q8dD) != "undefined"? stage3Data.SD.Q8dD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[15], mean:typeof(stage3Data.SD.Q8e) != "undefined"? stage3Data.SD.Q8e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.Q8eD) != "undefined"? stage3Data.SD.Q8eD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[16], mean:typeof(stage3Data.SD.Q8g) != "undefined"? stage3Data.SD.Q8g.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.Q8gD) != "undefined"? stage3Data.SD.Q8gD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[17], mean:typeof(stage3Data.SD.Q8i) != "undefined"? stage3Data.SD.Q8i.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.Q8iD) != "undefined"? stage3Data.SD.Q8iD.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[18], mean:typeof(stage3Data.SD.Q9) != "undefined"? stage3Data.SD.Q9.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.Q9D) != "undefined"? stage3Data.SD.Q9D.toFixed(numberOfDecimalPlaces): "NA"},
+								{variable:statsName[19], mean:typeof(stage3Data.SD.Q11) != "undefined"? stage3Data.SD.Q11.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage3Data.SD.Q11D) != "undefined"? stage3Data.SD.Q11D.toFixed(numberOfDecimalPlaces): "NA"},
+								];
 	}
 
 	/*if(typeof(weight2Stage2) =="number"){

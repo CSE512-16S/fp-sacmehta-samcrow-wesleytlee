@@ -28,10 +28,10 @@ filterApplyButton.onclick = filterGroupVisualize
 
 // load the data
 var globalData = null
-var source = ["Students", "CSE 142", "CSE 143", "CSE 143 - Not applied"];
-var target = ["Enrolled", "Did not enroll", "Application Verified", "Accept", "Did not Apply", "Deny", "Soft Deny"];
+var source = ["Students", "Took CSE 142", "Took CSE 143", "Didn't Take CSE 143"];
+var target = ["Enrolled", "Did not enroll", "Application Verified", "Accepted to Major", "Did not Apply", "Denied", "Soft Denied"];
 
-d3.csv("./data/studentDataE.csv", function(error, data) {
+d3.csv("./data/studentDataF.csv", function(error, data) {
     if (error) {
         alert(error)
         return

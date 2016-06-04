@@ -26,7 +26,12 @@ function updateDataWithTransition(data){
 	//now loop through each nodes to make nodes an array of objects
 	// rather than an array of strings
 	graph.nodes.forEach(function (d, i) {
-		graph.nodes[i] = { "name": d };
+      if(i == 3) {
+         graph.nodes[i] = { "name": d, "xPos": 2};
+      }
+      else {
+         graph.nodes[i] = { "name": d};
+      }
 	});
 
 	sankey
@@ -744,7 +749,12 @@ function renderData(data){
 	//now loop through each nodes to make nodes an array of objects
 	// rather than an array of strings
 	graph.nodes.forEach(function (d, i) {
-	 	graph.nodes[i] = { "name": d };
+      if(i == 3) {
+         graph.nodes[i] = { "name": d, "xPos": 2};
+      }
+      else {
+         graph.nodes[i] = { "name": d};
+      }
 	});
 
 	sankey  

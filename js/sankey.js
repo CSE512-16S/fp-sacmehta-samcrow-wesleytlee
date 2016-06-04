@@ -115,7 +115,12 @@ d3.sankey = function() {
     while (remainingNodes.length) {
       nextNodes = [];
       remainingNodes.forEach(function(node) {
+        
+      if (node.xPos)
+        node.x = node.xPos;
+      else
         node.x = x;
+          
         node.dx = nodeWidth;
         node.sourceLinks.forEach(function(link) {
           nextNodes.push(link.target);
@@ -126,7 +131,7 @@ d3.sankey = function() {
     }
 
     //
-    moveSinksRight(x);
+    //moveSinksRight(x);
     scaleNodeBreadths((width - nodeWidth) / (x - 1));
   }
 
@@ -251,6 +256,7 @@ d3.sankey = function() {
 
     function ascendingDepth(a, b) {
       return a.y - b.y;
+      //return b.y - a.y;
     }
   }
 
@@ -281,7 +287,8 @@ d3.sankey = function() {
   }
 
   function center(node) {
-    return node.y + node.dy / 2;
+    //return node.y + node.dy / 2;
+    return 0;
   }
 
   function value(link) {

@@ -196,27 +196,21 @@ function colorNode(node) {
 
     var id = node.name;
     if (id == source[0]) {
-        return '#8dd3c7';
+        return '#2c7bb6';
     } else if (id == source[1]) {
-        return '#ffffb3';
+        return '#2c7bb6';
     } else if (id == source[2]) {
-        return '#bebada';
+        return '#d7191c';
     } else if (id == source[3]) {
-        return '#fb8072';
+        return '#2c7bb6';
+    } else if (id == source[4]) {
+        return '#d7191c';
     } else if (id == target[0]) {
-        return '#80b1d3';
-    } else if (id == target[1]) {
-        return '#fdb462';
+        return '#2c7bb6';
     } else if (id == target[2]) {
-        return '#b3de69';
-    } else if (id == target[3]) {
-        return '#fccde5';
-    } else if (id == target[4]) {
-        return '#d9d9d9';
-    } else if (id == target[5]) {
-        return '#bc80bd';
-    } else if (id == target[6]) {
-        return '#ccebc5';
+        return '#ffff2a';
+    } else if (id == target[1]) {
+        return '#d7191c';
     } else {
         return '#ffffff';//'#ffed6f'
     }
@@ -225,27 +219,19 @@ function colorNode(node) {
 function colorLink(node) {
     var id = node;
     if (id == 0) {
-        return '#a6cee3';
+        return '#abd9e9';
     } else if (id == 1) {
-        return '#1f78b4';
+        return '#fdae61';
     } else if (id == 2) {
-        return '#b2df8a';
+        return '#abd9e9';
     } else if (id == 3) {
-        return '#33a02c';
+        return '#fdae61';
     } else if (id == 4) {
-        return '#fb9a99';
+        return '#abd9e9';
     } else if (id == 5) {
-        return '#e31a1c';
+        return '#fdae61';
     } else if (id == 6) {
-        return '#fdbf6f';
-    } else if (id == 7) {
-        return '#ff7f00';
-    } else if (id == 8) {
-        return '#cab2d6';
-    } else if (id == 9) {
-        return '#6a3d9a';
-    } else if (id == 10) {
-        return '#ffff99';
+        return '#ffffbf';
     } else {
         return '#ffffff';
     }
@@ -270,5 +256,5 @@ function rectLabel(d){
 }
 
 function nodeText(d){
-	return d.name;
+	return d.name + "(" + d.value + ")";
 }

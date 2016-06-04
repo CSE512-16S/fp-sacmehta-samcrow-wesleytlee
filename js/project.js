@@ -674,7 +674,7 @@ function updateDataWithTransition(data){
 				}
 				else{ return '#ffffff';}
 				})
-		.style("stroke-opacity", function(d, i){ return linkOpacity(d); })
+		.style("stroke-opacity", function(d, i){ return 0.7; })
 		.sort(function(a, b) { return (b.dy - a.dy); });
 
 
@@ -706,7 +706,7 @@ function updateDataWithTransition(data){
 		.style("fill", function(d) {
 		return colorNode(d); })
 		.style("stroke-opacity", function(d, i){ 				
-				return linkOpacity(d); })
+				return 0.7; })
 		.style("stroke", function(d) { 
 			return '#000000'; });
 
@@ -725,12 +725,12 @@ function updateDataWithTransition(data){
 		.data(graph.nodes)
 		.transition()
 		.duration(transitionDuration)
-		.attr("x", -6)
+		.attr("x", 42)
 		.attr("y", function(d) {
 		return d.dy / 2;
 		})
 		.attr("dy", ".35em")
-		.attr("text-anchor", "end")
+		.attr("text-anchor", "start")
 		.attr("transform", null)
 		.text(function(d) {
 			if (d.value >=1){
@@ -738,9 +738,7 @@ function updateDataWithTransition(data){
 			})
 		.filter(function(d) {
 		return d.x < width / 2;
-		})
-		.attr("x", 6 + sankey.nodeWidth())
-		.attr("text-anchor", "start");
+		});
 
 	//render a table
 	renderTable()
@@ -803,7 +801,7 @@ function renderData(data){
 				}
 				else{ return '#ffffff';}
 				})
-		.style("stroke-opacity", function(d, i){ return linkOpacity(d); })
+		.style("stroke-opacity", function(d, i){ return 0.7; })
 		.sort(function(a, b) { return (b.dy - a.dy); });
 
 
@@ -845,18 +843,16 @@ function renderData(data){
 
 	// add in the title for the nodes
 	node.append("text")
-	  .attr("x", -6)
+	  .attr("x", 42)
 	  .attr("y", function(d) { return d.dy / 2; })
 	  .attr("dy", ".35em")
-	  .attr("text-anchor", "end")
+	  .attr("text-anchor", "start")
 	  .attr("transform", null)
 	  .text(function(d) { 
 			if (d.value >=1){ return nodeText(d); }
 			})
-	.filter(function(d) { return d.x < width / 2; })
-	  .attr("x", 6 + sankey.nodeWidth())
-	  .attr("text-anchor", "start");
-
+	.filter(function(d) { return d.x < width / 2; });
+   
 	//render data on a table
 	renderTable()
 }

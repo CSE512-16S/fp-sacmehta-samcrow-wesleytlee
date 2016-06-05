@@ -150,23 +150,49 @@ function RangeFilter(property, min, max, step, label) {
         span.classList.add('range-filter-label')
         return span
     }
+    var createIndicator = function() {
+        var span = document.createElement('span')
+        span.classList.add('range-filter-indicator')
+        return span
+    }
 
     this.minSlider = createSlider()
     this.minSlider.value = min
+    var minIndicator = createIndicator()
     this.maxSlider = createSlider()
     this.maxSlider.value = max
+    var maxIndicator = createIndicator()
+
+    var updateMinIndicator = function() {
+        minIndicator.textContent = this.minSlider.value
+    }
+    var updateMaxIndicator = function() {
+        maxIndicator.textContent = this.maxSlider.value
+    }
+
+    var self = this
+    this.minSlider.onmousemove = function() { updateMinIndicator.apply(self) }
+    this.minSlider.onchange = this.minSlider.onmousemove
+    this.maxSlider.onmousemove = function() { updateMaxIndicator.apply(self) }
+    this.maxSlider.onchange = this.maxSlider.onmousemove
 
     this.root = document.createElement('div')
     this.root.appendChild(createLabel(label))
     var minContainer = document.createElement('div')
     minContainer.appendChild(createLabel('Min'))
     minContainer.appendChild(this.minSlider)
+    minContainer.appendChild(minIndicator)
     this.root.appendChild(minContainer)
     var maxContainer = document.createElement('div')
     maxContainer.appendChild(createLabel('Max'))
     maxContainer.appendChild(this.maxSlider)
+    maxContainer.appendChild(maxIndicator)
     this.root.appendChild(maxContainer)
     this.root.classList.add('range-filter')
+
+    // Initialize indicator values
+    updateMinIndicator.apply(self)
+    updateMaxIndicator.apply(self)
 }
 
 RangeFilter.prototype.setOnChange = function(callback) {

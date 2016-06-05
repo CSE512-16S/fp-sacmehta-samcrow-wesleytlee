@@ -28,7 +28,7 @@
 }
 
 .range-filter-label {
-    margin-left: 0.2em;
+    margin-left: 0.5em;
     margin-right: 0.2em;
 }
 
@@ -41,4 +41,10 @@
 
 .range-filter input {
     vertical-align: text-top;
+}
+
+.range-filter-indicator {
+    display: inline-block;
+    min-width: 2em;
+    text-align: right;
 }

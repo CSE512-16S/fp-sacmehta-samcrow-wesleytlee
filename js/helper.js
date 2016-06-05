@@ -241,7 +241,9 @@ function linkOpacity(node) {
 	var id = node.value;
 	if (id < 1){
 		return 0;	
-	}
+	} else {
+      return 0.7;
+   }
 }
 
 //displayed when link is highlighted

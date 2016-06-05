@@ -5,6 +5,9 @@ var statsName = ["GPA", "Grade (CSE 142)", "Grade (CSE 143)", "Application Score
 		 "Q8a", "Q8c", "Q8d", "Q8e", "Q8g", "Q8i", "Q9", "Q11", "CSE 142 (first class)", "CSE 143 (first class)"];
 
 var groupStats = []
+var groupStatsNew = []
+var groupStatData = []
+var groupStatDataNew = []
 var numberOfDecimalPlaces = 2;
 
 //function to create nodes and links of sankey diagram
@@ -674,7 +677,7 @@ function updateDataWithTransition(data){
 				}
 				else{ return '#ffffff';}
 				})
-		.style("stroke-opacity", function(d, i){ return 0.7; })
+		.style("stroke-opacity", function(d, i){ return linkOpacity; })
 		.sort(function(a, b) { return (b.dy - a.dy); });
 
 
@@ -706,7 +709,7 @@ function updateDataWithTransition(data){
 		.style("fill", function(d) {
 		return colorNode(d); })
 		.style("stroke-opacity", function(d, i){ 				
-				return 0.7; })
+				return linkOpacity(d); })
 		.style("stroke", function(d) { 
 			return '#000000'; });
 
@@ -801,7 +804,7 @@ function renderData(data){
 				}
 				else{ return '#ffffff';}
 				})
-		.style("stroke-opacity", function(d, i){ return 0.7; })
+		.style("stroke-opacity", function(d, i){ return linkOpacity(d); })
 		.sort(function(a, b) { return (b.dy - a.dy); });
 
 
@@ -895,8 +898,9 @@ function renderTable(){
 	if((dataStat.length) == 0){
 		dataStat = [{Row: "No record Found"}]
 	}
-	
-	
+	groupStatData = dataStat
+	differenceStat(groupStatData, groupStatDataNew)
+   
 	d3.select("body")
     	.datum(dataStat) /// filter on lines
     	.call(t)

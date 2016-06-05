@@ -36,8 +36,9 @@ function renderTableNew(){
 	if((dataStat.length) == 0){
 		dataStat = [{Row: "No record Found"}]
 	}
-	
-	console.log(JSON.stringify(dataStat))
+   groupStatDataNew = dataStat
+	differenceStat(groupStatData, groupStatDataNew)
+   
 	d3.select("body")
     	.datum(dataStat) /// filter on lines
     	.call(t)
@@ -141,17 +142,15 @@ function renderDataNew(data){
 
 	// add in the title for the nodes
 	node.append("text")
-	  .attr("x", -6)
+	  .attr("x", 42)
 	  .attr("y", function(d) { return d.dy / 2; })
 	  .attr("dy", ".35em")
-	  .attr("text-anchor", "end")
+	  .attr("text-anchor", "start")
 	  .attr("transform", null)
 	  .text(function(d) { 
 			if (d.value >=1){ return nodeText(d); }
 			})
-	.filter(function(d) { return d.x < width / 2; })
-	  .attr("x", 6 + sankey.nodeWidth())
-	  .attr("text-anchor", "start");
+	.filter(function(d) { return d.x < width / 2; });
 
 	//render data on a table
 	renderTableNew()
@@ -265,12 +264,12 @@ function updateDataWithTransitionNew(data){
 		.data(graph.nodes)
 		.transition()
 		.duration(transitionDuration)
-		.attr("x", -6)
+		.attr("x", 42)
 		.attr("y", function(d) {
 		return d.dy / 2;
 		})
 		.attr("dy", ".35em")
-		.attr("text-anchor", "end")
+		.attr("text-anchor", "start")
 		.attr("transform", null)
 		.text(function(d) {
 			if (d.value >=1){
@@ -278,9 +277,7 @@ function updateDataWithTransitionNew(data){
 			})
 		.filter(function(d) {
 		return d.x < width / 2;
-		})
-		.attr("x", 6 + sankey.nodeWidth())
-		.attr("text-anchor", "start");
+		});
 
 	//render a table
 	renderTableNew()

@@ -258,5 +258,5 @@ function rectLabel(d){
 }
 
 function nodeText(d){
-	return d.name + "(" + d.value + ")";
+	return d.name + "(" + Math.round(d.value) + ")";
 }

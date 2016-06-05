@@ -1,6 +1,6 @@
 var units = "Students";
        var margin = {top: 10, right: 150, bottom: 10, left: 10},
-         width = 800 - margin.left - margin.right,
+         width = 760 - margin.left - margin.right,
          height = 600 - margin.top - margin.bottom;
        var formatNumber = d3.format(",.0f"),  // zero decimal places
          format = function(d) { return formatNumber(d) + " " + units; };

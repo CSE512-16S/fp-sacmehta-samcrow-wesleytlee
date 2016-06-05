@@ -72,6 +72,7 @@ function filterGroupVisualize() {
     // Apply filters
     var data = []
     var predicate = filters.getPredicate();
+    console.log(predicate)
     for (var i = 0; i < globalData.length; i++) {
         var item = globalData[i]
         if (predicate.matches(item)) {

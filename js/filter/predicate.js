@@ -13,7 +13,7 @@ All.prototype.matches = function(e) {
 function IsObject() {}
 
 IsObject.prototype.matches = function(e) {
-    return e && typeof e === 'object'
+    return e !== undefined && typeof e === 'object'
 }
 
 /**
@@ -23,7 +23,7 @@ function HasField(name) {
     this.name = name
 }
 HasField.prototype.matches = function(e) {
-    return e && (typeof e === 'object') && e.hasOwnProperty(this.name)
+    return e !== undefined && (typeof e === 'object') && e.hasOwnProperty(this.name)
 }
 
 /**
@@ -35,7 +35,7 @@ function FieldMatches(name, value) {
     this.value = value
 }
 FieldMatches.prototype.matches = function(e) {
-    return e && (typeof e === 'object') && (e[this.name] == this.value)
+    return e !== undefined && (typeof e === 'object') && (e[this.name] == this.value)
 }
 
 /**
@@ -95,7 +95,7 @@ Range.prototype.matches = function(e) {
         return false
     }
     var value = e[this.property]
-    if (!value) {
+    if (value === undefined) {
         return false
     }
     if (typeof value !== 'number') {
@@ -104,6 +104,9 @@ Range.prototype.matches = function(e) {
             console.warn('Range filter: Value NaN or could not be parsed')
             return false
         }
+    }
+    if (Number.isNaN(value)) {
+        return false;
     }
     return value >= this.min && value <= this.max
 }

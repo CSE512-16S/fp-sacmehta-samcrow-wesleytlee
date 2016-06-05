@@ -1,15 +1,15 @@
 
 /*
- * Filter controls
- *
- * Each filter control has a root DOM element and a predicate.
- */
+* Filter controls
+*
+* Each filter control has a root DOM element and a predicate.
+*/
 
 /**
- * Creates a boolean filter to filter on a property
- * @param property the property to find
- * @param label the label to display
- */
+* Creates a boolean filter to filter on a property
+* @param property the property to find
+* @param label the label to display
+*/
 function BooleanFilter(property, label) {
     this.property = property
 
@@ -65,11 +65,11 @@ BooleanFilter.prototype.getPredicate = function() {
 }
 
 /**
- * A filter that matches a string property with a predefined value
- * @param property the property name to check
- * @param values an array of values of the property to match
- * @param label a label to display
- */
+* A filter that matches a string property with a predefined value
+* @param property the property name to check
+* @param values an array of values of the property to match
+* @param label a label to display
+*/
 function StringFilter(property, values, label) {
     this.property = property
 
@@ -124,14 +124,14 @@ StringFilter.prototype.getPredicate = function() {
 }
 
 /**
- * Allows the user to select part of a range of numerical values
- *
- * @param property the property name
- * @param min the minimum value to allow the user to select
- * @param max the maximum value to allow the user to select
- * @param step the minimum amount by which to change the value
- * @param label the label to display
- */
+* Allows the user to select part of a range of numerical values
+*
+* @param property the property name
+* @param min the minimum value to allow the user to select
+* @param max the maximum value to allow the user to select
+* @param step the minimum amount by which to change the value
+* @param label the label to display
+*/
 function RangeFilter(property, min, max, step, label) {
     this.property = property
 
@@ -205,22 +205,29 @@ RangeFilter.prototype.reset = function() {
 }
 
 RangeFilter.prototype.getPredicate = function() {
-    var min = this.minSlider.value
-    var max = this.maxSlider.value
-    return new Range(this.property, min, max)
+    // If both sliders are at their most accepting values, accept anything
+    if (this.minSlider.value == this.minSlider.getAttribute('min')
+    && this.maxSlider.value == this.maxSlider.getAttribute('max')) {
+        return new All()
+    } else {
+        // Otherwise limit to the range and exclude NaN values
+        var min = this.minSlider.value
+        var max = this.maxSlider.value
+        return new Range(this.property, min, max)
+    }
 }
 
 /**
- * A filter that displays several check boxes
- *
- * When no check boxes are selected, the filter accepts anything. When one
- * or more check boxes are selected, the filter accepts objects with values
- * of the specified property that match any of the checked boxes.
- *
- * @param property the name of the property to filter on
- * @param values an array of values to allow the user to select
- * @param label a label to display
- */
+* A filter that displays several check boxes
+*
+* When no check boxes are selected, the filter accepts anything. When one
+* or more check boxes are selected, the filter accepts objects with values
+* of the specified property that match any of the checked boxes.
+*
+* @param property the name of the property to filter on
+* @param values an array of values to allow the user to select
+* @param label a label to display
+*/
 function CheckBoxFilter(property, values, label) {
     this.property = property
     this.root = document.createElement('div')

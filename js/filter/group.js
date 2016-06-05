@@ -17,14 +17,14 @@ FilterGroup.prototype.addFilter = function(filter) {
 
 FilterGroup.prototype.setOnChange = function(callback) {
     this.callback = callback
-    for (let control of this.controls) {
+    for (var control of this.controls) {
         control.setOnChange(callback)
     }
 }
 
 FilterGroup.prototype.getPredicate = function() {
     var predicates = []
-    for (let control of this.controls) {
+    for (var control of this.controls) {
         predicates.push(control.getPredicate())
     }
     // Call new And() with predicates as the arguments
@@ -36,7 +36,7 @@ FilterGroup.prototype.getRoot = function() {
 }
 
 FilterGroup.prototype.reset = function() {
-    for (let control of this.controls) {
+    for (var control of this.controls) {
         control.reset()
     }
 }

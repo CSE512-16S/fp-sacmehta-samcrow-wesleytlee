@@ -12,14 +12,14 @@ var units = "Students";
         .append("g")
          .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
-       
+
        var svgNew = d3.select("#svg2")
          .attr("width", width + margin.left + margin.right)
          .attr("height", height + margin.top + margin.bottom)
         .append("g")
          .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
-       
+
        // Set the sankey diagram properties
        var sankey = d3.sankey()
          .nodeWidth(36)
@@ -33,6 +33,11 @@ var filterContainer = document.querySelector('.filter-container')
 filterContainer.appendChild(filters.getRoot())
 var filterApplyButton = document.getElementById('filter-apply-button')
 filterApplyButton.onclick = filterGroupVisualize
+var filterResetButton1 = document.getElementById('filter-reset-button')
+filterResetButton1.onclick = function() {
+    filters.reset()
+    filterGroupVisualize()
+}
 
 // Set up filters for SVG2
 var filtersNew = createFilters()
@@ -40,6 +45,11 @@ var filterContainerNew = document.querySelector('.filter-container-new')
 filterContainerNew.appendChild(filtersNew.getRoot())
 var filterApplyButtonNew = document.getElementById('filter-apply-button-new')
 filterApplyButtonNew.onclick = filterGroupVisualizeNew
+var filterResetButton2 = document.getElementById('filter-reset-button-new')
+filterResetButton2.onclick = function() {
+    filtersNew.reset()
+    filterGroupVisualizeNew()
+}
 
 // load the data
 var globalData = null

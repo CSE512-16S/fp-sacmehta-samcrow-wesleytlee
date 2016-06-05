@@ -49,6 +49,10 @@ BooleanFilter.prototype.getRoot = function() {
     return this.root
 }
 
+BooleanFilter.prototype.reset = function() {
+    this.select.value = 'any'
+}
+
 BooleanFilter.prototype.getPredicate = function() {
     var selection = this.select.value
     if (selection == 'true') {
@@ -104,6 +108,10 @@ function StringFilter(property, values, label) {
 }
 StringFilter.prototype.getRoot = function() {
     return this.root
+}
+
+StringFilter.prototype.reset = function() {
+    this.select.value = '__any__'
 }
 
 StringFilter.prototype.getPredicate = function() {
@@ -191,6 +199,11 @@ RangeFilter.prototype.getRoot = function() {
     return this.root
 }
 
+RangeFilter.prototype.reset = function() {
+    this.minSlider.value = this.minSlider.getAttribute('min')
+    this.maxSlider.value = this.maxSlider.getAttribute('max')
+}
+
 RangeFilter.prototype.getPredicate = function() {
     var min = this.minSlider.value
     var max = this.maxSlider.value
@@ -235,6 +248,12 @@ function CheckBoxFilter(property, values, label) {
 
 CheckBoxFilter.prototype.getRoot = function() {
     return this.root
+}
+
+CheckBoxFilter.prototype.reset = function() {
+    for (var i = 0; i < this.boxes.length; i++) {
+        this.boxes[i].checked = false
+    }
 }
 
 CheckBoxFilter.prototype.getPredicate = function() {

@@ -14,7 +14,7 @@
     margin: 0.2em;
 }
 
-.filter-apply-button {
+.filter-apply-button, .filter-reset-button {
     margin: 1em;
 }
 

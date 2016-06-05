@@ -17,15 +17,15 @@ FilterGroup.prototype.addFilter = function(filter) {
 
 FilterGroup.prototype.setOnChange = function(callback) {
     this.callback = callback
-    for (var i = 0; i < this.controls.length; i++) {
-        this.controls[i].setOnChange(callback)
+    for (let control of this.controls) {
+        control.setOnChange(callback)
     }
 }
 
 FilterGroup.prototype.getPredicate = function() {
     var predicates = []
-    for (var i = 0; i < this.controls.length; i++) {
-        predicates.push(this.controls[i].getPredicate())
+    for (let control of this.controls) {
+        predicates.push(control.getPredicate())
     }
     // Call new And() with predicates as the arguments
     return new (Function.prototype.bind.apply(And, [null].concat(predicates)))
@@ -33,4 +33,10 @@ FilterGroup.prototype.getPredicate = function() {
 
 FilterGroup.prototype.getRoot = function() {
     return this.root
+}
+
+FilterGroup.prototype.reset = function() {
+    for (let control of this.controls) {
+        control.reset()
+    }
 }

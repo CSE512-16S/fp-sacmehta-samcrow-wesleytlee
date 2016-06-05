@@ -82,9 +82,9 @@ Or.prototype.matches = function(e) {
  * @param max the maximum value of the property
  */
 function Range(property, min, max) {
-    self.property = property
-    self.min = min
-    self.max = max
+    this.property = property
+    this.min = min
+    this.max = max
 }
 
 Range.prototype.matches = function(e) {
@@ -105,5 +105,5 @@ Range.prototype.matches = function(e) {
             return false
         }
     }
-    return value >= self.min && value <= self.max
+    return value >= this.min && value <= this.max
 }

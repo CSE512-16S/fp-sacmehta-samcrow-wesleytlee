@@ -1,106 +1,81 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8" />
-    <title>CSE Admission Data Visualization</title>
-    <link rel="stylesheet" type="text/css" href="css/pageNew.css" />
-    <link rel="stylesheet" type="text/css" href="css/sankey.css" />
-    <link rel="stylesheet" type="text/css" href="css/filter.css" />
-    <script type="text/javascript" src="js/d3.v3.js"></script>
-    <script type="text/javascript" src="js/sankey.js"></script>
-    <script type="text/javascript" src="js/filter/predicate.js"></script>
-    <script type="text/javascript" src="js/filter/filter_control.js"></script>
-    <script type="text/javascript" src="js/filter/group.js"></script>
-    <script type="text/javascript" src="js/project.js"></script>
-    <script type="text/javascript" src="js/projectHelp.js"></script>
-    <script type="text/javascript" src="js/helper.js"></script>
-    <script type="text/javascript" src="js/compare.js"></script>
-    <style>
-
-    </style>
-</head>
-
-<body id="bodyTable">
-    <div class="container" id="mainHeading">
-        <h1>CSE Admission Data</h1>
-    </div>
-    <div class="panel panel-card">
-        <div class="panel-title">
-            <h5> Filters</h5>
-            <div class="filter-container"></div>
-				<button type="button" id="filter-apply-button" class="filter-apply-button">Apply</button>
-				<button type="button" id="filter-reset-button" class="filter-reset-button">Reset</button>
-			</div>
-		</div>
-	</div>
-	<br>
-	<div class="panel panel-card">
-		<div class="panel-title">
-            <h5> Filters</h5>
-            <div class="filter-container-new"></div>
-				<button type="button" id="filter-apply-button-new" class="filter-apply-button">Apply</button>
-				<button type="button" id="filter-reset-button-new" class="filter-reset-button">Reset</button>
-			</div>
-		</div>
-	</div>
-    <br>
-    <div class="parent_div_1">
-        <div class="child_div_1">
-            <div class="panel-card">
-                <h5> Sankey Diagram</h5>
+    <head>
+        <meta charset="utf-8" />
+        <title>CSE Admission Data Visualization</title>
+        <link rel="stylesheet" type="text/css" href="css/pageNew.css" />
+        <link rel="stylesheet" type="text/css" href="css/sankey.css" />
+        <link rel="stylesheet" type="text/css" href="css/filter.css" />
+        <script type="text/javascript" src="js/d3.v3.js"></script>
+        <script type="text/javascript" src="js/sankey.js"></script>
+        <script type="text/javascript" src="js/filter/predicate.js"></script>
+        <script type="text/javascript" src="js/filter/filter_control.js"></script>
+        <script type="text/javascript" src="js/filter/group.js"></script>
+        <script type="text/javascript" src="js/project.js"></script>
+        <script type="text/javascript" src="js/projectHelp.js"></script>
+        <script type="text/javascript" src="js/helper.js"></script>
+        <script type="text/javascript" src="js/compare.js"></script>
+    </head>
+    <body id="bodyTable">
+        <div class="container" id="mainHeading">
+            <h1 class="main-heading">CSE Admission Data Visualization<br>Sachin Mehta, Wesley Lee, and Sam Crow</h1>
+        </div>
+        <div class="parent_div_1">
+            <div class="child_div_table_1">
+                <h5 class="filter-text"> Filters</h5>
+                <div class="filter-container"></div>
                 <div>
-                    <svg id="svg1"></svg>
+                    <button type="button" id="filter-apply-button" class="filter-apply-button">Apply</button>
+                    <button type="button" id="filter-reset-button" class="filter-reset-button">Reset</button>
                 </div>
-                <div>
-					<svg id="svg2"></svg>
-                </div>
-                <script type="text/javascript" src="js/visualization.js"></script>
             </div>
+            <div class="child_div_table_1">
+                <h5 class="filter-text"> Filters</h5>
+                <div class="filter-container-new"></div>
+                <div>
+                    <button type="button" id="filter-apply-button-new" class="filter-apply-button">Apply</button>
+                    <button type="button" id="filter-reset-button-new" class="filter-reset-button">Reset</button>
+                </div>
+            </div>
+            <div class="child_div_table_1">
+                <h5 class="filter-text">Sankey Diagram</h5>
+                <svg id="svg1"></svg>
+            </div>
+            <div class="child_div_table_1">
+                <h5 class="filter-text"> Sankey Diagram</h5>
+                <svg id="svg2"> </svg>
+            </div>
+            <div class="child_div_table_1">
+                <h5 class="filter-text"> Select the stage</h5>
+                <select id="stage" onchange="renderTable()">
+                    <option value="stage1">Overall Summary</option>
+                    <option value="stage2">CSE142 -> CSE 143</option>
+                    <option value="stage3">CSE142 -> CSE 143 (Not Applied)</option>
+                    <option value="stage4">CSE143 -> Applied </option>
+                    <option value="stage5">CSE143 -> Did not apply</option>
+                    <option value="stage6">CSE143 (apply) -> Accept</option>
+                    <option value="stage7">CSE143 (apply) -> Deny</option>
+                    <option value="stage8">CSE143 (apply) -> Soft Deny</option>
+                </select>
+                <h5 class="filter-text"> Summary Table</h5>
+                <table id="table1"></table>
+            </div>
+            <div class="child_div_table_1">
+                <h5 class="filter-text"> Select the stage</h5>
+                <select id="stageNew" onchange="renderTableNew()">
+                    <option value="stage1">Overall Summary</option>
+                    <option value="stage2">CSE142 -> CSE 143</option>
+                    <option value="stage3">CSE142 -> CSE 143 (Not Applied)</option>
+                    <option value="stage4">CSE143 -> Applied </option>
+                    <option value="stage5">CSE143 -> Did not apply</option>
+                    <option value="stage6">CSE143 (apply) -> Accept</option>
+                    <option value="stage7">CSE143 (apply) -> Deny</option>
+                    <option value="stage8">CSE143 (apply) -> Soft Deny</option>
+                </select>
+                <h5 class="filter-text"> Summary Table</h5>
+                <table id="table2" style="align:center"></table>
+            </div>
+            <script type="text/javascript" src="js/visualization.js"></script>
         </div>
-    </div>
-    <div class="child_div_2" id="tableSummary">
-		<div class="panel-card">
-			<h5> Select the stage</h5>
-				<select id="stage" onchange="renderTable()">
-				 <option value="stage1">Overall Summary</option>
-				 <option value="stage2">CSE142 -> CSE 143</option>
-				 <option value="stage3">CSE142 -> CSE 143 (Not Applied)</option>
-				 <option value="stage4">CSE143 -> Applied </option>
-				 <option value="stage5">CSE143 -> Did not apply</option>
-				 <option value="stage6">CSE143 (apply) -> Accept</option>
-				 <option value="stage7">CSE143 (apply) -> Deny</option>
-				  <option value="stage8">CSE143 (apply) -> Soft Deny</option>
-			   </select>
-				<h5> Summary Table</h5>
-				<table id="table1">
-				</table>
-		 </div>
-		<div class="panel-card">
-			<h5> Select the stage</h5>
-				<select id="stageNew" onchange="renderTableNew()">
-				 <option value="stage1">Overall Summary</option>
-				 <option value="stage2">CSE142 -> CSE 143</option>
-				 <option value="stage3">CSE142 -> CSE 143 (Not Applied)</option>
-				 <option value="stage4">CSE143 -> Applied </option>
-				 <option value="stage5">CSE143 -> Did not apply</option>
-				 <option value="stage6">CSE143 (apply) -> Accept</option>
-				 <option value="stage7">CSE143 (apply) -> Deny</option>
-				  <option value="stage8">CSE143 (apply) -> Soft Deny</option>
-			   </select>
-				<h5> Summary Table</h5>
-				<table id="table2">
-				</table>
-        </div>
-    </div>
-<br>
-<br>
-<footer class="bottom">
-    <div class="panel-card">
-        <p>CSE 512 Project</p>
-        <p>Team Members: Sachin Mehta, Wesley Lee, and Sam Crow</p>
-    </div>
-</footer>
-</body>
-
+    </body>
 </html>

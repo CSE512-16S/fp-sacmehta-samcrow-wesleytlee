@@ -1,94 +1,188 @@
-body {
+
+
+body
+{
     margin: 0 auto 0 auto;
     padding: 0;
     background-color: #f1f1f1;
-    width: 1300px;
+    width: 95%;
     font-family: "Avenir", Verdana;
     font-size: 100%;
 }
 
-.container h1 {
+.container h1
+{
     text-align: center;
     font-size: 150%;
 }
 
-.panel-card {
+.panel-card-filter
+{
     box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.25);
     background-color: white;
     padding: 0.5em;
+    width: 50%;
 }
 
-.panel-card h5 {
+.panel-card h5
+{
     margin-bottom: 0.5em;
     margin-top: 0.5em;
 }
 
-.panel-title h5 {
-	padding-left: 10px;
-	margin-bottom: 0px;
+.panel-title h5
+{
+    padding-left: 10px;
+    margin-bottom: 0px;
+    display: inline-block;
 }
 
-.panel-body {
+.panel-body
+{
     padding-top: 0px;
 }
 
-.parent_div_1 {
-  width:100%;
+.parent_div_1
+{
+    width: 100%;
 }
 
-.child_div_1 {
-  width: 65%;
+.child_div_table_1
+{
+    width: 45%;
+    float: left;
+    min-width: 40%;
+    max-width: 47%;
+    margin: 1%;
+    right: 10px;
+    display: inline;
+    overflow: auto;
+    font-weight: normal;
+    font-style: normal;
+    background-color: #ffffff;
 }
 
-.child_div_2 {
-  width: 35%;
+.child_div_table_2
+{
+    width: 47%;
+    float: left;
+    min-width: 40%;
+    max-width: 50%;
+    margin: 1%;
+    right: 10px;
+    display: inline;
+    overflow: auto;
+    font-weight: normal;
+    font-style: normal;
+    background-color: #ffffff;
 }
 
-.child_div_1, .child_div_2 {
+.child_div_1
+{
+    width: 65%;
+}
+
+.child_div_2
+{
+    width: 35%;
+}
+
+.child_div_1, .child_div_2
+{
     float: left;
 }
 
-.child_div_1 > div, .child_div_2 > div {
-    min-height: 710px;
+.child_div_1 > div, .child_div_2 > div
+{
+    min-width: 45%;
+    width: 50;
+    position: static;
+    margin: 1%;
+    padding: 10px;
+    overflow: auto;
+    float: left;
+    clear: both;
+    vertical-align: baseline;
 }
 
-.chart {
+.chart
+{
     display: inline-block;
     position: relative;
     width: 100%;
     overflow: hidden;
 }
-.chart > svg {
+
+.chart > svg
+{
     width: 100%;
 }
 
-
-
-#tableSummary table {
+table
+{
     width: 100%;
 }
 
-th {
+th
+{
     background-color: #4CAF50;
     color: white;
 }
 
-tr:hover {background-color: #cbd5e8}
+tr:hover
+{
+    background-color: #cbd5e8;
+}
 
-th, td {
+th, td
+{
     padding: 2px;
     text-align: center;
     border-bottom: 1px solid #ddd;
 }
 
-td {
+td
+{
     vertical-align: middle;
 }
 
-bottom {
+bottom
+{
     position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
     height: 2em;
 }
+
+.filter-text
+{
+    font-size: 24px;
+    font-weight: bold;
+    font-style: normal;
+    text-align: center;
+}
+
+.main-heading
+{
+    font-size: 42px;
+    background-color: #ffffff;
+}
+
+.allign-filter-options
+{
+    margin: 3%;
+}
+
+.align-filter-options
+{
+}
+
+.align-filter-options
+{
+}
+
+.svgRule
+{
+}
+

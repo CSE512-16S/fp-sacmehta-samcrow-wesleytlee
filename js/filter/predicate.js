@@ -35,7 +35,7 @@ function FieldMatches(name, value) {
     this.value = value
 }
 FieldMatches.prototype.matches = function(e) {
-    return e && (typeof e === 'object') && (e[this.name] === this.value)
+    return e && (typeof e === 'object') && (e[this.name] == this.value)
 }
 
 /**
@@ -94,7 +94,7 @@ Range.prototype.matches = function(e) {
     if (!e) {
         return false
     }
-    var value = e[self.property]
+    var value = e[this.property]
     if (!value) {
         return false
     }

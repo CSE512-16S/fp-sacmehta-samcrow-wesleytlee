@@ -83,7 +83,7 @@ function filterGroupVisualize() {
       updateDataWithTransition(data)
     } else {
        //**Return an error message or something**
-       alert("\nNo students satisfying filter!\n ")
+       alert("No students satisfying filter!")
     }
 }
 
@@ -102,7 +102,7 @@ function filterGroupVisualizeNew() {
       updateDataWithTransitionNew(data)
     } else {
        //**Return an error message or something**
-       alert("\nNo students satisfying filter!\n ")
+       alert("No students satisfying filter!")
     }
 }
 
@@ -118,7 +118,7 @@ function createFilters() {
     var gpa = new RangeFilter('GPA', 0.0, 4.0, 0.01, 'GPA')
     //number of cse 142 and cse 143 attempts
     var cse142Grade = new RangeFilter('cse142grade', 0.0, 4.0, 0.01, 'CSE 142 Grade')
-    /*var cse143Grade = new RangeFilter('cse143grade', 0.0, 4.0, 0.01, 'CSE 143 Grade')
+    var cse143Grade = new RangeFilter('cse143grade', 0.0, 4.0, 0.01, 'CSE 143 Grade')
     var SATMath = new RangeFilter('stdmath', 200, 800, 20, 'SAT Math')
     var SATVerbal = new RangeFilter('stdverbal', 200, 800, 20, 'SAT Verbal')
     var SAT = new RangeFilter('stdcomb', 400, 1600, 50, 'SAT')
@@ -134,13 +134,13 @@ function createFilters() {
     var survey8g = new CheckBoxFilter('Q8g', ['1','2','3','4','5'], 'Spend all time at computer')
     var survey8i = new CheckBoxFilter('Q8i', ['1','2','3','4','5'], 'Less Social')
     var survey9 = new CheckBoxFilter('Q9', ['1','2','3','4','5','6'], '# Prog. Courses Prev. Taken')
-    var survey11 = new CheckBoxFilter('Q11', ['1','2','3','4','5'], 'Prev. Self Prog. Exp.') */
+    var survey11 = new CheckBoxFilter('Q11', ['1','2','3','4','5'], 'Prev. Self Prog. Exp.')
     group.addFilter(gender)
     group.addFilter(ethnic)
     group.addFilter(application_count)
     group.addFilter(gpa)
     group.addFilter(cse142Grade)
-    /*group.addFilter(cse143Grade)
+    group.addFilter(cse143Grade)
     group.addFilter(SATMath)
     group.addFilter(SATVerbal)
     group.addFilter(SAT)
@@ -156,6 +156,6 @@ function createFilters() {
     group.addFilter(survey8g)
     group.addFilter(survey8i)
     group.addFilter(survey9)
-    group.addFilter(survey11)*/
+    group.addFilter(survey11)
     return group
 }

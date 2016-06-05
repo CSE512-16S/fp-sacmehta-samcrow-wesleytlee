@@ -49,10 +49,6 @@ BooleanFilter.prototype.getRoot = function() {
     return this.root
 }
 
-BooleanFilter.prototype.setOnChange = function(callback) {
-    this.select.onchange = function(){ callback() }
-}
-
 BooleanFilter.prototype.getPredicate = function() {
     var selection = this.select.value
     if (selection == 'true') {
@@ -108,10 +104,6 @@ function StringFilter(property, values, label) {
 }
 StringFilter.prototype.getRoot = function() {
     return this.root
-}
-
-StringFilter.prototype.setOnChange = function(callback) {
-    this.select.onchange = function(){ callback() }
 }
 
 StringFilter.prototype.getPredicate = function() {
@@ -195,11 +187,6 @@ function RangeFilter(property, min, max, step, label) {
     updateMaxIndicator.apply(self)
 }
 
-RangeFilter.prototype.setOnChange = function(callback) {
-    this.minSlider.onchange = callback
-    this.maxSlider.onchange = callback
-}
-
 RangeFilter.prototype.getRoot = function() {
     return this.root
 }
@@ -243,12 +230,6 @@ function CheckBoxFilter(property, values, label) {
         container.appendChild(input)
         container.appendChild(label)
         this.root.appendChild(container)
-    }
-}
-
-CheckBoxFilter.prototype.setOnChange = function(callback) {
-    for (var i = 0; i < this.boxes.length; i++) {
-        this.boxes[i].onchange = callback
     }
 }
 

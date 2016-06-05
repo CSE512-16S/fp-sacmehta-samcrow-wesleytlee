@@ -53,7 +53,7 @@ filterResetButton2.onclick = function() {
 
 // load the data
 var globalData = null
-var source = ["Took CSE 142", "Took CSE 143", "Didn't Take CSE 143", "Applied for Major", "Didn't applied for Major"];
+var source = ["Took CSE 142", "Took CSE 143", "Didn't Take CSE 143", "Applied", "Did not apply"];
 var target = ["Accept", "Deny", "Soft Deny"];
 
 var dataNew = null

@@ -15,6 +15,8 @@
         <script type="text/javascript" src="js/projectHelp.js"></script>
         <script type="text/javascript" src="js/helper.js"></script>
         <script type="text/javascript" src="js/compare.js"></script>
+        <link href="./css/nv.d3.css" rel="stylesheet">
+	<script src="./js/nv.d3.js"></script>
     </head>
     <body id="bodyTable">
         <div class="container" id="mainHeading">
@@ -26,7 +28,7 @@
                 <div class="filter-container"></div>
                 <div>
                     <button type="button" id="filter-apply-button" class="filter-apply-button">Apply</button>
-                    <button type="button" id="filter-reset-button" class="filter-reset-button">Reset</button>
+                    <!-- <button type="button" id="filter-reset-button" class="filter-reset-button">Reset</button> -->
                 </div>
             </div>
             <div class="child_div_table_1">
@@ -34,7 +36,7 @@
                 <div class="filter-container-new"></div>
                 <div>
                     <button type="button" id="filter-apply-button-new" class="filter-apply-button">Apply</button>
-                    <button type="button" id="filter-reset-button-new" class="filter-reset-button">Reset</button>
+                    <!-- <button type="button" id="filter-reset-button-new" class="filter-reset-button">Reset</button> -->
                 </div>
             </div>
             <div class="child_div_table_1">
@@ -74,6 +76,13 @@
                 </select>
                 <h5 class="filter-text"> Summary Table</h5>
                 <table id="table2" style="align:center"></table>
+            </div>
+            <div class="child_div_bar_1">
+                <h5 class="filter-text"> Z-Scores</h5>
+                <div id="chartBar">
+					<svg> </svg>
+                </div>
+                
             </div>
             <script type="text/javascript" src="js/visualization.js"></script>
         </div>

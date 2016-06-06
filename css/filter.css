@@ -18,6 +18,13 @@
     margin: 1em;
 }
 
+.filter-remove-button {
+    margin-left: 0.5em;
+    border: 1px solid gray;
+    background: #eee;
+    border-radius: 4px;
+}
+
 /* Spacing between elements */
 .list-filter select {
     margin-left: 0.5em;

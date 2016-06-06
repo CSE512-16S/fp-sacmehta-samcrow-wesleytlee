@@ -583,138 +583,145 @@ function createNodeData(graph, data){
 						}
 					})
 		      .map(data);
-	var stage4Data = groupedStage4.student.CSE142.CSE143.Apply;	 
+	
 	var stage4StatsAccept = [];
 	var stage4StatsDeny = [];
 	var stage4StatsSD = [];
+	var stage4Data = [];
 	
-	var weight1Stage4 = weightDef;
-	if(typeof(stage4Data.Accept) != "undefined"){
-		weight1Stage4 = stage4Data.Accept.weight;
-    stage4StatsAccept = [{variable:statsName[0], mean:typeof(stage4Data.Accept.gpa) != "undefined"? stage4Data.Accept.gpa.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.gpaD) != "undefined"? stage4Data.Accept.gpaD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.gpaNum},
-								{variable:statsName[1], mean:typeof(stage4Data.Accept.cse142grade) != "undefined"? stage4Data.Accept.cse142grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.cse142gradeD) != "undefined"? stage4Data.Accept.cse142gradeD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.cse142gradeNum},
-								{variable:statsName[20], mean:typeof(stage4Data.Accept.cse142firstclass) != "undefined"? stage4Data.Accept.cse142firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.cse142firstclassD) != "undefined"? stage4Data.Accept.cse142firstclassD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.cse142firstclassNum},
-								{variable:statsName[2], mean:typeof(stage4Data.Accept.cse143grade) != "undefined"? stage4Data.Accept.cse143grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.cse143gradeD) != "undefined"? stage4Data.Accept.cse143gradeD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.cse143gradeNum},
-								{variable:statsName[21], mean:typeof(stage4Data.Accept.cse143firstclass) != "undefined"? stage4Data.Accept.cse143firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.cse143firstclassD) != "undefined"? stage4Data.Accept.cse143firstclassD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.cse143firstclassNum},
-								{variable:statsName[3], mean:typeof(stage4Data.Accept.appscores) != "undefined"? stage4Data.Accept.appscores.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.appscoresD) != "undefined"? stage4Data.Accept.appscoresD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.appscoresNum},
-								{variable:statsName[4], mean:typeof(stage4Data.Accept.stdmath) != "undefined"? stage4Data.Accept.stdmath.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.stdmathD) != "undefined"? stage4Data.Accept.stdmathD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.stdmathNum},
-								{variable:statsName[5], mean:typeof(stage4Data.Accept.stdverbal) != "undefined"? stage4Data.Accept.stdverbal.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.stdverbalD) != "undefined"? stage4Data.Accept.stdverbalD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.stdverbalNum},
-								{variable:statsName[6], mean:typeof(stage4Data.Accept.stdcomb) != "undefined"? stage4Data.Accept.stdcomb.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.stdcombD) != "undefined"? stage4Data.Accept.stdcombD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.stdcombNum},
-								{variable:statsName[7], mean:typeof(stage4Data.Accept.Q5b) != "undefined"? stage4Data.Accept.Q5b.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q5bD) != "undefined"? stage4Data.Accept.Q5bD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q5bNum},
-								{variable:statsName[8], mean:typeof(stage4Data.Accept.Q5d) != "undefined"? stage4Data.Accept.Q5d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q5dD) != "undefined"? stage4Data.Accept.Q5dD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q5dNum},
-								{variable:statsName[9], mean:typeof(stage4Data.Accept.Q5e) != "undefined"? stage4Data.Accept.Q5e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q5eD) != "undefined"? stage4Data.Accept.Q5eD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q5eNum},
-								{variable:statsName[10], mean:typeof(stage4Data.Accept.Q5f) != "undefined"? stage4Data.Accept.Q5f.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q5fD) != "undefined"? stage4Data.Accept.Q5fD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q5fNum},
-								{variable:statsName[11], mean:typeof(stage4Data.Accept.Q7a) != "undefined"? stage4Data.Accept.Q7a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q7aD) != "undefined"? stage4Data.Accept.Q7aD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q7aNum},
-								{variable:statsName[12], mean:typeof(stage4Data.Accept.Q8a) != "undefined"? stage4Data.Accept.Q8a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q8aD) != "undefined"? stage4Data.Accept.Q8aD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q8aNum},
-								{variable:statsName[13], mean:typeof(stage4Data.Accept.Q8c) != "undefined"? stage4Data.Accept.Q8c.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q8cD) != "undefined"? stage4Data.Accept.Q8cD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q8cNum},
-								{variable:statsName[14], mean:typeof(stage4Data.Accept.Q8d) != "undefined"? stage4Data.Accept.Q8d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q8dD) != "undefined"? stage4Data.Accept.Q8dD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q8dNum},
-								{variable:statsName[15], mean:typeof(stage4Data.Accept.Q8e) != "undefined"? stage4Data.Accept.Q8e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q8eD) != "undefined"? stage4Data.Accept.Q8eD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q8eNum},
-								{variable:statsName[16], mean:typeof(stage4Data.Accept.Q8g) != "undefined"? stage4Data.Accept.Q8g.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q8gD) != "undefined"? stage4Data.Accept.Q8gD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q8gNum},
-								{variable:statsName[17], mean:typeof(stage4Data.Accept.Q8i) != "undefined"? stage4Data.Accept.Q8i.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q8iD) != "undefined"? stage4Data.Accept.Q8iD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q8iNum},
-								{variable:statsName[18], mean:typeof(stage4Data.Accept.Q9) != "undefined"? stage4Data.Accept.Q9.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q9D) != "undefined"? stage4Data.Accept.Q9D.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q9Num},
-								{variable:statsName[19], mean:typeof(stage4Data.Accept.Q11) != "undefined"? stage4Data.Accept.Q11.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q11D) != "undefined"? stage4Data.Accept.Q11D.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q11Num},
-								];
-	}
+	if (groupedStage4.student.CSE142.CSE143.Apply != "undefined"){
 	
-	var weight2Stage4 = weightDef;
-	if(typeof(stage4Data.Deny) != "undefined"){
-		weight2Stage4 = stage4Data.Deny.weight;
-    stage4StatsDeny = [{variable:statsName[0], mean:typeof(stage4Data.Deny.gpa) != "undefined"? stage4Data.Deny.gpa.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.gpaD) != "undefined"? stage4Data.Deny.gpaD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.gpaNum},
-								{variable:statsName[1], mean:typeof(stage4Data.Deny.cse142grade) != "undefined"? stage4Data.Deny.cse142grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.cse142gradeD) != "undefined"? stage4Data.Deny.cse142gradeD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.cse142gradeNum},
-								{variable:statsName[20], mean:typeof(stage4Data.Deny.cse142firstclass) != "undefined"? stage4Data.Deny.cse142firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.cse142firstclassD) != "undefined"? stage4Data.Deny.cse142firstclassD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.cse142firstclassNum},
-								{variable:statsName[2], mean:typeof(stage4Data.Deny.cse143grade) != "undefined"? stage4Data.Deny.cse143grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.cse143gradeD) != "undefined"? stage4Data.Deny.cse143gradeD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.cse143gradeNum},
-								{variable:statsName[21], mean:typeof(stage4Data.Deny.cse143firstclass) != "undefined"? stage4Data.Deny.cse143firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.cse143firstclassD) != "undefined"? stage4Data.Deny.cse143firstclassD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.cse143firstclassNum},
-								{variable:statsName[3], mean:typeof(stage4Data.Deny.appscores) != "undefined"? stage4Data.Deny.appscores.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.appscoresD) != "undefined"? stage4Data.Deny.appscoresD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.appscoresNum},
-								{variable:statsName[4], mean:typeof(stage4Data.Deny.stdmath) != "undefined"? stage4Data.Deny.stdmath.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.stdmathD) != "undefined"? stage4Data.Deny.stdmathD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.stdmathNum},
-								{variable:statsName[5], mean:typeof(stage4Data.Deny.stdverbal) != "undefined"? stage4Data.Deny.stdverbal.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.stdverbalD) != "undefined"? stage4Data.Deny.stdverbalD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.stdverbalNum},
-								{variable:statsName[6], mean:typeof(stage4Data.Deny.stdcomb) != "undefined"? stage4Data.Deny.stdcomb.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.stdcombD) != "undefined"? stage4Data.Deny.stdcombD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.stdcombNum},
-								{variable:statsName[7], mean:typeof(stage4Data.Deny.Q5b) != "undefined"? stage4Data.Deny.Q5b.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q5bD) != "undefined"? stage4Data.Deny.Q5bD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q5bNum},
-								{variable:statsName[8], mean:typeof(stage4Data.Deny.Q5d) != "undefined"? stage4Data.Deny.Q5d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q5dD) != "undefined"? stage4Data.Deny.Q5dD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q5dNum},
-								{variable:statsName[9], mean:typeof(stage4Data.Deny.Q5e) != "undefined"? stage4Data.Deny.Q5e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q5eD) != "undefined"? stage4Data.Deny.Q5eD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q5eNum},
-								{variable:statsName[10], mean:typeof(stage4Data.Deny.Q5f) != "undefined"? stage4Data.Deny.Q5f.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q5fD) != "undefined"? stage4Data.Deny.Q5fD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q5fNum},
-								{variable:statsName[11], mean:typeof(stage4Data.Deny.Q7a) != "undefined"? stage4Data.Deny.Q7a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q7aD) != "undefined"? stage4Data.Deny.Q7aD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q7aNum},
-								{variable:statsName[12], mean:typeof(stage4Data.Deny.Q8a) != "undefined"? stage4Data.Deny.Q8a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q8aD) != "undefined"? stage4Data.Deny.Q8aD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q8aNum},
-								{variable:statsName[13], mean:typeof(stage4Data.Deny.Q8c) != "undefined"? stage4Data.Deny.Q8c.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q8cD) != "undefined"? stage4Data.Deny.Q8cD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q8cNum},
-								{variable:statsName[14], mean:typeof(stage4Data.Deny.Q8d) != "undefined"? stage4Data.Deny.Q8d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q8dD) != "undefined"? stage4Data.Deny.Q8dD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q8dNum},
-								{variable:statsName[15], mean:typeof(stage4Data.Deny.Q8e) != "undefined"? stage4Data.Deny.Q8e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q8eD) != "undefined"? stage4Data.Deny.Q8eD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q8eNum},
-								{variable:statsName[16], mean:typeof(stage4Data.Deny.Q8g) != "undefined"? stage4Data.Deny.Q8g.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q8gD) != "undefined"? stage4Data.Deny.Q8gD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q8gNum},
-								{variable:statsName[17], mean:typeof(stage4Data.Deny.Q8i) != "undefined"? stage4Data.Deny.Q8i.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q8iD) != "undefined"? stage4Data.Deny.Q8iD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q8iNum},
-								{variable:statsName[18], mean:typeof(stage4Data.Deny.Q9) != "undefined"? stage4Data.Deny.Q9.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q9D) != "undefined"? stage4Data.Deny.Q9D.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q9Num},
-								{variable:statsName[19], mean:typeof(stage4Data.Deny.Q11) != "undefined"? stage4Data.Deny.Q11.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q11D) != "undefined"? stage4Data.Deny.Q11D.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q11Num},
-								];
-	}
-	
-	var weight3Stage4 = weightDef;
-	if(typeof(stage4Data.SD) != "undefined"){
-		weight3Stage4 = stage4Data.SD.weight;
-    stage4StatsSD = [{variable:statsName[0], mean:typeof(stage4Data.SD.gpa) != "undefined"? stage4Data.SD.gpa.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.gpaD) != "undefined"? stage4Data.SD.gpaD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.gpaNum},
-								{variable:statsName[1], mean:typeof(stage4Data.SD.cse142grade) != "undefined"? stage4Data.SD.cse142grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.cse142gradeD) != "undefined"? stage4Data.SD.cse142gradeD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.cse142gradeNum},
-								{variable:statsName[20], mean:typeof(stage4Data.SD.cse142firstclass) != "undefined"? stage4Data.SD.cse142firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.cse142firstclassD) != "undefined"? stage4Data.SD.cse142firstclassD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.cse142firstclassNum},
-								{variable:statsName[2], mean:typeof(stage4Data.SD.cse143grade) != "undefined"? stage4Data.SD.cse143grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.cse143gradeD) != "undefined"? stage4Data.SD.cse143gradeD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.cse143gradeNum},
-								{variable:statsName[21], mean:typeof(stage4Data.SD.cse143firstclass) != "undefined"? stage4Data.SD.cse143firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.cse143firstclassD) != "undefined"? stage4Data.SD.cse143firstclassD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.cse143firstclassNum},
-								{variable:statsName[3], mean:typeof(stage4Data.SD.appscores) != "undefined"? stage4Data.SD.appscores.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.appscoresD) != "undefined"? stage4Data.SD.appscoresD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.appscoresNum},
-								{variable:statsName[4], mean:typeof(stage4Data.SD.stdmath) != "undefined"? stage4Data.SD.stdmath.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.stdmathD) != "undefined"? stage4Data.SD.stdmathD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.stdmathNum},
-								{variable:statsName[5], mean:typeof(stage4Data.SD.stdverbal) != "undefined"? stage4Data.SD.stdverbal.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.stdverbalD) != "undefined"? stage4Data.SD.stdverbalD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.stdverbalNum},
-								{variable:statsName[6], mean:typeof(stage4Data.SD.stdcomb) != "undefined"? stage4Data.SD.stdcomb.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.stdcombD) != "undefined"? stage4Data.SD.stdcombD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.stdcombNum},
-								{variable:statsName[7], mean:typeof(stage4Data.SD.Q5b) != "undefined"? stage4Data.SD.Q5b.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q5bD) != "undefined"? stage4Data.SD.Q5bD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q5bNum},
-								{variable:statsName[8], mean:typeof(stage4Data.SD.Q5d) != "undefined"? stage4Data.SD.Q5d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q5dD) != "undefined"? stage4Data.SD.Q5dD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q5dNum},
-								{variable:statsName[9], mean:typeof(stage4Data.SD.Q5e) != "undefined"? stage4Data.SD.Q5e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q5eD) != "undefined"? stage4Data.SD.Q5eD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q5eNum},
-								{variable:statsName[10], mean:typeof(stage4Data.SD.Q5f) != "undefined"? stage4Data.SD.Q5f.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q5fD) != "undefined"? stage4Data.SD.Q5fD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q5fNum},
-								{variable:statsName[11], mean:typeof(stage4Data.SD.Q7a) != "undefined"? stage4Data.SD.Q7a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q7aD) != "undefined"? stage4Data.SD.Q7aD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q7aNum},
-								{variable:statsName[12], mean:typeof(stage4Data.SD.Q8a) != "undefined"? stage4Data.SD.Q8a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q8aD) != "undefined"? stage4Data.SD.Q8aD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q8aNum},
-								{variable:statsName[13], mean:typeof(stage4Data.SD.Q8c) != "undefined"? stage4Data.SD.Q8c.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q8cD) != "undefined"? stage4Data.SD.Q8cD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q8cNum},
-								{variable:statsName[14], mean:typeof(stage4Data.SD.Q8d) != "undefined"? stage4Data.SD.Q8d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q8dD) != "undefined"? stage4Data.SD.Q8dD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q8dNum},
-								{variable:statsName[15], mean:typeof(stage4Data.SD.Q8e) != "undefined"? stage4Data.SD.Q8e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q8eD) != "undefined"? stage4Data.SD.Q8eD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q8eNum},
-								{variable:statsName[16], mean:typeof(stage4Data.SD.Q8g) != "undefined"? stage4Data.SD.Q8g.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q8gD) != "undefined"? stage4Data.SD.Q8gD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q8gNum},
-								{variable:statsName[17], mean:typeof(stage4Data.SD.Q8i) != "undefined"? stage4Data.SD.Q8i.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q8iD) != "undefined"? stage4Data.SD.Q8iD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q8iNum},
-								{variable:statsName[18], mean:typeof(stage4Data.SD.Q9) != "undefined"? stage4Data.SD.Q9.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q9D) != "undefined"? stage4Data.SD.Q9D.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q9Num},
-								{variable:statsName[19], mean:typeof(stage4Data.SD.Q11) != "undefined"? stage4Data.SD.Q11.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q11D) != "undefined"? stage4Data.SD.Q11D.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q11Num},
-								];
-	}
+		var stage4Data = groupedStage4.student.CSE142.CSE143.Apply;	 
+		
+		
+		var weight1Stage4 = weightDef;
+		if(typeof(stage4Data.Accept) != "undefined"){
+			weight1Stage4 = stage4Data.Accept.weight;
+		stage4StatsAccept = [{variable:statsName[0], mean:typeof(stage4Data.Accept.gpa) != "undefined"? stage4Data.Accept.gpa.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.gpaD) != "undefined"? stage4Data.Accept.gpaD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.gpaNum},
+									{variable:statsName[1], mean:typeof(stage4Data.Accept.cse142grade) != "undefined"? stage4Data.Accept.cse142grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.cse142gradeD) != "undefined"? stage4Data.Accept.cse142gradeD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.cse142gradeNum},
+									{variable:statsName[20], mean:typeof(stage4Data.Accept.cse142firstclass) != "undefined"? stage4Data.Accept.cse142firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.cse142firstclassD) != "undefined"? stage4Data.Accept.cse142firstclassD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.cse142firstclassNum},
+									{variable:statsName[2], mean:typeof(stage4Data.Accept.cse143grade) != "undefined"? stage4Data.Accept.cse143grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.cse143gradeD) != "undefined"? stage4Data.Accept.cse143gradeD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.cse143gradeNum},
+									{variable:statsName[21], mean:typeof(stage4Data.Accept.cse143firstclass) != "undefined"? stage4Data.Accept.cse143firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.cse143firstclassD) != "undefined"? stage4Data.Accept.cse143firstclassD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.cse143firstclassNum},
+									{variable:statsName[3], mean:typeof(stage4Data.Accept.appscores) != "undefined"? stage4Data.Accept.appscores.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.appscoresD) != "undefined"? stage4Data.Accept.appscoresD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.appscoresNum},
+									{variable:statsName[4], mean:typeof(stage4Data.Accept.stdmath) != "undefined"? stage4Data.Accept.stdmath.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.stdmathD) != "undefined"? stage4Data.Accept.stdmathD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.stdmathNum},
+									{variable:statsName[5], mean:typeof(stage4Data.Accept.stdverbal) != "undefined"? stage4Data.Accept.stdverbal.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.stdverbalD) != "undefined"? stage4Data.Accept.stdverbalD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.stdverbalNum},
+									{variable:statsName[6], mean:typeof(stage4Data.Accept.stdcomb) != "undefined"? stage4Data.Accept.stdcomb.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.stdcombD) != "undefined"? stage4Data.Accept.stdcombD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.stdcombNum},
+									{variable:statsName[7], mean:typeof(stage4Data.Accept.Q5b) != "undefined"? stage4Data.Accept.Q5b.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q5bD) != "undefined"? stage4Data.Accept.Q5bD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q5bNum},
+									{variable:statsName[8], mean:typeof(stage4Data.Accept.Q5d) != "undefined"? stage4Data.Accept.Q5d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q5dD) != "undefined"? stage4Data.Accept.Q5dD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q5dNum},
+									{variable:statsName[9], mean:typeof(stage4Data.Accept.Q5e) != "undefined"? stage4Data.Accept.Q5e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q5eD) != "undefined"? stage4Data.Accept.Q5eD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q5eNum},
+									{variable:statsName[10], mean:typeof(stage4Data.Accept.Q5f) != "undefined"? stage4Data.Accept.Q5f.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q5fD) != "undefined"? stage4Data.Accept.Q5fD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q5fNum},
+									{variable:statsName[11], mean:typeof(stage4Data.Accept.Q7a) != "undefined"? stage4Data.Accept.Q7a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q7aD) != "undefined"? stage4Data.Accept.Q7aD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q7aNum},
+									{variable:statsName[12], mean:typeof(stage4Data.Accept.Q8a) != "undefined"? stage4Data.Accept.Q8a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q8aD) != "undefined"? stage4Data.Accept.Q8aD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q8aNum},
+									{variable:statsName[13], mean:typeof(stage4Data.Accept.Q8c) != "undefined"? stage4Data.Accept.Q8c.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q8cD) != "undefined"? stage4Data.Accept.Q8cD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q8cNum},
+									{variable:statsName[14], mean:typeof(stage4Data.Accept.Q8d) != "undefined"? stage4Data.Accept.Q8d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q8dD) != "undefined"? stage4Data.Accept.Q8dD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q8dNum},
+									{variable:statsName[15], mean:typeof(stage4Data.Accept.Q8e) != "undefined"? stage4Data.Accept.Q8e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q8eD) != "undefined"? stage4Data.Accept.Q8eD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q8eNum},
+									{variable:statsName[16], mean:typeof(stage4Data.Accept.Q8g) != "undefined"? stage4Data.Accept.Q8g.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q8gD) != "undefined"? stage4Data.Accept.Q8gD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q8gNum},
+									{variable:statsName[17], mean:typeof(stage4Data.Accept.Q8i) != "undefined"? stage4Data.Accept.Q8i.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q8iD) != "undefined"? stage4Data.Accept.Q8iD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q8iNum},
+									{variable:statsName[18], mean:typeof(stage4Data.Accept.Q9) != "undefined"? stage4Data.Accept.Q9.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q9D) != "undefined"? stage4Data.Accept.Q9D.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q9Num},
+									{variable:statsName[19], mean:typeof(stage4Data.Accept.Q11) != "undefined"? stage4Data.Accept.Q11.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Accept.Q11D) != "undefined"? stage4Data.Accept.Q11D.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Accept.Q11Num},
+									];
+		}
+		
+		var weight2Stage4 = weightDef;
+		if(typeof(stage4Data.Deny) != "undefined"){
+			weight2Stage4 = stage4Data.Deny.weight;
+		stage4StatsDeny = [{variable:statsName[0], mean:typeof(stage4Data.Deny.gpa) != "undefined"? stage4Data.Deny.gpa.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.gpaD) != "undefined"? stage4Data.Deny.gpaD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.gpaNum},
+									{variable:statsName[1], mean:typeof(stage4Data.Deny.cse142grade) != "undefined"? stage4Data.Deny.cse142grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.cse142gradeD) != "undefined"? stage4Data.Deny.cse142gradeD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.cse142gradeNum},
+									{variable:statsName[20], mean:typeof(stage4Data.Deny.cse142firstclass) != "undefined"? stage4Data.Deny.cse142firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.cse142firstclassD) != "undefined"? stage4Data.Deny.cse142firstclassD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.cse142firstclassNum},
+									{variable:statsName[2], mean:typeof(stage4Data.Deny.cse143grade) != "undefined"? stage4Data.Deny.cse143grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.cse143gradeD) != "undefined"? stage4Data.Deny.cse143gradeD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.cse143gradeNum},
+									{variable:statsName[21], mean:typeof(stage4Data.Deny.cse143firstclass) != "undefined"? stage4Data.Deny.cse143firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.cse143firstclassD) != "undefined"? stage4Data.Deny.cse143firstclassD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.cse143firstclassNum},
+									{variable:statsName[3], mean:typeof(stage4Data.Deny.appscores) != "undefined"? stage4Data.Deny.appscores.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.appscoresD) != "undefined"? stage4Data.Deny.appscoresD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.appscoresNum},
+									{variable:statsName[4], mean:typeof(stage4Data.Deny.stdmath) != "undefined"? stage4Data.Deny.stdmath.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.stdmathD) != "undefined"? stage4Data.Deny.stdmathD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.stdmathNum},
+									{variable:statsName[5], mean:typeof(stage4Data.Deny.stdverbal) != "undefined"? stage4Data.Deny.stdverbal.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.stdverbalD) != "undefined"? stage4Data.Deny.stdverbalD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.stdverbalNum},
+									{variable:statsName[6], mean:typeof(stage4Data.Deny.stdcomb) != "undefined"? stage4Data.Deny.stdcomb.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.stdcombD) != "undefined"? stage4Data.Deny.stdcombD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.stdcombNum},
+									{variable:statsName[7], mean:typeof(stage4Data.Deny.Q5b) != "undefined"? stage4Data.Deny.Q5b.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q5bD) != "undefined"? stage4Data.Deny.Q5bD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q5bNum},
+									{variable:statsName[8], mean:typeof(stage4Data.Deny.Q5d) != "undefined"? stage4Data.Deny.Q5d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q5dD) != "undefined"? stage4Data.Deny.Q5dD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q5dNum},
+									{variable:statsName[9], mean:typeof(stage4Data.Deny.Q5e) != "undefined"? stage4Data.Deny.Q5e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q5eD) != "undefined"? stage4Data.Deny.Q5eD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q5eNum},
+									{variable:statsName[10], mean:typeof(stage4Data.Deny.Q5f) != "undefined"? stage4Data.Deny.Q5f.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q5fD) != "undefined"? stage4Data.Deny.Q5fD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q5fNum},
+									{variable:statsName[11], mean:typeof(stage4Data.Deny.Q7a) != "undefined"? stage4Data.Deny.Q7a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q7aD) != "undefined"? stage4Data.Deny.Q7aD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q7aNum},
+									{variable:statsName[12], mean:typeof(stage4Data.Deny.Q8a) != "undefined"? stage4Data.Deny.Q8a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q8aD) != "undefined"? stage4Data.Deny.Q8aD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q8aNum},
+									{variable:statsName[13], mean:typeof(stage4Data.Deny.Q8c) != "undefined"? stage4Data.Deny.Q8c.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q8cD) != "undefined"? stage4Data.Deny.Q8cD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q8cNum},
+									{variable:statsName[14], mean:typeof(stage4Data.Deny.Q8d) != "undefined"? stage4Data.Deny.Q8d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q8dD) != "undefined"? stage4Data.Deny.Q8dD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q8dNum},
+									{variable:statsName[15], mean:typeof(stage4Data.Deny.Q8e) != "undefined"? stage4Data.Deny.Q8e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q8eD) != "undefined"? stage4Data.Deny.Q8eD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q8eNum},
+									{variable:statsName[16], mean:typeof(stage4Data.Deny.Q8g) != "undefined"? stage4Data.Deny.Q8g.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q8gD) != "undefined"? stage4Data.Deny.Q8gD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q8gNum},
+									{variable:statsName[17], mean:typeof(stage4Data.Deny.Q8i) != "undefined"? stage4Data.Deny.Q8i.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q8iD) != "undefined"? stage4Data.Deny.Q8iD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q8iNum},
+									{variable:statsName[18], mean:typeof(stage4Data.Deny.Q9) != "undefined"? stage4Data.Deny.Q9.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q9D) != "undefined"? stage4Data.Deny.Q9D.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q9Num},
+									{variable:statsName[19], mean:typeof(stage4Data.Deny.Q11) != "undefined"? stage4Data.Deny.Q11.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.Deny.Q11D) != "undefined"? stage4Data.Deny.Q11D.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.Deny.Q11Num},
+									];
+		}
+		
+		var weight3Stage4 = weightDef;
+		if(typeof(stage4Data.SD) != "undefined"){
+			weight3Stage4 = stage4Data.SD.weight;
+		stage4StatsSD = [{variable:statsName[0], mean:typeof(stage4Data.SD.gpa) != "undefined"? stage4Data.SD.gpa.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.gpaD) != "undefined"? stage4Data.SD.gpaD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.gpaNum},
+									{variable:statsName[1], mean:typeof(stage4Data.SD.cse142grade) != "undefined"? stage4Data.SD.cse142grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.cse142gradeD) != "undefined"? stage4Data.SD.cse142gradeD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.cse142gradeNum},
+									{variable:statsName[20], mean:typeof(stage4Data.SD.cse142firstclass) != "undefined"? stage4Data.SD.cse142firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.cse142firstclassD) != "undefined"? stage4Data.SD.cse142firstclassD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.cse142firstclassNum},
+									{variable:statsName[2], mean:typeof(stage4Data.SD.cse143grade) != "undefined"? stage4Data.SD.cse143grade.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.cse143gradeD) != "undefined"? stage4Data.SD.cse143gradeD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.cse143gradeNum},
+									{variable:statsName[21], mean:typeof(stage4Data.SD.cse143firstclass) != "undefined"? stage4Data.SD.cse143firstclass.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.cse143firstclassD) != "undefined"? stage4Data.SD.cse143firstclassD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.cse143firstclassNum},
+									{variable:statsName[3], mean:typeof(stage4Data.SD.appscores) != "undefined"? stage4Data.SD.appscores.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.appscoresD) != "undefined"? stage4Data.SD.appscoresD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.appscoresNum},
+									{variable:statsName[4], mean:typeof(stage4Data.SD.stdmath) != "undefined"? stage4Data.SD.stdmath.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.stdmathD) != "undefined"? stage4Data.SD.stdmathD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.stdmathNum},
+									{variable:statsName[5], mean:typeof(stage4Data.SD.stdverbal) != "undefined"? stage4Data.SD.stdverbal.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.stdverbalD) != "undefined"? stage4Data.SD.stdverbalD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.stdverbalNum},
+									{variable:statsName[6], mean:typeof(stage4Data.SD.stdcomb) != "undefined"? stage4Data.SD.stdcomb.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.stdcombD) != "undefined"? stage4Data.SD.stdcombD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.stdcombNum},
+									{variable:statsName[7], mean:typeof(stage4Data.SD.Q5b) != "undefined"? stage4Data.SD.Q5b.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q5bD) != "undefined"? stage4Data.SD.Q5bD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q5bNum},
+									{variable:statsName[8], mean:typeof(stage4Data.SD.Q5d) != "undefined"? stage4Data.SD.Q5d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q5dD) != "undefined"? stage4Data.SD.Q5dD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q5dNum},
+									{variable:statsName[9], mean:typeof(stage4Data.SD.Q5e) != "undefined"? stage4Data.SD.Q5e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q5eD) != "undefined"? stage4Data.SD.Q5eD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q5eNum},
+									{variable:statsName[10], mean:typeof(stage4Data.SD.Q5f) != "undefined"? stage4Data.SD.Q5f.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q5fD) != "undefined"? stage4Data.SD.Q5fD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q5fNum},
+									{variable:statsName[11], mean:typeof(stage4Data.SD.Q7a) != "undefined"? stage4Data.SD.Q7a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q7aD) != "undefined"? stage4Data.SD.Q7aD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q7aNum},
+									{variable:statsName[12], mean:typeof(stage4Data.SD.Q8a) != "undefined"? stage4Data.SD.Q8a.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q8aD) != "undefined"? stage4Data.SD.Q8aD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q8aNum},
+									{variable:statsName[13], mean:typeof(stage4Data.SD.Q8c) != "undefined"? stage4Data.SD.Q8c.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q8cD) != "undefined"? stage4Data.SD.Q8cD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q8cNum},
+									{variable:statsName[14], mean:typeof(stage4Data.SD.Q8d) != "undefined"? stage4Data.SD.Q8d.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q8dD) != "undefined"? stage4Data.SD.Q8dD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q8dNum},
+									{variable:statsName[15], mean:typeof(stage4Data.SD.Q8e) != "undefined"? stage4Data.SD.Q8e.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q8eD) != "undefined"? stage4Data.SD.Q8eD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q8eNum},
+									{variable:statsName[16], mean:typeof(stage4Data.SD.Q8g) != "undefined"? stage4Data.SD.Q8g.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q8gD) != "undefined"? stage4Data.SD.Q8gD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q8gNum},
+									{variable:statsName[17], mean:typeof(stage4Data.SD.Q8i) != "undefined"? stage4Data.SD.Q8i.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q8iD) != "undefined"? stage4Data.SD.Q8iD.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q8iNum},
+									{variable:statsName[18], mean:typeof(stage4Data.SD.Q9) != "undefined"? stage4Data.SD.Q9.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q9D) != "undefined"? stage4Data.SD.Q9D.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q9Num},
+									{variable:statsName[19], mean:typeof(stage4Data.SD.Q11) != "undefined"? stage4Data.SD.Q11.toFixed(numberOfDecimalPlaces): "NA", deviation:typeof(stage4Data.SD.Q11D) != "undefined"? stage4Data.SD.Q11D.toFixed(numberOfDecimalPlaces): "NA", num:stage4Data.SD.Q11Num},
+									];
+		}
 
-	if(typeof(weight1Stage4) =="number"){
-		graph.nodes.push({ "name": source[3]});
-		graph.nodes.push({ "name": target[0]});
-		graph.links.push({ "source": source[3],
-		         "target": target[0],
-		         "value": +weight1Stage4});
-	}
-	else{
-		graph.nodes.push({ "name": source[3]});
-		graph.nodes.push({ "name": target[0]});
-		graph.links.push({ "source": source[3],
-		         "target": target[0],
-		         "value": +weightDef});
-	}
-	
-	if(typeof(weight2Stage4) =="number"){
-		graph.nodes.push({ "name": source[3]});
-		graph.nodes.push({ "name": target[1]});
-		graph.links.push({ "source": source[3],
-		         "target": target[1],
-		         "value": +weight2Stage4});
-	}
-	else{
-		graph.nodes.push({ "name": source[3]});
-		graph.nodes.push({ "name": target[1]});
-		graph.links.push({ "source": source[3],
-		         "target": target[1],
-		         "value": +weightDef});
-	}
-	
-	if(typeof(weight3Stage4) =="number"){
-		graph.nodes.push({ "name": source[3]});
-		graph.nodes.push({ "name": target[2]});
-		graph.links.push({ "source": source[3],
-		         "target": target[2],
-		         "value": +weight3Stage4});
-	}
-	else{
-		graph.nodes.push({ "name": source[3]});
-		graph.nodes.push({ "name": target[2]});
-		graph.links.push({ "source": source[3],
-		         "target": target[2],
-		         "value": +weightDef});
+		if(typeof(weight1Stage4) =="number"){
+			graph.nodes.push({ "name": source[3]});
+			graph.nodes.push({ "name": target[0]});
+			graph.links.push({ "source": source[3],
+					 "target": target[0],
+					 "value": +weight1Stage4});
+		}
+		else{
+			graph.nodes.push({ "name": source[3]});
+			graph.nodes.push({ "name": target[0]});
+			graph.links.push({ "source": source[3],
+					 "target": target[0],
+					 "value": +weightDef});
+		}
+		
+		if(typeof(weight2Stage4) =="number"){
+			graph.nodes.push({ "name": source[3]});
+			graph.nodes.push({ "name": target[1]});
+			graph.links.push({ "source": source[3],
+					 "target": target[1],
+					 "value": +weight2Stage4});
+		}
+		else{
+			graph.nodes.push({ "name": source[3]});
+			graph.nodes.push({ "name": target[1]});
+			graph.links.push({ "source": source[3],
+					 "target": target[1],
+					 "value": +weightDef});
+		}
+		
+		if(typeof(weight3Stage4) =="number"){
+			graph.nodes.push({ "name": source[3]});
+			graph.nodes.push({ "name": target[2]});
+			graph.links.push({ "source": source[3],
+					 "target": target[2],
+					 "value": +weight3Stage4});
+		}
+		else{
+			graph.nodes.push({ "name": source[3]});
+			graph.nodes.push({ "name": target[2]});
+			graph.links.push({ "source": source[3],
+					 "target": target[2],
+					 "value": +weightDef});
+		}
 	}
 	
 	return [stage1Stats, stage2StatsCS143, stage2StatsNA143, stage3StatsApply, stage3StatsDNA, stage4StatsAccept, stage4StatsDeny, stage4StatsSD]

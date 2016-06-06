@@ -1,31 +1,60 @@
 var units = "Students";
-       var margin = {top: 10, right: 150, bottom: 10, left: 10},
-         width = 760 - margin.left - margin.right,
-         height = 600 - margin.top - margin.bottom;
-       var formatNumber = d3.format(",.0f"),  // zero decimal places
-         format = function(d) { return formatNumber(d) + " " + units; };
-         //color = d3.scale.category20();
-       // append the svg canvas to the page
-       var svg = d3.select("#svg1")//select("#chart").append("svg1")
-         .attr("width", width + margin.left + margin.right)
-         .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-         .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
+var margin = {top: 10, right: 150, bottom: 10, left: 10},
+ width = 760 - margin.left - margin.right,
+ height = 600 - margin.top - margin.bottom;
+var formatNumber = d3.format(",.0f"),  // zero decimal places
+ format = function(d) { return formatNumber(d) + " " + units; };
+ //color = d3.scale.category20();
+// append the svg canvas to the page
+var svg = d3.select("#svg1")//select("#chart").append("svg1")
+ .attr("width", width + margin.left + margin.right)
+ .attr("height", height + margin.top + margin.bottom)
+.append("g")
+ .attr("transform",
+    "translate(" + margin.left + "," + margin.top + ")");
 
-       var svgNew = d3.select("#svg2")
-         .attr("width", width + margin.left + margin.right)
-         .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-         .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
+var svgNew = d3.select("#svg2")
+ .attr("width", width + margin.left + margin.right)
+ .attr("height", height + margin.top + margin.bottom)
+.append("g")
+ .attr("transform",
+    "translate(" + margin.left + "," + margin.top + ")");
 
-       // Set the sankey diagram properties
-       var sankey = d3.sankey()
-         .nodeWidth(36)
-         .nodePadding(10)
-         .size([width, height]);
-       var path = sankey.link();
+// Set the sankey diagram properties
+var sankey = d3.sankey()
+ .nodeWidth(36)
+ .nodePadding(10)
+ .size([width, height]);
+var path = sankey.link();
+
+
+
+//parameter for Bar graph
+/*var formatPercent = d3.format(".0%");
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+var y = d3.scale.linear()
+    .range([height, 0]);
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(formatPercent);
+
+var svgBar = d3.select("#svg3")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");*/
+ 
+var chartBar = nv.models.discreteBarChart()
+			.options({
+                duration: 300,
+                useInteractiveGuideline: true
+            });
+
 
 // Set up filters for SVG1
 var filters = createFilters()
@@ -33,11 +62,11 @@ var filterContainer = document.querySelector('.filter-container')
 filterContainer.appendChild(filters.getRoot())
 var filterApplyButton = document.getElementById('filter-apply-button')
 filterApplyButton.onclick = filterGroupVisualize
-var filterResetButton1 = document.getElementById('filter-reset-button')
+/*var filterResetButton1 = document.getElementById('filter-reset-button')
 filterResetButton1.onclick = function() {
     filters.reset()
     filterGroupVisualize()
-}
+}*/
 
 // Set up filters for SVG2
 var filtersNew = createFilters()
@@ -45,11 +74,11 @@ var filterContainerNew = document.querySelector('.filter-container-new')
 filterContainerNew.appendChild(filtersNew.getRoot())
 var filterApplyButtonNew = document.getElementById('filter-apply-button-new')
 filterApplyButtonNew.onclick = filterGroupVisualizeNew
-var filterResetButton2 = document.getElementById('filter-reset-button-new')
+/*var filterResetButton2 = document.getElementById('filter-reset-button-new')
 filterResetButton2.onclick = function() {
     filtersNew.reset()
     filterGroupVisualizeNew()
-}
+}*/
 
 // load the data
 var globalData = null

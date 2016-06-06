@@ -204,3 +204,18 @@ td
 {
    height: 300px;
 }
+
+.filter-row {
+
+}
+
+.filter-panel {
+    vertical-align: top;
+    display: inline-block;
+    width: 50%;
+}
+
+.filter-panel > div {
+    background: white;
+    margin: 1em;
+}

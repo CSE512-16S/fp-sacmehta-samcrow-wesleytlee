@@ -14,6 +14,7 @@ function FilterGroup(availableFilters) {
     var filterGroup = this
     var createFilterAddMenu = function() {
         var select = document.createElement('select')
+        select.classList.add('filter-add-menu')
 
         var initial = document.createElement('option')
         initial.textContent = 'Add a filter...'

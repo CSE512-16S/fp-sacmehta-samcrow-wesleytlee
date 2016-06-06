@@ -835,7 +835,7 @@ function updateDataWithTransition(data){
 		.attr("dy", ".35em")
 		.attr("text-anchor", "start")
 		.attr("transform", null)
-		.text(function(d) {
+		.html(function(d) {
 			if (d.value >=1){
 			return nodeText(d);}
 			})
@@ -955,6 +955,8 @@ function renderData(data){
 			if (d.value >=1){ return nodeText(d); }
 			})
 	.filter(function(d) { return d.x < width / 2; });
+	//.call(wrap, 100);
+
    
 	//render data on a table
 	renderTable()
@@ -1004,4 +1006,29 @@ function renderTable(){
 	d3.select("body")
     	.datum(dataStat) /// filter on lines
     	.call(t)
+}
+
+function wrap(text, width) {
+  text.each(function() {
+    var text = d3.select(this),
+        words = text.text().split(/\s+/).reverse(),
+        word,
+        line = [],
+        lineNumber = 0,
+        lineHeight = 1.1, // ems
+        y = text.attr("y"),
+        dy = parseFloat(text.attr("dy")),
+        tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+  console.log(text)
+    while (word = words.pop()) {
+      line.push(word);
+      tspan.text(line.join(" "));
+      if (tspan.node().getComputedTextLength() > width) {
+        line.pop();
+        tspan.text(line.join(" "));
+        line = [word];
+        tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+      }
+    }
+  });
 }

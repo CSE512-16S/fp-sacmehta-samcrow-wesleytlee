@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8" />
     <title>CSE Admission Data Visualization</title>
@@ -50,53 +49,52 @@
                 </div>
             </div>
             <div class="child_div_table_1">
-                <h3 class="filter-text">Sankey Diagram</h5>
-                    <svg id="svg1"></svg>
-                </div>
-                <div class="child_div_table_1">
-                    <h3 class="filter-text"> Sankey Diagram</h5>
-                        <svg id="svg2"></svg>
-                    </div>
-                    <div class="child_div_table_1">
-                        <h5 class="filter-text">Select stage
-                            <select id="stage" onchange="renderTable()">
-                                <option value="stage1">Overall Summary</option>
-                                <option value="stage2">CSE142 -> CSE 143</option>
-                                <option value="stage3">CSE142 -> CSE 143 (Not Applied)</option>
-                                <option value="stage4">CSE143 -> Applied </option>
-                                <option value="stage5">CSE143 -> Did not apply</option>
-                                <option value="stage6">CSE143 (apply) -> Accept</option>
-                                <option value="stage7">CSE143 (apply) -> Deny</option>
-                                <option value="stage8">CSE143 (apply) -> Soft Deny</option>
-                            </select>
-                        </h5>
-                        <h5 class="filter-text">Summary Table</h5>
-                        <table id="table1"></table>
-                    </div>
-                    <div class="child_div_table_1">
-                        <h5 class="filter-text">Select stage
-                            <select id="stageNew" onchange="renderTableNew()">
-                                <option value="stage1">Overall Summary</option>
-                                <option value="stage2">CSE142 -> CSE 143</option>
-                                <option value="stage3">CSE142 -> CSE 143 (Not Applied)</option>
-                                <option value="stage4">CSE143 -> Applied </option>
-                                <option value="stage5">CSE143 -> Did not apply</option>
-                                <option value="stage6">CSE143 (apply) -> Accept</option>
-                                <option value="stage7">CSE143 (apply) -> Deny</option>
-                                <option value="stage8">CSE143 (apply) -> Soft Deny</option>
-                            </select>
-                        </h5>
-                        <h5 class="filter-text">Summary Table</h5>
-                        <table id="table2" style="align:center"></table>
-                    </div>
-                    <div class="child_div_bar_1">
-                        <h5 class="filter-text"> Z-Scores</h5>
-                        <div id="chartBar">
-                            <svg></svg>
-                        </div>
+                <h5 class="filter-text">Sankey Diagram</h5>
+                <svg id="svg1"></svg>
+		<h5 class="filter-text-sub"> Select the stage</h5>
+                <select id="stage" onchange="renderTable()">
+                    <option value="stage1">Overall Summary</option>
+                    <option value="stage2">CSE142 -> CSE 143</option>
+                    <option value="stage3">CSE142 -> CSE 143 (Not Applied)</option>
+                    <option value="stage4">CSE143 -> Applied </option>
+                    <option value="stage5">CSE143 -> Did not apply</option>
+                    <option value="stage6">CSE143 (apply) -> Accept</option>
+                    <option value="stage7">CSE143 (apply) -> Deny</option>
+                    <option value="stage8">CSE143 (apply) -> Soft Deny</option>
+                </select>
+            </div>
+            <div class="child_div_table_1">
+                <h5 class="filter-text"> Sankey Diagram</h5>
+                <svg id="svg2"> </svg>
+		<h5 class="filter-text-sub"> Select the stage</h5>
+                <select id="stageNew" onchange="renderTableNew()">
+                    <option value="stage1">Overall Summary</option>
+                    <option value="stage2">CSE142 -> CSE 143</option>
+                    <option value="stage3">CSE142 -> CSE 143 (Not Applied)</option>
+                    <option value="stage4">CSE143 -> Applied </option>
+                    <option value="stage5">CSE143 -> Did not apply</option>
+                    <option value="stage6">CSE143 (apply) -> Accept</option>
+                    <option value="stage7">CSE143 (apply) -> Deny</option>
+                    <option value="stage8">CSE143 (apply) -> Soft Deny</option>
+                </select>
+            </div>
 
-                    </div>
-                    <script type="text/javascript" src="js/visualization.js"></script>
+            <div class="child_div_bar_1">
+                <h5 class="filter-text"> Z-Scores</h5>
+                <div id="chartBar">
+					<svg> </svg>
                 </div>
-            </body>
-            </html>
+            </div>
+
+            <div class="child_div_table_1">
+                <h5 class="filter-text"> Summary Table</h5>
+                <table id="table1"></table>
+            </div>
+            <div class="child_div_table_1">
+                <h5 class="filter-text"> Summary Table</h5>
+                <table id="table2" style="align:center"></table>
+            </div>
+            <script type="text/javascript" src="js/visualization.js"></script>
+        </div>
+    </body>
+</html>

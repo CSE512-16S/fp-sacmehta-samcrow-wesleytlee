@@ -3,8 +3,13 @@ d3.table = function(config) {
 	var columns = [];//["Mean", "Maximum", "Minimum"];
 
 	var tbl = function(selection) {
-	if (columns.length == 0) columns = d3.keys(selection.data()[0][0]); 
-
+	if (columns.length == 0){
+		columns = d3.keys(selection.data()[0][0])
+	}; 
+	var index = columns.indexOf("num");
+	if(index > -1){
+		columns.splice(index, 1);
+	}
 	// Creating the table
 	selection.selectAll('table').data([0]).enter().append('table1');
 	var table = selection.select('#table1');
@@ -64,6 +69,11 @@ d3.table1 = function(config) {
 
 	var tbl = function(selection) {
 	if (columns.length == 0) columns = d3.keys(selection.data()[0][0]); 
+
+	var index = columns.indexOf("num");
+	if(index > -1){
+		columns.splice(index, 1);
+	}
 
 	// Creating the table
 	selection.selectAll('table').data([0]).enter().append('table2');
@@ -258,5 +268,7 @@ function rectLabel(d){
 }
 
 function nodeText(d){
-	return d.name + "(" + Math.round(d.value) + ")";
+	return d.name + "<br/> (" + Math.round(d.value) + ")";
 }
+
+

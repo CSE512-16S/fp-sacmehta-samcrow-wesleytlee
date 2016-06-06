@@ -225,7 +225,8 @@ function createNodeData(graph, data){
 	var stage2StatsNA143 = [];
 	var stage2Data = [];
 	
-	if(typeof(groupedStage2.student.CSE142) != "undefined"){
+	if(typeof(groupedStage2) != "undefined"){
+		if(typeof(groupedStage2.student.CSE142) != "undefined"){
 		stage2Data = groupedStage2.student.CSE142;
 
 
@@ -405,14 +406,14 @@ function createNodeData(graph, data){
 						})
 				  .map(data);
 	}	      
-		      
+	}      
 	//stage 3
 	
 	var stage3StatsApply = [];
 	var stage3StatsDNA = [];
 	var stage3Data = [];
-
-	if(typeof(groupedStage3.student.CSE142.CSE143) != "undefined"){
+	if(typeof(groupedStage3) != "undefined"){
+		if(typeof(groupedStage3.student.CSE142.CSE143) != "undefined"){
 		stage3Data = groupedStage3.student.CSE142.CSE143;
 		
 		
@@ -593,15 +594,15 @@ function createNodeData(graph, data){
 						})
 				  .map(data);
 	}
-		      
+	 }    
 	//stage 4 
 	
 	var stage4StatsAccept = [];
 	var stage4StatsDeny = [];
 	var stage4StatsSD = [];
 	var stage4Data = [];
-	
-	if (typeof(groupedStage4.student.CSE142.CSE143.Apply) != "undefined"){
+	if(typeof(groupedStage4) != "undefined"){
+		if (typeof(groupedStage4.student.CSE142.CSE143.Apply) != "undefined"){
 	
 		stage4Data = groupedStage4.student.CSE142.CSE143.Apply;	 
 		
@@ -735,7 +736,7 @@ function createNodeData(graph, data){
 					 "value": +weightDef});
 		}
 	}
-	
+	}
 	return [stage1Stats, stage2StatsCS143, stage2StatsNA143, stage3StatsApply, stage3StatsDNA, stage4StatsAccept, stage4StatsDeny, stage4StatsSD]
 }
 

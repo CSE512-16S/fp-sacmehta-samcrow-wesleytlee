@@ -5,13 +5,33 @@
 * Each filter control has a root DOM element and a predicate.
 */
 
+var createRemoveButton = function() {
+    var button = document.createElement('button')
+    button.setAttribute('type', 'button')
+    button.textContent = 'X'
+    button.classList.add('filter-remove-button')
+    button.setAttribute('title', 'Remove filter')
+    return button
+}
+
+function FilterControl(property) {
+    this.property = property
+    this.removeButton = createRemoveButton()
+}
+
+FilterControl.prototype = {
+    setOnRemovePressed: function(callback) {
+        this.removeButton.onclick = callback
+    }
+}
+
 /**
 * Creates a boolean filter to filter on a property
 * @param property the property to find
 * @param label the label to display
 */
 function BooleanFilter(property, label) {
-    this.property = property
+    FilterControl.call(this, property)
 
     var createOptions = function() {
         var optAny = document.createElement('option')
@@ -41,27 +61,30 @@ function BooleanFilter(property, label) {
     labelElement.setAttribute('for', linkId)
     div.appendChild(labelElement)
     div.appendChild(select)
+
+    div.appendChild(this.removeButton)
+
     this.root = div
     this.select = select
 }
-
-BooleanFilter.prototype.getRoot = function() {
-    return this.root
-}
-
-BooleanFilter.prototype.reset = function() {
-    this.select.value = 'any'
-}
-
-BooleanFilter.prototype.getPredicate = function() {
-    var selection = this.select.value
-    if (selection == 'true') {
-        return new FieldMatches(this.property, true)
-    } else if (selection == 'false') {
-        return new FieldMatches(this.property, false)
-    } else {
-        return new All()
-    }
+BooleanFilter.prototype = {
+    getRoot: function() {
+        return this.root
+    },
+    reset: function() {
+        this.select.value = 'any'
+    },
+    getPredicate: function() {
+        var selection = this.select.value
+        if (selection == 'true') {
+            return new FieldMatches(this.property, true)
+        } else if (selection == 'false') {
+            return new FieldMatches(this.property, false)
+        } else {
+            return new All()
+        }
+    },
+    setOnRemovePressed: FilterControl.prototype.setOnRemovePressed,
 }
 
 /**
@@ -71,7 +94,7 @@ BooleanFilter.prototype.getPredicate = function() {
 * @param label a label to display
 */
 function StringFilter(property, values, label) {
-    this.property = property
+    FilterControl.call(this, property)
 
     var createSelect = function() {
         var select = document.createElement('select')
@@ -104,23 +127,26 @@ function StringFilter(property, values, label) {
     root.appendChild(labelElement)
     root.appendChild(this.select)
 
+    root.appendChild(this.removeButton)
+
     this.root = root
 }
-StringFilter.prototype.getRoot = function() {
-    return this.root
-}
-
-StringFilter.prototype.reset = function() {
-    this.select.value = '__any__'
-}
-
-StringFilter.prototype.getPredicate = function() {
-    var selection = this.select.value
-    if (selection == '__any__') {
-        return new All()
-    } else {
-        return new FieldMatches(this.property, selection)
-    }
+StringFilter.prototype = {
+    getRoot: function() {
+        return this.root
+    },
+    reset: function() {
+        this.select.value = '__any__'
+    },
+    getPredicate: function() {
+        var selection = this.select.value
+        if (selection == '__any__') {
+            return new All()
+        } else {
+            return new FieldMatches(this.property, selection)
+        }
+    },
+    setOnRemovePressed: FilterControl.prototype.setOnRemovePressed,
 }
 
 /**
@@ -133,7 +159,7 @@ StringFilter.prototype.getPredicate = function() {
 * @param label the label to display
 */
 function RangeFilter(property, min, max, step, label) {
-    this.property = property
+    FilterControl.call(this, property)
 
     var createSlider = function() {
         var input = document.createElement('input')
@@ -190,31 +216,34 @@ function RangeFilter(property, min, max, step, label) {
     this.root.appendChild(maxContainer)
     this.root.classList.add('range-filter')
 
+    this.root.appendChild(this.removeButton)
+
     // Initialize indicator values
     updateMinIndicator.apply(self)
     updateMaxIndicator.apply(self)
 }
 
-RangeFilter.prototype.getRoot = function() {
-    return this.root
-}
-
-RangeFilter.prototype.reset = function() {
-    this.minSlider.value = this.minSlider.getAttribute('min')
-    this.maxSlider.value = this.maxSlider.getAttribute('max')
-}
-
-RangeFilter.prototype.getPredicate = function() {
-    // If both sliders are at their most accepting values, accept anything
-    if (this.minSlider.value == this.minSlider.getAttribute('min')
-    && this.maxSlider.value == this.maxSlider.getAttribute('max')) {
-        return new All()
-    } else {
-        // Otherwise limit to the range and exclude NaN values
-        var min = this.minSlider.value
-        var max = this.maxSlider.value
-        return new Range(this.property, min, max)
-    }
+RangeFilter.prototype = {
+    getRoot: function() {
+        return this.root
+    },
+    reset: function() {
+        this.minSlider.value = this.minSlider.getAttribute('min')
+        this.maxSlider.value = this.maxSlider.getAttribute('max')
+    },
+    getPredicate: function() {
+        // If both sliders are at their most accepting values, accept anything
+        if (this.minSlider.value == this.minSlider.getAttribute('min')
+        && this.maxSlider.value == this.maxSlider.getAttribute('max')) {
+            return new All()
+        } else {
+            // Otherwise limit to the range and exclude NaN values
+            var min = this.minSlider.value
+            var max = this.maxSlider.value
+            return new Range(this.property, min, max)
+        }
+    },
+    setOnRemovePressed: FilterControl.prototype.setOnRemovePressed,
 }
 
 /**
@@ -229,7 +258,8 @@ RangeFilter.prototype.getPredicate = function() {
 * @param label a label to display
 */
 function CheckBoxFilter(property, values, label) {
-    this.property = property
+    FilterControl.call(this, property)
+
     this.root = document.createElement('div')
     this.root.classList.add('checkbox-filter')
     this.root.appendChild(new Text(label))
@@ -251,32 +281,33 @@ function CheckBoxFilter(property, values, label) {
         container.appendChild(label)
         this.root.appendChild(container)
     }
+    this.root.appendChild(this.removeButton)
 }
-
-CheckBoxFilter.prototype.getRoot = function() {
-    return this.root
-}
-
-CheckBoxFilter.prototype.reset = function() {
-    for (var i = 0; i < this.boxes.length; i++) {
-        this.boxes[i].checked = false
-    }
-}
-
-CheckBoxFilter.prototype.getPredicate = function() {
-    var predicates = []
-    for (var i = 0; i < this.boxes.length; i++) {
-        var box = this.boxes[i]
-        var checked = box.checked
-        var value = box.getAttribute('data-value')
-        if (checked) {
-            predicates.push(new FieldMatches(this.property, value))
+CheckBoxFilter.prototype = {
+    getRoot: function() {
+        return this.root
+    },
+    reset: function() {
+        for (var i = 0; i < this.boxes.length; i++) {
+            this.boxes[i].checked = false
         }
-    }
-    if (predicates.length > 0) {
-        // Call new Or() with predicates as the arguments
-        return new (Function.prototype.bind.apply(Or, [null].concat(predicates)))
-    } else {
-        return new All()
-    }
+    },
+    getPredicate: function() {
+        var predicates = []
+        for (var i = 0; i < this.boxes.length; i++) {
+            var box = this.boxes[i]
+            var checked = box.checked
+            var value = box.getAttribute('data-value')
+            if (checked) {
+                predicates.push(new FieldMatches(this.property, value))
+            }
+        }
+        if (predicates.length > 0) {
+            // Call new Or() with predicates as the arguments
+            return new (Function.prototype.bind.apply(Or, [null].concat(predicates)))
+        } else {
+            return new All()
+        }
+    },
+    setOnRemovePressed: FilterControl.prototype.setOnRemovePressed,
 }

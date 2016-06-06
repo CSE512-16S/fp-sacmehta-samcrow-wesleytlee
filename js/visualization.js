@@ -97,11 +97,11 @@ function filterGroupVisualize() {
         }
     }
     // Continue
-    if(data.length) {
+    if(data.length > 1) {
       updateDataWithTransition(data)
     } else {
        //**Return an error message or something**
-       alert("No students satisfying filter!")
+       alert("Not enough students satisfying filter!")
     }
 }
 
@@ -116,11 +116,11 @@ function filterGroupVisualizeNew() {
         }
     }
     // Continue
-    if(data.length) {
+    if(data.length > 1) {
       updateDataWithTransitionNew(data)
     } else {
        //**Return an error message or something**
-       alert("No students satisfying filter!")
+       alert("Not enough students satisfying filter!")
     }
 }
 

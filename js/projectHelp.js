@@ -141,7 +141,7 @@ function renderDataNew(data){
 			}});
 
 	// add in the title for the nodes
-	node.append("text")
+	/*node.append("text")
 	  .attr("x", 42)
 	  .attr("y", function(d) { return d.dy / 2; })
 	  .attr("dy", ".35em")
@@ -150,7 +150,39 @@ function renderDataNew(data){
 	  .text(function(d) { 
 			if (d.value >=1){ return nodeText(d); }
 			})
-	.filter(function(d) { return d.x < width / 2; });
+	.filter(function(d) { return d.x < width / 2; });*/
+	
+	var nodeText = node.append("text");
+				  
+	
+	//nodeText.append("tspan")
+	//nodeText
+	
+	var span1 = nodeText
+				.append("tspan")
+				.attr("x", 42)
+			  .attr("y", function(d) { return d.dy / 2; })
+			  .attr("dy", ".35em")
+			  .attr("text-anchor", "start")
+			  .attr("transform", null)
+			  .attr("id", "span1");
+	var span2 = nodeText
+			.append("tspan")
+			.attr("x", 42)
+			  .attr("y", function(d) { return d.dy / 2 + 20; })
+			  .attr("dy", ".35em")
+			  .attr("text-anchor", "start")
+			  .attr("transform", null)
+			  .attr("id", "span2");
+	span1.text(function(d) {
+		if (d.value >=1){
+		return d.name;}
+		});
+	span2.text(function(d) {
+		if (d.value >=1){
+		return "(" + Math.round(d.value) + ")";}
+		});
+	
 
 	//render data on a table
 	renderTableNew()
@@ -260,7 +292,7 @@ function updateDataWithTransitionNew(data){
 		});
 
 	//add rectangle label
-	svgNew.selectAll("text")
+	/*svgNew.selectAll("text")
 		.data(graph.nodes)
 		.transition()
 		.duration(transitionDuration)
@@ -277,7 +309,39 @@ function updateDataWithTransitionNew(data){
 			})
 		.filter(function(d) {
 		return d.x < width / 2;
-		});
+		});*/
+		
+	//add rectangle label
+	var nodeText = svgNew.selectAll("text")
+					.data(graph.nodes);
+					
+				nodeText
+				.select("#span1")
+				.attr("x", 42)
+				  .attr("y", function(d) { return d.dy / 2; })
+				  .attr("dy", ".35em")
+				  .attr("text-anchor", "start")
+				  .attr("transform", null)
+				.text(function(d) {
+					if (d.value >=1){
+					return d.name;}
+					})
+				.transition()
+				.duration(transitionDuration);
+				
+				nodeText
+				.select("#span2")
+				.attr("x", 42)
+				  .attr("y", function(d) { return d.dy / 2 + 20; })
+				  .attr("dy", ".35em")
+				  .attr("text-anchor", "start")
+				  .attr("transform", null)
+				.text(function(d) {
+					if (d.value >=1){
+						return "(" + Math.round(d.value) + ")";}
+					})
+				.transition()
+				.duration(transitionDuration);
 
 	//render a table
 	renderTableNew()

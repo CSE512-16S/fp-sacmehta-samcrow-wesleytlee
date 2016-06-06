@@ -49,10 +49,10 @@ body
 
 .child_div_table_1
 {
-    width: 45%;
+    width: 48%;
     float: left;
     min-width: 40%;
-    max-width: 47%;
+    max-width: 50%;
     margin: 1%;
     right: 10px;
     display: inline;
@@ -64,10 +64,25 @@ body
 
 .child_div_table_2
 {
-    width: 47%;
+    width: 48%;
     float: left;
     min-width: 40%;
     max-width: 50%;
+    margin: 1%;
+    right: 10px;
+    display: inline;
+    overflow: auto;
+    font-weight: normal;
+    font-style: normal;
+    background-color: #ffffff;
+}
+
+.child_div_bar_1
+{
+    width: 96%;
+    float: left;
+    min-width: 40%;
+    max-width: 100%;
     margin: 1%;
     right: 10px;
     display: inline;
@@ -186,3 +201,7 @@ bottom
 {
 }
 
+#chartBar
+{
+   height: 300px;
+}

@@ -1,8 +1,13 @@
 var weightDef = 0.01;
 var transitionDuration = 1000;
 var defMinValue = 10000;
-var statsName = ["GPA", "Grade (CSE 142)", "Grade (CSE 143)", "Application Score", "Std Math", "Std Verbal", "Std Comb", "Q5b", "Q5d", "Q5e", "Q5f", "Q7a", 
-		 "Q8a", "Q8c", "Q8d", "Q8e", "Q8g", "Q8i", "Q9", "Q11", "CSE 142 (first class)", "CSE 143 (first class)"];
+//var statsName = ["GPA", "Grade (CSE 142)", "Grade (CSE 143)", "Application Score", "Std Math", "Std Verbal", "Std Comb", "Q5b", "Q5d", "Q5e", "Q5f", "Q7a", 
+//		 "Q8a", "Q8c", "Q8d", "Q8e", "Q8g", "Q8i", "Q9", "Q11", "CSE 142 (first class)", "CSE 143 (first class)"];
+		 
+var statsName = ["GPA", "Grade (CSE 142)", "Grade (CSE 143)", "Application Score", "Std Math", "Std Verbal", "Std Comb", "CSE 142 is required", 
+			"Interested in programming?", "Is friend recommended 142?", "Is academic advisor recommended 142?", "Interested in CSE Major?", 
+		 "Hard to be accepted in CSE Major?", "Are students competitive?", "Is CSE more than programming?", "Leads to high salary jobs?", "Spend all time at computer", "CSE Less Social", 
+		 "Num. Programming Courses Prev. Taken", "Self Programming Experience", "CSE 142 (first class)", "CSE 143 (first class)"];
 
 var groupStats = []
 var groupStatsNew = []

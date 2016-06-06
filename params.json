@@ -1,0 +1,6 @@
+{
+  "name": "CSE Admission Data Visualization",
+  "tagline": "by Sachin Mehta, Wesley Lee, and Sam Crow",
+  "body": "This project visualizes admission data from the department of Computer Science and Engineering.\r\n\r\nTODO: Image\r\n\r\nTeam members: [Sachin Mehta](https://github.com/sacmehta), [Wesley Lee](https://github.com/wesleytlee), and [Sam Crow](https://github.com/samcrow)\r\n\r\n## Running the visualization\r\n\r\n### Online\r\n\r\nView the visualization: [TODO]\r\n\r\n### Locally\r\n\r\nAny HTTP server can provide the files that the visualization uses. It does not require any special software.\r\n\r\n## Materials\r\n\r\nTODO",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}

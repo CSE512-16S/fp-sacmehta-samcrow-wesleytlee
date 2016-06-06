@@ -225,7 +225,7 @@ function createNodeData(graph, data){
 	var stage2StatsNA143 = [];
 	var stage2Data = [];
 	
-	if(groupedStage2.student.CSE142 != "undefined"){
+	if(typeof(groupedStage2.student.CSE142) != "undefined"){
 		stage2Data = groupedStage2.student.CSE142;
 
 
@@ -412,7 +412,7 @@ function createNodeData(graph, data){
 	var stage3StatsDNA = [];
 	var stage3Data = [];
 
-	if(groupedStage3.student.CSE142.CSE143 != "undefined"){
+	if(typeof(groupedStage3.student.CSE142.CSE143) != "undefined"){
 		stage3Data = groupedStage3.student.CSE142.CSE143;
 		
 		
@@ -601,7 +601,7 @@ function createNodeData(graph, data){
 	var stage4StatsSD = [];
 	var stage4Data = [];
 	
-	if (groupedStage4.student.CSE142.CSE143.Apply != "undefined"){
+	if (typeof(groupedStage4.student.CSE142.CSE143.Apply) != "undefined"){
 	
 		stage4Data = groupedStage4.student.CSE142.CSE143.Apply;	 
 		

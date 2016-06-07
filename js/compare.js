@@ -3,18 +3,15 @@ function differenceStat(data1, data2){
   var sd;
   var zscores = [];
   
-  if (data1[0] && data2[0]) {
+  
     for(var i = 0; i < data1.length; i++) {
-      if(data1[i]["num"] !=0 && data2[i]["num"] != 0) {
-        diff = data1[i]["mean"] - data2[i]["mean"]
-        sd = Math.sqrt(Math.pow(data1[i]["deviation"],2)/data1[i]["num"] + Math.pow(data2[i]["deviation"],2)/data2[i]["num"])
-	var score = diff/sd;
-	if (score){
-        	zscores.push({variable:data1[i]['variable'], zscore:score})
-	}
-      } /*else {
-        zscores.push({variable:data1[i]['variable'], zscore:NaN})
-      }*/
+		if (data1[i] && data2[i]) {
+			diff = data1[i]["mean"] - data2[i]["mean"]
+			sd = Math.sqrt(Math.pow(data1[i]["deviation"],2)/data1[i]["num"] + Math.pow(data2[i]["deviation"],2)/data2[i]["num"])
+			var score = diff/sd;
+			if (typeof(score) == "number" && !isNaN(score)){
+					zscores.push({variable:data1[i]['variable'], zscore:score})
+			}
     }
   }
   //Significant if > 3.05
@@ -35,8 +32,8 @@ function drawBarGraph(data){
 
 		  
 	chartBar.yAxis.axisLabel("Z-Score");
-	chartBar.xAxis.rotateLabels(-55);
-	  chartBar.height(250);
+	chartBar.xAxis.rotateLabels(-25);
+	  chartBar.height(310);
 	  d3.select('#chartBar svg')
 		  .datum(dataMap)
 		  .call(chartBar);

@@ -137,8 +137,8 @@ function createFilters() {
 
     var filters = [
         {
-            name: 'Sex',
-            filter: new StringFilter('gender', ['M', 'F'], 'Sex')
+            name: 'Gender',
+            filter: new StringFilter('gender', ['M', 'F'], 'Gender')
         },
         {
             name: 'Ethnicity',
@@ -159,7 +159,7 @@ function createFilters() {
         {
             name: 'Application Score',
             filter: new RangeFilter('appscores', 1.0, 5.0, 0.1, 'Application Score')
-        },        
+        },
         {
             name: '# Attempts of CSE 142',
             filter: new CheckBoxFilter('cse142', [1, 2, 3, 4], '# Attempts of CSE 142')
@@ -205,7 +205,7 @@ function createFilters() {
             filter: new CheckBoxFilter('Q5e', ['1','2','3','4'], 'A Friend Recommended 142 (Likert)')
         },
         {
-            name: 'An Academic Advsr Recommended 142',
+            name: 'An Academic Advisor Recommended 142',
             filter: new CheckBoxFilter('Q5f', ['1','2','3','4'], 'An Academic Advsr Recommended 142 (Likert)')
         },
         {
@@ -247,6 +247,6 @@ function createFilters() {
     ]
 
     var group = new FilterGroup(filters)
-    
+
     return group
 }

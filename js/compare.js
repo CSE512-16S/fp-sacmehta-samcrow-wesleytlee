@@ -18,15 +18,29 @@ function differenceStat(data1, data2){
   drawBarGraph(zscores)
 }
 
+//tooltip for bar chart
+function mod_tooltip (d) {
+   var html = ""
+   d.series.forEach(function(elem){
+	  html += "<b> Variable: </b>"
+	 html += "<text style='color:"+elem.color+"'><b> "
+			 +elem.key+"</b> <br></text> <b>Z-score:</b> <text style='color:"+elem.color+"'><b> "+(elem.value).toFixed(2)+" </b></text>";
+   })
+   return html;
+ }
+
 //svgBar
 function drawBarGraph(data){
 	dataMap = [{key:"Z Score", values:data}] 
 	chartBar
 		  .x(function(d) { return d.variable })    //Specify the data accessors.
 		  .y(function(d) { if(typeof(d.zscore) == "number"){ return d.zscore} })
-		  //.staggerLabels(true)    //Too many bars and not enough room? Try staggering labels.
-		  .showValues(true)       //...instead, show the bar value right on top of each bar.
+		  .showValues(true)  
 		  .tooltip(true);
+	
+	chartBar.noData("We don't have any data for comparison!");
+	
+	chartBar.tooltip.contentGenerator(mod_tooltip);
 
 	chartBar.color( function(d){ if(Math.abs(d.zscore) > 3.05){return '#238443'}else{ return '#c2e699'} })
 

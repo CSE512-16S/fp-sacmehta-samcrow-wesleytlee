@@ -27,15 +27,16 @@ function drawBarGraph(data){
 	chartBar
 		  .x(function(d) { return d.variable })    //Specify the data accessors.
 		  .y(function(d) { if(typeof(d.zscore) == "number"){ return d.zscore} })
-		  .staggerLabels(true)    //Too many bars and not enough room? Try staggering labels.
+		  //.staggerLabels(true)    //Too many bars and not enough room? Try staggering labels.
 		  .showValues(true)       //...instead, show the bar value right on top of each bar.
 		  .tooltip(true);
 
 	chartBar.color( function(d){ if(Math.abs(d.zscore) > 3.05){return '#238443'}else{ return '#c2e699'} })
 
 		  
-	chartBar.yAxis.axisLabel("Z-Score")
-	  
+	chartBar.yAxis.axisLabel("Z-Score");
+	chartBar.xAxis.rotateLabels(-55);
+	  chartBar.height(250);
 	  d3.select('#chartBar svg')
 		  .datum(dataMap)
 		  .call(chartBar);

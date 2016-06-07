@@ -29,7 +29,7 @@ d3.table = function(config) {
 		.data(columns)
 
 	th.enter().append("th");
-	    th.text(function(d) { return d.toUpperCase() });
+	    th.text(function(d) { return d.capitalize() });
 	th.exit().remove()
 
 	// creating a row for each object in the data
@@ -94,7 +94,7 @@ d3.table1 = function(config) {
 		.data(columns)
 
 	th.enter().append("th");
-	    th.text(function(d) { return d.toUpperCase() });
+	    th.text(function(d) { return d.capitalize() });
 	th.exit().remove()
 
 	// creating a row for each object in the data

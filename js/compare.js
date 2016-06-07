@@ -2,7 +2,7 @@ function differenceStat(data1, data2){
   var diff;
   var sd;
   var zscores = [];
-  
+
   if (data1[0] && data2[0]) {
     for(var i = 0; i < data1.length; i++) {
       if(data1[i]["num"] !=0 && data2[i]["num"] != 0) {
@@ -23,7 +23,7 @@ function differenceStat(data1, data2){
 
 //svgBar
 function drawBarGraph(data){
-	dataMap = [{key:"Z Score", values:data}] 
+	dataMap = [{key:"Z Score", values:data}]
 	chartBar
 		  .x(function(d) { return d.variable })    //Specify the data accessors.
 		  .y(function(d) { if(typeof(d.zscore) == "number"){ return d.zscore} })
@@ -33,9 +33,9 @@ function drawBarGraph(data){
 
 	chartBar.color( function(d){ if(Math.abs(d.zscore) > 3.05){return '#238443'}else{ return '#c2e699'} })
 
-		  
+
 	chartBar.yAxis.axisLabel("Z-Score");
-	chartBar.xAxis.rotateLabels(-55);
+	chartBar.xAxis.rotateLabels(-45);
 	  chartBar.height(250);
 	  d3.select('#chartBar svg')
 		  .datum(dataMap)

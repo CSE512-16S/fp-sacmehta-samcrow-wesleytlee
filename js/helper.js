@@ -1,3 +1,7 @@
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
 // The table generation function
 d3.table = function(config) {
 	var columns = [];//["Mean", "Maximum", "Minimum"];
@@ -25,7 +29,7 @@ d3.table = function(config) {
 		.data(columns)
 
 	th.enter().append("th");
-	    th.text(function(d) { return d });
+	    th.text(function(d) { return d.toUpperCase() });
 	th.exit().remove()
 
 	// creating a row for each object in the data
@@ -90,7 +94,7 @@ d3.table1 = function(config) {
 		.data(columns)
 
 	th.enter().append("th");
-	    th.text(function(d) { return d });
+	    th.text(function(d) { return d.toUpperCase() });
 	th.exit().remove()
 
 	// creating a row for each object in the data
@@ -258,7 +262,6 @@ function linkOpacity(node) {
 
 //displayed when link is highlighted
 function linkLabels(d){
-	console.log(d.target.value, d.source.value)
 	return   "Link Details"+ "\n" + d.source.name + " → " + d.target.name + "\n" + 
 		"No. of students = " + d.value + "\n" + "Percentage ~ " + (((Math.round(d.target.value)/Math.round(d.source.value)) * 100)).toFixed(2) +"%";
 }

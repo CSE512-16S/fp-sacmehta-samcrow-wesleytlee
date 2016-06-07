@@ -70,8 +70,8 @@ installFilterAddMenu('filter-add-2', filtersNew)
 
 // load the data
 var globalData = null
-var source = ["Took CSE 142", "Took CSE 143", "Didn't Take CSE 143", "Applied", "Did not apply"];
-var target = ["Accept", "Deny", "Soft Deny"];
+var source = ["Took CSE 142", "Took CSE 143", "Didn't Take CSE 143", "Applied", "Did Not Apply"];
+var target = ["Accepted", "Denied", "Soft Denied"];
 
 var dataNew = null
 d3.csv("./data/studentDataF.csv", function(error, data) {
@@ -137,149 +137,116 @@ function createFilters() {
 
     var filters = [
         {
-            name: 'Gender',
-            filter: new StringFilter('gender', ['M', 'F'], 'Gender')
+            name: 'Sex',
+            filter: new StringFilter('gender', ['M', 'F'], 'Sex')
         },
         {
             name: 'Ethnicity',
             filter: new StringFilter('ethnic', ['African American',	'American Indian','Asian','Caucasian','Hawaiian/Pacific Islander','Not Indicated'], 'Ethnicity')
         },
         {
-            name: 'Application count',
-            filter: new CheckBoxFilter('numAdmApplication', [1, 2, 3, 4], 'Application count')
+            name: 'Overall GPA',
+            filter: new RangeFilter('GPA', 0.0, 4.0, 0.01, 'Overall GPA')
         },
         {
-            name: 'GPA',
-            filter: new RangeFilter('GPA', 0.0, 4.0, 0.01, 'GPA')
+            name: 'Grade in CSE 142',
+            filter: new RangeFilter('cse142grade', 0.0, 4.0, 0.01, 'Grade in CSE 142')
         },
         {
-            name: 'CSE 142 grade',
-            filter: new RangeFilter('cse142grade', 0.0, 4.0, 0.01, 'CSE 142 Grade')
+            name: 'Grade in CSE 143',
+            filter: new RangeFilter('cse143grade', 0.0, 4.0, 0.01, 'Grade in CSE 143')
         },
         {
-            name: 'CSE 142 attempts',
-            filter: new CheckBoxFilter('cse142', [1, 2, 3, 4], 'CSE 142 attempts')
+            name: 'Application Score',
+            filter: new RangeFilter('appscores', 1.0, 5.0, 0.1, 'Application Score')
+        },        
+        {
+            name: '# Attempts of CSE 142',
+            filter: new CheckBoxFilter('cse142', [1, 2, 3, 4], '# Attempts of CSE 142')
         },
         {
-            name: 'CSE 143 attempts',
-            filter: new CheckBoxFilter('cse143', [1, 2, 3, 4], 'CSE 143 attempts')
+            name: '# Attempts of CSE 143',
+            filter: new CheckBoxFilter('cse143', [1, 2, 3, 4], '# Attempts of CSE 143')
         },
         {
-            name: 'CSE 143 grade',
-            filter: new RangeFilter('cse143grade', 0.0, 4.0, 0.01, 'CSE 143 Grade')
+            name: '# of Applications',
+            filter: new CheckBoxFilter('numAdmApplication', [1, 2, 3, 4], '# of Applications')
+        },
+                {
+            name: 'Class when First Taking CSE 142',
+            filter: new CheckBoxFilter('cse142firstclass', [1, 2, 3, 4], 'Class when First Taking CSE 142')
         },
         {
-            name: 'SAT Math',
-            filter: new RangeFilter('stdmath', 200, 800, 20, 'SAT Math')
+            name: 'Class when First Taking CSE 143',
+            filter: new CheckBoxFilter('cse143firstclass', [1, 2, 3, 4], 'Class when First Taking CSE 143')
         },
         {
-            name: 'SAT Verbal',
-            filter: new RangeFilter('stdverbal', 200, 800, 20, 'SAT Verbal')
+            name: 'SAT Math Score',
+            filter: new RangeFilter('stdmath', 200, 800, 20, 'SAT Math Score')
         },
         {
-            name: 'SAT Combined',
-            filter: new RangeFilter('stdcomb', 400, 1600, 50, 'SAT')
+            name: 'SAT Verbal Score',
+            filter: new RangeFilter('stdverbal', 200, 800, 20, 'SAT Verbal Score')
         },
         {
-            name: '142 Required',
-            filter: new CheckBoxFilter('Q5b', ['1','2','3','4'], '142 Required')
+            name: 'Total SAT Score',
+            filter: new RangeFilter('stdcomb', 400, 1600, 50, 'Total SAT Score')
         },
         {
-            name: 'Programming Interest',
-            filter: new CheckBoxFilter('Q5d', ['1','2','3','4'], 'Progamming Interest')
+            name: 'CSE 142 is a Requirement?',
+            filter: new CheckBoxFilter('Q5b', ['1','2','3','4'], 'CSE 142 is a Requirement (Likert)')
         },
         {
-            name: 'Friend recommended 142',
-            filter: new CheckBoxFilter('Q5e', ['1','2','3','4'], 'Frend Rec. 142')
+            name: 'Interested in Progamming?',
+            filter: new CheckBoxFilter('Q5d', ['1','2','3','4'], 'Interested in Progamming? (Likert)')
         },
         {
-            name: 'Academic advisor recommended 142',
-            filter: new CheckBoxFilter('Q5f', ['1','2','3','4'], 'Acad. Adv. Rec. 142')
+            name: 'A Friend Recommended 142',
+            filter: new CheckBoxFilter('Q5e', ['1','2','3','4'], 'A Friend Recommended 142 (Likert)')
         },
         {
-            name: 'Interested in major',
-            filter: new CheckBoxFilter('Q7a', ['1','2','3','4','5'], 'Interest in Major')
+            name: 'An Academic Advsr Recommended 142',
+            filter: new CheckBoxFilter('Q5f', ['1','2','3','4'], 'An Academic Advsr Recommended 142 (Likert)')
         },
         {
-            name: 'Low acceptance rate',
-            filter: new CheckBoxFilter('Q8a', ['1','2','3','4','5'], 'Low Acceptance Rate')
+            name: 'Interested in the Major?',
+            filter: new CheckBoxFilter('Q7a', ['1','2','3','4','5'], 'Interested in Major? (Likert)')
         },
         {
-            name: 'Students are competitive',
-            filter: new CheckBoxFilter('Q8c', ['1','2','3','4','5'], 'Students are Competitive')
+            name: 'CSE has a Low Acceptance Rate',
+            filter: new CheckBoxFilter('Q8a', ['1','2','3','4','5'], 'CSE has a Low Acceptance Rate (Likert)')
         },
         {
-            name: 'More than just programming',
-            filter: new CheckBoxFilter('Q8d', ['1','2','3','4','5'], 'More than just Programming')
+            name: 'Students are Competitive',
+            filter: new CheckBoxFilter('Q8c', ['1','2','3','4','5'], 'Students are Competitive (Likert)')
         },
         {
-            name: 'Easy to find high pay',
-            filter: new CheckBoxFilter('Q8e', ['1','2','3','4','5'], 'Easy to find high pay')
+            name: 'CSE is More than Just Programming',
+            filter: new CheckBoxFilter('Q8d', ['1','2','3','4','5'], 'CSE is more than just Programming (Likert)')
         },
         {
-            name: 'Spend all time at computer',
-            filter: new CheckBoxFilter('Q8g', ['1','2','3','4','5'], 'Spend all time at computer')
+            name: 'Leads to High Salary Jobs?',
+            filter: new CheckBoxFilter('Q8e', ['1','2','3','4','5'], 'Leads to High Salary Jobs? (Likert)')
         },
         {
-            name: 'Less social',
-            filter: new CheckBoxFilter('Q8i', ['1','2','3','4','5'], 'Less Social')
+            name: 'Students Spend All Time at a Computer',
+            filter: new CheckBoxFilter('Q8g', ['1','2','3','4','5'], 'Students Spend all Time at Computer (Likert)')
         },
         {
-            name: 'Previous programming courses taken',
-            filter: new CheckBoxFilter('Q9', ['1','2','3','4','5','6'], '# Prog. Courses Prev. Taken')
+            name: 'Students are Less Social',
+            filter: new CheckBoxFilter('Q8i', ['1','2','3','4','5'], 'Students are Less Social (Likert)')
         },
         {
-            name: 'Previous programming experience',
-            filter: new CheckBoxFilter('Q11', ['1','2','3','4','5'], 'Prev. Self Prog. Exp.')
+            name: '# of Prog. Courses Prev. Taken',
+            filter: new CheckBoxFilter('Q9', ['1','2','3','4','5','6'], '# of Prog. Courses Prev. Taken')
+        },
+        {
+            name: 'Prev. Self Prog. Experience',
+            filter: new CheckBoxFilter('Q11', ['1','2','3','4','5'], 'Prev. Self Prog. Experience (Likert)')
         },
     ]
 
     var group = new FilterGroup(filters)
-
-    // var gender = new StringFilter('gender', ['M', 'F'], 'Sex')
-    // var ethnic = new StringFilter('ethnic', ['African American',	'American Indian','Asian','Caucasian','Hawaiian/Pacific Islander','Not Indicated'], 'Ethnicity')
-    // var application_count = new CheckBoxFilter('numAdmApplication', [0, 1, 2, 3, 4], 'Application count')
-    // var gpa = new RangeFilter('GPA', 0.0, 4.0, 0.01, 'GPA')
-    // //number of cse 142 and cse 143 attempts
-    // var cse142Grade = new RangeFilter('cse142grade', 0.0, 4.0, 0.01, 'CSE 142 Grade')
-    // var cse143Grade = new RangeFilter('cse143grade', 0.0, 4.0, 0.01, 'CSE 143 Grade')
-    // var SATMath = new RangeFilter('stdmath', 200, 800, 20, 'SAT Math')
-    // var SATVerbal = new RangeFilter('stdverbal', 200, 800, 20, 'SAT Verbal')
-    // var SAT = new RangeFilter('stdcomb', 400, 1600, 50, 'SAT')
-    // var survey5b = new CheckBoxFilter('Q5b', ['1','2','3','4'], '142 Required')
-    // var survey5d = new CheckBoxFilter('Q5d', ['1','2','3','4'], 'Progamming Interest')
-    // var survey5e = new CheckBoxFilter('Q5e', ['1','2','3','4'], 'Frend Rec. 142')
-    // var survey5f = new CheckBoxFilter('Q5f', ['1','2','3','4'], 'Acad. Adv. Rec. 142')
-    // var survey7a = new CheckBoxFilter('Q7a', ['1','2','3','4','5'], 'Interest in Major')
-    // var survey8a = new CheckBoxFilter('Q8a', ['1','2','3','4','5'], 'Low Acceptance Rate')
-    // var survey8c = new CheckBoxFilter('Q8c', ['1','2','3','4','5'], 'Students are Competitive')
-    // var survey8d = new CheckBoxFilter('Q8d', ['1','2','3','4','5'], 'More than just Programming')
-    // var survey8e = new CheckBoxFilter('Q8e', ['1','2','3','4','5'], 'Easy to find high pay')
-    // var survey8g = new CheckBoxFilter('Q8g', ['1','2','3','4','5'], 'Spend all time at computer')
-    // var survey8i = new CheckBoxFilter('Q8i', ['1','2','3','4','5'], 'Less Social')
-    // var survey9 = new CheckBoxFilter('Q9', ['1','2','3','4','5','6'], '# Prog. Courses Prev. Taken')
-    // var survey11 = new CheckBoxFilter('Q11', ['1','2','3','4','5'], 'Prev. Self Prog. Exp.')
-    // group.addFilter(gender)
-    // group.addFilter(ethnic)
-    // group.addFilter(application_count)
-    // group.addFilter(gpa)
-    // group.addFilter(cse142Grade)
-    // group.addFilter(cse143Grade)
-    // group.addFilter(SATMath)
-    // group.addFilter(SATVerbal)
-    // group.addFilter(SAT)
-    // group.addFilter(survey5b)
-    // group.addFilter(survey5d)
-    // group.addFilter(survey5e)
-    // group.addFilter(survey5f)
-    // group.addFilter(survey7a)
-    // group.addFilter(survey8a)
-    // group.addFilter(survey8c)
-    // group.addFilter(survey8d)
-    // group.addFilter(survey8e)
-    // group.addFilter(survey8g)
-    // group.addFilter(survey8i)
-    // group.addFilter(survey9)
-    // group.addFilter(survey11)
+    
     return group
 }

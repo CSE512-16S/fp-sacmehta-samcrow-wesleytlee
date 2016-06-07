@@ -8,7 +8,7 @@ function differenceStat(data1, data2){
 			sd = Math.sqrt(Math.pow(data1[i]["deviation"],2)/data1[i]["num"] + Math.pow(data2[i]["deviation"],2)/data2[i]["num"])
 			var score = diff/sd;
 			if (typeof(score) == "number" && !isNaN(score)){
-					zscores.push({variable:data1[i]['variable'], zscore:score})
+					zscores.push({variable:data1[i]['variable'], score:score, mean_diff:diff})
 			}
     }
   }
@@ -19,11 +19,9 @@ function differenceStat(data1, data2){
 //tooltip for bar chart
 function mod_tooltip (d) {
    var html = ""
-   d.series.forEach(function(elem){
-	  html += "<b> Variable: </b>"
-	 html += "<text style='color:"+elem.color+"'><b> "
-			 +elem.key+"</b> <br></text> <b>Z-score:</b> <text style='color:"+elem.color+"'><b> "+(elem.value).toFixed(2)+" </b></text>";
-   })
+	 html += "<b> Variable: </b>" + d.data.variable + 
+   "</b> <br></text> <b>Diff. in Means: "+(d.data.mean_diff).toFixed(2)+" </b></text>" +
+   "</b> <br></text> <b>Approx. Score:</b> <text style='color:"+d.color+"'><b> "+(d.data.score).toFixed(2)+" </b></text>";
    return html;
  }
 
@@ -32,18 +30,19 @@ function drawBarGraph(data){
 	dataMap = [{key:"Z Score", values:data}]
 	chartBar
 		  .x(function(d) { return d.variable })    //Specify the data accessors.
-		  .y(function(d) { if(typeof(d.zscore) == "number"){ return d.zscore} })
+		  .y(function(d) { if(typeof(d.score) == "number"){ return d.score} })
 		  .showValues(true)
+      .forceY([-3,3])
+      .color( function(d){ if(Math.abs(d.score) > 3.05){return '#238443'}else{ return '#c2e699'} })
 		  .tooltip(true);
 
-	chartBar.noData("We don't have any data for comparison!");
+	chartBar.noData("We don't have any data to compare!");
 
 	chartBar.tooltip.contentGenerator(mod_tooltip);
 
-	chartBar.color( function(d){ if(Math.abs(d.zscore) > 3.05){return '#238443'}else{ return '#c2e699'} })
 
 
-	chartBar.yAxis.axisLabel("Z-Score");
+	chartBar.yAxis.axisLabel("Approximate Score");
 	chartBar.xAxis.rotateLabels(-25);
 	  chartBar.height(310);
 	  d3.select('#chartBar svg')

@@ -893,6 +893,7 @@ function renderData(data){
 	graph = {"nodes" : [], "links" : []};
 	//[stage1Stats, stage2StatsCS143, stage2StatsNA143, stage3StatsAccept, stage3StatsDNA, stage3StatsDeny, stage3StatsSD];
 	groupStats = createNodeData(graph, data);
+	//console.log(JSON.stringify(groupStats[0][0]["num"]))
    
    graph.nodes = d3.keys(d3.nest()
 	       .key(function (d) { return d.name; })
@@ -980,18 +981,6 @@ function renderData(data){
 			if (d.value >=1){
 				return rectLabel(d);
 			}});
-
-	// add in the title for the nodes
-	/*node.append("text")
-	  .attr("x", 42)
-	  .attr("y", function(d) { return d.dy / 2; })
-	  .attr("dy", ".35em")
-	  .attr("text-anchor", "start")
-	  .attr("transform", null)
-	  .text(function(d) { 
-			if (d.value >=1){ return nodeText(d); }
-			})
-	.filter(function(d) { return d.x < width / 2; });*/
 	
 	//add rectangle label
 	var nodeText = node.append("text");

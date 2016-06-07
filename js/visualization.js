@@ -98,10 +98,14 @@ function filterGroupVisualize() {
     }
     // Continue
     if(data.length > 1) {
-      updateDataWithTransition(data)
+        try {
+            updateDataWithTransition(data)
+        } catch (e) {
+            alert('Invalid selection. Please try again with different filters')
+        }
     } else {
-       //**Return an error message or something**
-       alert("Not enough students satisfying filter!")
+        //**Return an error message or something**
+        alert("Not enough students satisfying filter!")
     }
 }
 
@@ -117,10 +121,14 @@ function filterGroupVisualizeNew() {
     }
     // Continue
     if(data.length > 1) {
-      updateDataWithTransitionNew(data)
+        try {
+            updateDataWithTransitionNew(data)
+        } catch (e) {
+            alert('Invalid selection. Please try again with different filters')
+        }
     } else {
-       //**Return an error message or something**
-       alert("Not enough students satisfying filter!")
+        //**Return an error message or something**
+        alert("Not enough students satisfying filter!")
     }
 }
 

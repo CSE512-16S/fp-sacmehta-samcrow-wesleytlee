@@ -259,7 +259,7 @@ function linkOpacity(node) {
 //displayed when link is highlighted
 function linkLabels(d){
 	return   "Link Details"+ "\n" + d.source.name + " → " + d.target.name + "\n" + 
-		"No. of students = " + d.value;
+		"No. of students = " + d.value + "\n" + "Percentage ~ " + (((d.target.value/d.source.value) * 100)).toFixed(2) +"%";
 }
 
 //displayed when node is highlighted
@@ -268,7 +268,7 @@ function rectLabel(d){
 }
 
 function nodeText(d){
-	return d.name + "<br/> (" + Math.round(d.value) + ")";
+	return d.name + "\n (" + Math.round(d.value) + ")";
 }
 
 

@@ -23,7 +23,7 @@ var svgNew = d3.select("#svg2")
 // Set the sankey diagram properties
 var sankey = d3.sankey()
  .nodeWidth(36)
- .nodePadding(10)
+ .nodePadding(30)
  .size([width, height]);
 var path = sankey.link();
 
@@ -97,11 +97,11 @@ function filterGroupVisualize() {
         }
     }
     // Continue
-    if(data.length > 1) {
+    if(data.length) {
       updateDataWithTransition(data)
     } else {
        //**Return an error message or something**
-       alert("Not enough students satisfying filter!")
+       alert("No students satisfying filter!")
     }
 }
 
@@ -116,11 +116,11 @@ function filterGroupVisualizeNew() {
         }
     }
     // Continue
-    if(data.length > 1) {
+    if(data.length) {
       updateDataWithTransitionNew(data)
     } else {
        //**Return an error message or something**
-       alert("Not enough students satisfying filter!")
+       alert("No students satisfying filter!")
     }
 }
 

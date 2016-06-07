@@ -38,7 +38,6 @@ function FilterGroup(availableFilters) {
             var selectedOption = this.childNodes[this.value]
             selectedOption.setAttribute('disabled', 'disabled')
             var filterToAdd = selectedOption.filter
-            console.log(filterToAdd)
             filterGroup.addFilter(filterToAdd)
             this.value = 0
         }

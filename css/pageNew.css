@@ -119,7 +119,7 @@ h3 {
 .child_div_1 > div, .child_div_2 > div
 {
     min-width: 45%;
-    width: 50%;
+    width: 50;
     position: static;
     margin: 1%;
     padding: 10px;

@@ -18,7 +18,6 @@
     <script type="text/javascript" src="js/compare.js"></script>
     <script type="text/javascript" src="js/nv.d3.js"></script>
 </head>
-
 <body id="bodyTable">
     <div class="container" id="mainHeading">
         <h1 class="main-heading">Examining the CSE Admissions Pipeline<br/><small>Sachin Mehta, Wesley Lee, and Sam Crow</small></h1>
@@ -28,84 +27,84 @@
             <div class="filter-panel">
                 <div>
                     <h3 class="filter-text">Filters for Group 1</h3>
-                        <div class="filter-container"></div>
-                        <div>
-                            <button type="button" id="filter-apply-button" class="filter-apply-button">Apply</button>
-                            <button type="button" id="filter-reset-button" class="filter-reset-button">Reset</button>
-                            <select id="filter-add-1"></select>
-                        </div>
+                    <div class="filter-container"></div>
+                    <div>
+                        <button type="button" id="filter-apply-button" class="filter-apply-button">Apply</button>
+                        <button type="button" id="filter-reset-button" class="filter-reset-button">Reset</button>
+                        <select id="filter-add-1"></select>
                     </div>
-                </div><!-- Comment is important for layout. Do not remove.
-                --><div class="filter-panel">
+                </div>
+            </div><!-- Comment is important for layout. Do not remove.
+         --><div class="filter-panel">
                 <div>
                     <h3 class="filter-text">Filters for Group 2</h3>
-                        <div class="filter-container-new"></div>
-                        <div>
-                            <button type="button" id="filter-apply-button-new" class="filter-apply-button">Apply</button>
-                            <button type="button" id="filter-reset-button-new" class="filter-reset-button">Reset</button>
-                            <select id="filter-add-2"></select>
-                        </div>
+                    <div class="filter-container-new"></div>
+                    <div>
+                        <button type="button" id="filter-apply-button-new" class="filter-apply-button">Apply</button>
+                        <button type="button" id="filter-reset-button-new" class="filter-reset-button">Reset</button>
+                        <select id="filter-add-2"></select>
                     </div>
                 </div>
             </div>
-            <div class="child_div_table_1">
-                <h5 class="filter-text">Visualization for Group 1</h5>
-                <svg id="svg1"></svg>
-                <hr>
-		<h5 class="filter-text-sub">Select the stage in Group 1</h5>
-                <select id="stage" onchange="renderTable()">
-                    <option value="stage1">Overall Summary</option>
-                    <option value="stage2">CSE142 -> Took CSE 143</option>
-                    <option value="stage3">CSE142 -> Didn't take CSE 143</option>
-                    <option value="stage4">CSE143 -> Applied for Major </option>
-                    <option value="stage5">CSE143 -> Did not apply for Major</option>
-                    <option value="stage6">Applied -> Accepted</option>
-                    <option value="stage7">Applied -> Denied</option>
-                    <option value="stage8">Applied -> Soft Denied</option>
-                </select>
-            </div>
-            <div class="child_div_table_1">
-                <h5 class="filter-text"> Visualization for Group 2</h5>
-                <svg id="svg2"> </svg>
-                <hr>
-		<h5 class="filter-text-sub"> Select the stage in Group 2</h5>
-                <select id="stageNew" onchange="renderTableNew()">
-                    <option value="stage1">Overall Summary</option>
-                    <option value="stage2">CSE142 -> Took CSE 143</option>
-                    <option value="stage3">CSE142 -> Didn't take CSE 143</option>
-                    <option value="stage4">CSE143 -> Applied for Major </option>
-                    <option value="stage5">CSE143 -> Did not apply for Major</option>
-                    <option value="stage6">Applied -> Accepted</option>
-                    <option value="stage7">Applied -> Denied</option>
-                    <option value="stage8">Applied -> Soft Denied</option>
-                </select>
-            </div>
-
-            <div class="child_div_bar_1">
-                <h5 class="filter-text"> (Approximate) Statistical Significance of Differences between the Two Groups</h5>
-        <svg width="100%" height="20">
-					<rect width="10" height="10" style="fill:#238443" x="88%"/>
-					 <text x="90%" y="12" fill="black">Significant</text>
-				</svg>
-				<svg width="100%" height="20">
-					<rect width="10" height="10" style="fill:#c2e699" x="88%"/>
-					 <text x="90%" y="12" fill="black">Not Significant</text>
-				</svg>
-
-                <div id="chartBar">
-					<svg> </svg>
-                </div>
-            </div>
-
-            <div class="child_div_table_1">
-                <h5 class="filter-text"> Summary Table for Group 1</h5>
-                <table id="table1"></table>
-            </div>
-            <div class="child_div_table_1">
-                <h5 class="filter-text"> Summary Table for Group 2</h5>
-                <table id="table2" style="align:center"></table>
-            </div>
-            <script type="text/javascript" src="js/visualization.js"></script>
         </div>
-    </body>
+        <div class="child_div_table_1">
+            <h5 class="filter-text">Visualization for Group 1</h5>
+            <svg id="svg1"></svg>
+            <hr />
+            <h5 class="filter-text-sub">Select the stage in Group 1</h5>
+            <select id="stage" onchange="renderTable()">
+                <option value="stage1">Overall Summary</option>
+                <option value="stage2">CSE142 -&gt; Took CSE 143</option>
+                <option value="stage3">CSE142 -&gt; Didn't take CSE 143</option>
+                <option value="stage4">CSE143 -&gt; Applied for Major </option>
+                <option value="stage5">CSE143 -&gt; Did not apply for Major</option>
+                <option value="stage6">Applied -&gt; Accepted</option>
+                <option value="stage7">Applied -&gt; Denied</option>
+                <option value="stage8">Applied -&gt; Soft Denied</option>
+            </select>
+        </div>
+        <div class="child_div_table_1">
+            <h5 class="filter-text">Visualization for Group 2</h5>
+            <svg id="svg2"> </svg>
+            <hr />
+            <h5 class="filter-text-sub">Select the stage in Group 2</h5>
+            <select id="stageNew" onchange="renderTableNew()">
+                <option value="stage1">Overall Summary</option>
+                <option value="stage2">CSE142 -&gt; Took CSE 143</option>
+                <option value="stage3">CSE142 -&gt; Didn't take CSE 143</option>
+                <option value="stage4">CSE143 -&gt; Applied for Major </option>
+                <option value="stage5">CSE143 -&gt; Did not apply for Major</option>
+                <option value="stage6">Applied -&gt; Accepted</option>
+                <option value="stage7">Applied -&gt; Denied</option>
+                <option value="stage8">Applied -&gt; Soft Denied</option>
+            </select>
+        </div>
+
+        <div class="child_div_bar_1">
+            <h5 class="filter-text">(Approximate) Statistical Significance of Differences between the Two Groups</h5>
+            <svg width="100%" height="20">
+                <rect width="10" height="10" style="fill:#238443" x="88%" />
+                <text x="90%" y="12" fill="black">Significant</text>
+            </svg>
+            <svg width="100%" height="20">
+                <rect width="10" height="10" style="fill:#c2e699" x="88%" />
+                <text x="90%" y="12" fill="black">Not Significant</text>
+            </svg>
+
+            <div id="chartBar">
+                <svg></svg>
+            </div>
+        </div>
+
+        <div class="child_div_table_1">
+            <h5 class="filter-text">Summary Table for Group 1</h5>
+            <table id="table1"></table>
+        </div>
+        <div class="child_div_table_1">
+            <h5 class="filter-text">Summary Table for Group 2</h5>
+            <table id="table2" style="align:center"></table>
+        </div>
+        <script type="text/javascript" src="js/visualization.js"></script>
+    </div>
+</body>
 </html>

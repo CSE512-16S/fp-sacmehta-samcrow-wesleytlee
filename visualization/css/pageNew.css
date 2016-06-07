@@ -1,0 +1,268 @@
+
+
+body
+{
+    margin: 0 auto 0 auto;
+    padding: 0;
+    background-color: #f1f1f1;
+    width: 95%;
+    font-family: "Avenir", Verdana;
+    font-size: 100%;
+}
+
+.container h1
+{
+    text-align: center;
+    font-size: 150%;
+}
+
+.panel-card-filter
+{
+    box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.25);
+    background-color: white;
+    padding: 0.5em;
+    width: 50%;
+}
+
+.panel-card h5
+{
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+
+.panel-title h5
+{
+    padding-left: 10px;
+    margin-bottom: 0px;
+    display: inline-block;
+}
+
+h5 {
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+}
+h3 {
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+}
+
+.panel-body
+{
+    padding-top: 0px;
+}
+
+.parent_div_1
+{
+    width: 100%;
+}
+
+.child_div_table_1
+{
+    width: 48%;
+    float: left;
+    min-width: 40%;
+    max-width: 50%;
+    margin: 1%;
+    right: 10px;
+    display: inline;
+    overflow: auto;
+    font-weight: normal;
+    font-style: normal;
+    background-color: #ffffff;
+}
+
+.child_div_table_2
+{
+    width: 48%;
+    float: left;
+    min-width: 40%;
+    max-width: 50%;
+    margin: 1%;
+    right: 10px;
+    display: inline;
+    overflow: auto;
+    font-weight: normal;
+    font-style: normal;
+    background-color: #ffffff;
+}
+
+.child_div_bar_1
+{
+    width: 96%;
+    float: left;
+    min-width: 40%;
+    max-width: 100%;
+    margin: 1%;
+    right: 10px;
+    display: inline;
+    overflow: auto;
+    font-weight: normal;
+    font-style: normal;
+    background-color: #ffffff;
+}
+
+.child_div_1
+{
+    width: 65%;
+}
+
+.child_div_2
+{
+    width: 35%;
+}
+
+.child_div_1, .child_div_2
+{
+    float: left;
+}
+
+.child_div_1 > div, .child_div_2 > div
+{
+    min-width: 45%;
+    width: 50%;
+    position: static;
+    margin: 1%;
+    padding: 10px;
+    overflow: auto;
+    float: left;
+    clear: both;
+    vertical-align: baseline;
+}
+
+.chart
+{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.chart > svg
+{
+    width: 100%;
+}
+
+table
+{
+    width: 70%;
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+th
+{
+    background-color: #7570b3;
+    color: white;
+    
+}
+
+tr:hover
+{
+    background-color: #cbd5e8;
+}
+
+th, td
+{
+    padding: 4px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+td
+{
+    vertical-align: middle;
+}
+
+bottom
+{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2em;
+}
+
+.filter-text
+{
+    font-size: 24px;
+    font-weight: bold;
+    font-style: normal;
+    text-align: center;
+}
+
+.filter-text-sub-new
+{
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    text-align: center;
+}
+
+.filter-text-sub
+{
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    text-align: left;
+}
+
+.main-heading
+{
+    font-size: 42px;
+    background-color: #ffffff;
+}
+
+.allign-filter-options
+{
+    margin: 3%;
+}
+
+.align-filter-options
+{
+}
+
+.align-filter-options
+{
+}
+
+.svgRule
+{
+}
+
+#chartBar
+{
+   height: 400px;
+}
+
+.filter-row {
+
+}
+
+.filter-panel {
+    vertical-align: top;
+    display: inline-block;
+    width: 50%;
+}
+
+.filter-panel > div {
+    background: white;
+    margin: 1em;
+}
+
+
+#nav {
+    background-color: #282828;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+    cursor: default;
+}
+
+.container {
+    max-width: none!important;
+    min-width: 0!important;
+    width: 100%!important;
+}

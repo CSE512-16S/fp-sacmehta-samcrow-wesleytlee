@@ -1,0 +1,57 @@
+/* Stylesheet for filter elements */
+
+
+.filter-container > div div {
+    display: inline-block;
+}
+
+.filter-container-new > div div {
+    display: inline-block;
+}
+.checkbox-filter, .boolean-filter, .range-filter, .list-filter {
+    border: 1px solid #ccc;
+    padding: 0.3em;
+    margin: 0.2em;
+}
+
+.filter-apply-button, .filter-reset-button, .filter-add-menu {
+    margin: 1em;
+}
+
+.filter-remove-button {
+    margin-left: 0.5em;
+    border: 1px solid gray;
+    background: #eee;
+    border-radius: 4px;
+}
+
+/* Spacing between elements */
+.list-filter select {
+    margin-left: 0.5em;
+}
+
+.checkbox-filter > div {
+    margin-left: 0.5em;
+}
+
+.range-filter-label {
+    margin-left: 0.5em;
+    margin-right: 0.2em;
+}
+
+.range-filter > :first-child {
+    margin-left: 0;
+}
+.range-filter > :last-child {
+    margin-right: 0;
+}
+
+.range-filter input {
+    vertical-align: text-top;
+}
+
+.range-filter-indicator {
+    display: inline-block;
+    min-width: 2em;
+    text-align: right;
+}

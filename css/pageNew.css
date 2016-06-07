@@ -151,7 +151,7 @@ table
 
 th
 {
-    background-color: #4CAF50;
+    background-color: #7570b3;
     color: white;
     
 }
@@ -185,6 +185,14 @@ bottom
 .filter-text
 {
     font-size: 24px;
+    font-weight: bold;
+    font-style: normal;
+    text-align: center;
+}
+
+.filter-text-sub-new
+{
+    font-size: 16px;
     font-weight: bold;
     font-style: normal;
     text-align: center;
@@ -239,4 +247,22 @@ bottom
 .filter-panel > div {
     background: white;
     margin: 1em;
+}
+
+
+#nav {
+    background-color: #282828;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+    cursor: default;
+}
+
+.container {
+    max-width: none!important;
+    min-width: 0!important;
+    width: 100%!important;
 }

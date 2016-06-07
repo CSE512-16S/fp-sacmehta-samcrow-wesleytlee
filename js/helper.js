@@ -258,8 +258,9 @@ function linkOpacity(node) {
 
 //displayed when link is highlighted
 function linkLabels(d){
+	console.log(d.target.value, d.source.value)
 	return   "Link Details"+ "\n" + d.source.name + " → " + d.target.name + "\n" + 
-		"No. of students = " + d.value + "\n" + "Percentage ~ " + (((d.target.value/d.source.value) * 100)).toFixed(2) +"%";
+		"No. of students = " + d.value + "\n" + "Percentage ~ " + (((Math.round(d.target.value)/Math.round(d.source.value)) * 100)).toFixed(2) +"%";
 }
 
 //displayed when node is highlighted

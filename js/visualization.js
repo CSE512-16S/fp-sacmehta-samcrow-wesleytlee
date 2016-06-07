@@ -101,11 +101,11 @@ function filterGroupVisualize() {
         try {
             updateDataWithTransition(data)
         } catch (e) {
-            alert('None of the students in the selection applied to the CSE major')
+            alert('Invalid selection. Please try again with different filters')
         }
     } else {
         //**Return an error message or something**
-        alert("Not enough students satisfying filter")
+        alert("Not enough students satisfying filter!")
     }
 }
 
@@ -124,11 +124,11 @@ function filterGroupVisualizeNew() {
         try {
             updateDataWithTransitionNew(data)
         } catch (e) {
-            alert('None of the students in the selection applied to the CSE major')
+            alert('Invalid selection. Please try again with different filters')
         }
     } else {
         //**Return an error message or something**
-        alert("Not enough students satisfying filter")
+        alert("Not enough students satisfying filter!")
     }
 }
 
@@ -148,7 +148,7 @@ function createFilters() {
         },
         {
             name: 'Application count',
-            filter: new CheckBoxFilter('numAdmApplication', [1, 2, 3, 4], 'Application count')
+            filter: new CheckBoxFilter('numAdmApplication', [0, 1, 2, 3, 4], 'Application count')
         },
         {
             name: 'GPA',
@@ -159,27 +159,35 @@ function createFilters() {
             filter: new RangeFilter('cse142grade', 0.0, 4.0, 0.01, 'CSE 142 Grade')
         },
         {
+            name: 'CSE 142 attempts',
+            filter: new CheckBoxFilter('cse142', [1, 2, 3, 4], 'CSE 142 attempts')
+        },
+        {
+            name: 'CSE 143 attempts',
+            filter: new CheckBoxFilter('cse143', [1, 2, 3, 4], 'CSE 143 attempts')
+        },
+        {
             name: 'CSE 143 grade',
             filter: new RangeFilter('cse143grade', 0.0, 4.0, 0.01, 'CSE 143 Grade')
         },
         {
-            name: 'SAT math',
+            name: 'SAT Math',
             filter: new RangeFilter('stdmath', 200, 800, 20, 'SAT Math')
         },
         {
-            name: 'SAT verbal',
+            name: 'SAT Verbal',
             filter: new RangeFilter('stdverbal', 200, 800, 20, 'SAT Verbal')
         },
         {
-            name: 'SAT combined',
+            name: 'SAT Combined',
             filter: new RangeFilter('stdcomb', 400, 1600, 50, 'SAT')
         },
         {
-            name: '142 required',
+            name: '142 Required',
             filter: new CheckBoxFilter('Q5b', ['1','2','3','4'], '142 Required')
         },
         {
-            name: 'Programming interest',
+            name: 'Programming Interest',
             filter: new CheckBoxFilter('Q5d', ['1','2','3','4'], 'Progamming Interest')
         },
         {

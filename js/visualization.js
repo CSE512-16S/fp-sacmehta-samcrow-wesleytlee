@@ -101,11 +101,11 @@ function filterGroupVisualize() {
         try {
             updateDataWithTransition(data)
         } catch (e) {
-            alert('Invalid selection. Please try again with different filters')
+            alert('None of the students in the selection applied to the CSE major')
         }
     } else {
         //**Return an error message or something**
-        alert("Not enough students satisfying filter!")
+        alert("Not enough students satisfying filter")
     }
 }
 
@@ -124,11 +124,11 @@ function filterGroupVisualizeNew() {
         try {
             updateDataWithTransitionNew(data)
         } catch (e) {
-            alert('Invalid selection. Please try again with different filters')
+            alert('None of the students in the selection applied to the CSE major')
         }
     } else {
         //**Return an error message or something**
-        alert("Not enough students satisfying filter!")
+        alert("Not enough students satisfying filter")
     }
 }
 
@@ -148,7 +148,7 @@ function createFilters() {
         },
         {
             name: 'Application count',
-            filter: new CheckBoxFilter('numAdmApplication', [0, 1, 2, 3, 4], 'Application count')
+            filter: new CheckBoxFilter('numAdmApplication', [1, 2, 3, 4], 'Application count')
         },
         {
             name: 'GPA',

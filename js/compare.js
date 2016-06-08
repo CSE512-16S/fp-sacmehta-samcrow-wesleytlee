@@ -33,7 +33,19 @@ function drawBarGraph(data){
 		  .y(function(d) { if(typeof(d.score) == "number"){ return d.score} })
 		  .showValues(true)
       .forceY([-3,3])
-      .color( function(d){ if(Math.abs(d.score) > 3.05){return '#238443'}else{ return '#c2e699'} })
+      .color( function(d){ if(d.score >= 0){
+								if(Math.abs(d.score) >= 3.05){
+									return '#238443'}
+								else{ 
+									return '#c2e699'} 
+							}
+							else{
+								if(Math.abs(d.score) >= 3.05){
+									return '#6a51a3'}
+								else{ 
+									return '#cbc9e2'} 
+							}
+		  })
 		  .tooltip(true);
 
 	chartBar.noData("We don't have any data to compare!");

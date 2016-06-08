@@ -14,13 +14,13 @@ Include:
 
 - Wesley was in charge of initial storyboarding and data analysis
 - When coding up the visualization, Sachin focused on Sankey Diagram Visualization while Sam focused on filter design
-Development process
-- 6 hour (data collection/discussion/Analysis with Stuart and Alex)
-- 3 hours storyboarding
-- 16 hours on setting up filters
-- 14 hours on setting up the Sankey Diagram
-- 10 hours on integrating the code (including bug fixes)
-- 8 hours tinkering with the design
+- Development process
+ - 10 hour (data collection/discussion/Analysis with Stuart and Alex)
+ - 3 hours storyboarding
+ - 16 hours on setting up filters
+ - 14 hours on setting up the Sankey Diagram
+ - 10 hours on integrating the code (including bug fixes)
+ - 8 hours tinkering with the design
 Due to our inexperience with JavaScript and less familirity with D3, the most time consuming part was coding up the first draft of our visualization (one sankey diagram with 2-3 filters)
 
 

@@ -24,7 +24,7 @@ Include:
 Due to our inexperience with JavaScript and less familirity with D3, the most time consuming part was coding up the first draft of our visualization (one sankey diagram with 2-3 filters)
 
 
-## Project [To be editted]
+## Project
 
 This project visualizes admission data from the department of Computer Science and Engineering. It uses Sankey diagrams to display the flow of students through the admission process. Users can apply filters to select and compare groups of students. Filters can be applied at two stages:
 - Global filters: These filters are applied on overall data. For example, if you want to compare the admission statistics for Male and Female students, then you would select Male in Group 1 filters and Female in Group 2 filters. Global filters would return only the relevant records for each group, male records for Group 1 and female records for Group 2.

@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>CSE Admission Data Visualization by CSE512-16S</title>
@@ -8,59 +9,81 @@
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-light.css">
     <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="wrapper">
-      <header>
-        <h1>CSE Admission Data Visualization</h1>
-        <p>by Sachin Mehta, Wesley Lee, and Sam Crow</p>
+        <header>
+            <h1>CSE Admission Data Visualization</h1>
+            <p>by Sachin Mehta, Wesley Lee, and Sam Crow</p>
 
-        <p class="view"><a href="https://github.com/CSE512-16S/fp-sacmehta-samcrow-wesleytlee">View the Project on GitHub <small>CSE512-16S/fp-sacmehta-samcrow-wesleytlee</small></a></p>
+            <p class="view"><a href="https://github.com/CSE512-16S/fp-sacmehta-samcrow-wesleytlee">View the Project on GitHub <small>CSE512-16S/fp-sacmehta-samcrow-wesleytlee</small></a></p>
 
 
-        <ul>
-          <li><a href="https://github.com/CSE512-16S/fp-sacmehta-samcrow-wesleytlee/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/CSE512-16S/fp-sacmehta-samcrow-wesleytlee/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/CSE512-16S/fp-sacmehta-samcrow-wesleytlee">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <p>This project visualizes admission data from the department of
-            Computer Science and Engineering. It uses Sankey diagrams to display
-            the flow of students through the admission process. Users can apply
-            filters to select and compare groups of students.</p>
+            <ul>
+                <li><a href="https://github.com/CSE512-16S/fp-sacmehta-samcrow-wesleytlee/zipball/master">Download <strong>ZIP File</strong></a></li>
+                <li><a href="https://github.com/CSE512-16S/fp-sacmehta-samcrow-wesleytlee/tarball/master">Download <strong>TAR Ball</strong></a></li>
+                <li><a href="https://github.com/CSE512-16S/fp-sacmehta-samcrow-wesleytlee">View On <strong>GitHub</strong></a></li>
+            </ul>
+        </header>
+        <section>
+            <p>This project visualizes admission data from the department of Computer Science and Engineering.</p>
 
-<p><img src="images/preview.png" alt="Visualization preview image"></p>
+            <p><img src="images/preview.png" alt="Visualization preview image"></p>
 
-<p>Team members: <a href="https://github.com/sacmehta">Sachin Mehta</a>, <a href="https://github.com/wesleytlee">Wesley Lee</a>, and <a href="https://github.com/samcrow">Sam Crow</a></p>
+            <p>Team members: <a href="https://github.com/sacmehta">Sachin Mehta</a>, <a href="https://github.com/wesleytlee">Wesley Lee</a>, and <a href="https://github.com/samcrow">Sam Crow</a></p>
 
-<h2>
+            <h2><a id="abstract" class="anchor" href="#abstract" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Abstract</h2>
+
+            <p>After taking CSE 142, an introductory computer science course, some students continue to CSE 143 and later apply to the major. The Department of Computer Science and Engineering has provided data containing demographics, SAT scores, grades,
+                and admission information for a group of students who took CSE 142. This visualization shows the flow of students from CSE 142 to admission into the major. Users can apply filters to select and compare groups of students.</p>
+
+            <h2>
 <a id="running-the-visualization" class="anchor" href="#running-the-visualization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running the visualization</h2>
 
-<h3>
+            <h3>
 <a id="online" class="anchor" href="#online" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Online</h3>
 
-<p><a href="visualization">View the visualization</a></p>
+            <p><a href="visualization">View the visualization</a></p>
 
-<h3>
+            <h3>
 <a id="locally" class="anchor" href="#locally" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Locally</h3>
 
-<p>Any HTTP server can provide the files that the visualization uses. It does not require any special software.</p>
+            <p>A standard HTTP server can provide the files that the visualization uses.
+                One option is to execute <code>python -m SimpleHTTPServer 9000</code> and open a web browser to <code>http://localhost:9000/</code>.</p>
 
-<h2>
+            <h3><a id="instructions" class="anchor" href="#instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Instructions</h3>
+
+            <h4>Layout</h4>
+            <p>The left half of the page shows the filters, Sankey diagram, and summary table for group 1. The right half of the page shows group 2.</p>
+            <h4>Filtering</h4>
+            <p>With filters, users can select subsets of the data to show in groups 1 and 2.</p>
+            <p>To add a filter:</p>
+            <ol>
+                <li>Select a filter criterion in the add filter menu</li>
+                <li>Choose the desired options in the filter</li>
+                <li>Click on the apply button</li>
+            </ol>
+
+            <h4>Comparing groups</h4>
+            <p>The bar chart below the Sankey diagram shows the differences
+                between groups 1 and 2. A positive value means that group 1
+                exhibits that characteristic more than group 2. Differences
+                that are statistically significant above a threshold are shown
+                in dark green.</p>
+
+            <h2>
 <a id="materials" class="anchor" href="#materials" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Materials</h2>
 
-<p>TODO</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/CSE512-16S">CSE512-16S</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+            <p>TODO</p>
+        </section>
+        <footer>
+            <p>This project is maintained by <a href="https://github.com/CSE512-16S">CSE512-16S</a></p>
+            <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+        </footer>
     </div>
     <script src="javascripts/scale.fix.js"></script>
 
-  </body>
+</body>
+
 </html>

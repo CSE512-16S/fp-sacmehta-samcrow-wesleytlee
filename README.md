@@ -34,3 +34,5 @@ This project visualizes admission data from the department of Computer Science a
 ## Running Instructions
 
 Access our visualization at https://cse512-16s.github.io/fp-sacmehta-samcrow-wesleytlee/visualization/ or download this repository and run `python -m SimpleHTTPServer 9000` and access this from http://localhost:9000/.
+
+For optimal viewing, please view our visualization in a large window or full-screen.

@@ -8,7 +8,20 @@ This project visualizes admission data from the department of Computer Science a
 2. Sam Crow
 3. Wesley Lee
 
-## Breakdown [To be editted]
+## Breakdown
+
+Include:
+
+Wesley was in charge of initial storyboarding and data analysis
+When coding up the visualization, Sachin focused on Sankey Diagram Visualization while Sam focused on filter design
+Development process
+6 hour (data collection/discussion/Analysis with Stuart and Alex)
+3 hours storyboarding
+16 hours on setting up filters
+14 hours on setting up the Sankey Diagram
+10 hours on integrating the code (including bug fixes)
+8 hours tinkering with the design
+Due to our inexperience with JavaScript and less familirity with D3, the most time consuming part was coding up the first draft of our visualization (one sankey diagram with 2-3 filters)
 
 
 ## Project [To be editted]
@@ -18,6 +31,6 @@ This project visualizes admission data from the department of Computer Science a
 [Poster] (add link here),
 [Final Paper] (add link here)
 
-## Running Instructions [To be editted]
+## Running Instructions
 
 Access our visualization at https://cse512-16s.github.io/fp-sacmehta-samcrow-wesleytlee/visualization/ or download this repository and run `python -m SimpleHTTPServer 9000` and access this from http://localhost:9000/.

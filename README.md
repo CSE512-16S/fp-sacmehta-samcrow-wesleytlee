@@ -21,8 +21,7 @@ This project visualizes admission data from the department of Computer Science a
  - 12 hours on setting up the statistical box plot
  - 15 hours on integrating the code (including bug fixes)
  - 14 hours tinkering with the design
- - 
-Due to our inexperience with JavaScript and less familirity with D3, the most time consuming part was coding up the first draft of our visualization (one sankey diagram with 2-3 filters)
+- Due to our inexperience with JavaScript and less familirity with D3, the most time consuming part was coding up the first draft of our visualization (one sankey diagram with 2-3 filters)
 
 
 ## Project

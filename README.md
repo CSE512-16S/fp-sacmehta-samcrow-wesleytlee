@@ -30,7 +30,7 @@ This project visualizes admission data from the department of Computer Science a
 - Global filters: These filters are applied on overall data. For example, if you want to compare the admission statistics for Male and Female students, then you would select Male in Group 1 filters and Female in Group 2 filters. Global filters would return only the relevant records for each group, male records for Group 1 and female records for Group 2.
 - Local filters: Once you apply global filters, you might be interested in comparing one particular stage. For example, you want to compare the different variables for both Male and Female between CSE 142 and CSE 143. In that case, you would select the particular stage in both groups using local filters. 
 
-[Poster] (https://github.com/CSE512-16S/fp-jheer-mcorrell-jhoffs/raw/master/final/poster-jheer-mcorrell-jhoffs.pdf),
+[Poster] (https://github.com/CSE512-16S/fp-sacmehta-samcrow-wesleytlee/blob/master/final/poster-sacmehta-samcrow-wtlee.pdf),
 [Final Paper] (add link here)
 
 ## Running Instructions

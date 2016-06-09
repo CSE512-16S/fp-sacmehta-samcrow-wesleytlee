@@ -57,13 +57,19 @@
             <h4>Layout</h4>
             <p>The left half of the page shows the filters, Sankey diagram, and summary table for group 1. The right half of the page shows group 2.</p>
             <h4>Filtering</h4>
+            <p> The proposed visualization contains two types of filters: (i) Global filters and (ii) Local filters. Global filters are applied on overall data. 
+            For example, if you want to compare the admission statistics for Male and Female students, then you would select Male in Group 1 filters and Female in Group 2 filters. Global filters 
+            would return only the relevant records for each group, male records for Group 1 and female records for Group 2. Once you apply global filters, you might be interested in comparing one 
+            particular stage. For example, you want to compare the different variables for both Male and Female between CSE 142 and CSE 143. In that case, you would select the particular stage in both groups using local filters.</p>
+            
             <p>With filters, users can select subsets of the data to show in groups 1 and 2.</p>
-            <p>To add a filter:</p>
+            <p>Global filters are adaptive. Users can select the filter as per their requirement and then add it to the Visualization. To add a filter:</p>
             <ol>
                 <li>Select a filter criterion in the add filter menu</li>
                 <li>Choose the desired options in the filter</li>
                 <li>Click on the apply button</li>
             </ol>
+            <p> Local filters are listed below Sankey Diagram. Local filters are encoded in a form a drop-down list. Users can select the stage in both the groups and then compare the data. Data in summary tables and difference statistics will update dynamically.</p>
 
             <h4>Comparing groups</h4>
             <p>The bar chart below the Sankey diagram shows the differences

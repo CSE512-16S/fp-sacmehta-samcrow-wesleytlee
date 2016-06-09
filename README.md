@@ -31,7 +31,7 @@ This project visualizes admission data from the department of Computer Science a
 - Local filters: Once you apply global filters, you might be interested in comparing one particular stage. For example, you want to compare the different variables for both Male and Female between CSE 142 and CSE 143. In that case, you would select the particular stage in both groups using local filters. 
 
 [Poster] (https://github.com/CSE512-16S/fp-sacmehta-samcrow-wesleytlee/blob/master/final/poster-sacmehta-samcrow-wtlee.pdf),
-[Final Paper] (add link here)
+[Final Paper] (https://github.com/CSE512-16S/fp-sacmehta-samcrow-wesleytlee/blob/master/final/paper-sacmehta-samcrow-wtlee.pdf)
 
 ## Running Instructions
 
